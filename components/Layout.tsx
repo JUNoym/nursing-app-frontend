@@ -26,6 +26,9 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
         <Link href="/about">
           <a>About</a>
         </Link>{' '}
+        <Link href="/hello">
+          <a>Hello</a>
+        </Link>{' '}
         |{' '}
         <Link href="/users">
           <a>Users List</a>
