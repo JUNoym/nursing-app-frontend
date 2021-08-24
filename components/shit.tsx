@@ -1,12 +1,13 @@
-import React from 'react'
+import React from "react";
 
 const shit = () => {
-    return (
-        <div>
-            <h1>うんこコンポーネント</h1>
-            <p>💩</p>
-        </div>
-    )
-}
+  return (
+    <div>
+      <h1>うんこコンポーネント</h1>
+      <p>💩</p>
+      <p>💩</p>
+    </div>
+  );
+};
 
-export default shit
+export default shit;
