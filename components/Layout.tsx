@@ -19,6 +19,9 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
         <Link href="/">
           <a>Home</a>
         </Link>{' '}
+        <Link href="https://www.yahoo.co.jp/?fr=top_ga1_ext1_bookmark">
+          <a>ヤフー</a>
+        </Link>{' '}
         |{' '}
         <Link href="/about">
           <a>About</a>
