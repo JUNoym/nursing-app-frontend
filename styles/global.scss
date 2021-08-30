@@ -1,0 +1,30 @@
+:root {
+    --c-white: #fff;
+    --c-smoke-white: #eee;
+    --c-black: #000;
+    --c-blue: #419acf;
+    --c-dark-blue: #004094;
+    --c-gray: #1b274a;
+    --c-php: #5C76A8;
+    --c-facebook: #3b5998;
+    --c-twitter: #348ec6;
+    --c-discord: #7289d9;
+    --c-orange: #f5af7d;
+    --c-line: #00b900;
+    --c-dark-black: #3d3d3d;
+    --c-silver: #999;
+    --c-liner-background:#B6B6B6;
+    --z-index-spmenu: -5;
+    --z-index-circle: 2;
+    --z-index-icon: 50;
+    --z-index-header: 100;
+    --z-index-modal: 200;
+  }
+  
+  body {
+    background-color: #f7f7f7;
+    a {
+      cursor: pointer;
+    }
+  }
+  
