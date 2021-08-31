@@ -17,6 +17,17 @@ const Header = (props: Props) => {
                 <Container className={styles.container}>
                     <Toolbar className={styles.tool}>
                         <h1>夜勤日誌アプリ</h1>
+                        <div className={styles.link}>
+                            <Button>
+                                排泄
+                                </Button>
+                            <Button>
+                                日誌
+                                </Button>
+                            <Button>
+                                バイタル
+                                </Button>
+                        </div>
                         <div className={styles.signupWrapper}>
                             <Button>
                                 Login

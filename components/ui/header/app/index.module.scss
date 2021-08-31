@@ -1,0 +1,37 @@
+.content {
+    .appBar {
+      height: 4.5rem;
+      }
+      .tool {
+        height: inherit;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        h1 {
+          font-size: 1rem;
+        }
+      }
+      .container {
+        height: 100%;
+      }
+      .signupWrapper {
+        .Mroot {
+          background-color: var(--c-white-blue);
+          border-radius: 15px;
+        }
+      }
+      .signin {
+        margin-right: 1rem;
+      }
+      .logo {
+        flex-grow: 1;
+      }
+      .icon {
+        margin-right: -3rem;
+        margin-left: 1rem;
+      }
+      .menu {
+        padding-right: 0;
+      }
+    }
+  

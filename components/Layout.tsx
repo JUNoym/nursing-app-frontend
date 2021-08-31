@@ -3,6 +3,8 @@ import Head from 'next/head'
 
 // component
 import Header from '../components/ui/header/service'
+// ↓ログイン後のヘッダー
+// import Header from '../components/ui/header/app'
 
 type Props = {
   children?: ReactNode
