@@ -14,6 +14,13 @@
     .container {
       height: 100%;
     }
+    .signupWrapper {
+      .Mroot {
+        background-color: var(--c-white-blue);
+        border-radius: 1.25rem;
+        color: rgb(243, 243, 243);
+      }
+    }
     .signin {
       margin-right: 1rem;
     }
@@ -28,5 +35,3 @@
       padding-right: 0;
     }
   }
-  
-  
