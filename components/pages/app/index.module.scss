@@ -1,9 +1,0 @@
-@import "../../../styles/global.scss";
-
-.button {
-  background-color: var(--c-pho);
-
-  @include mq(md) {
-    background-color: red;
-  }
-}

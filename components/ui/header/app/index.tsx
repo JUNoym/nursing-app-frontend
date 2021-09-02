@@ -13,9 +13,9 @@ const Header = (props: Props) => {
 
     return (
         <div className={styles.content}>
-            <AppBar color="inherit" position="fixed" className={styles.appBar}>
+            <AppBar position="fixed" classes={{ root: styles.RootBar }}>
                 <Container className={styles.container}>
-                    <Toolbar className={styles.tool}>
+                    <Toolbar >
                         <h1>夜勤日誌アプリ</h1>
                         <div className={styles.link}>
                             <Button>

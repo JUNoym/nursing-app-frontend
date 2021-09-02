@@ -1,6 +1,8 @@
 .content {
-  .appBar {
+  .RootBar {
     height: 4.5rem;
+    background-color: var(--c-dark-twitter);
+    border-bottom: 1px solid rgb(255, 255, 255);
     }
     .tool {
       height: inherit;
@@ -15,6 +17,9 @@
       height: 100%;
     }
     .signupWrapper {
+      width: 10rem;
+      display: flex;
+      margin-right: 2rem;
       .Mroot {
         background-color: var(--c-white-blue);
         border-radius: 1.25rem;

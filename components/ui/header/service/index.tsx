@@ -13,14 +13,16 @@ const Header = (props: Props) => {
 
     return (
         <div className={styles.content}>
-            <AppBar color="inherit" position="fixed" className={styles.appBar}>
+            <AppBar position="fixed" classes={{ root: styles.RootBar }}>
                 <Container className={styles.container}>
                     <Toolbar className={styles.tool}>
                         <h1>夜勤日誌アプリ</h1>
                         <div className={styles.signupWrapper}>
-                            <Button>
-                                Login
-                            </Button>
+                            <div className={styles.signin}>
+                                <Button color="inherit">
+                                    Login
+                                </Button>
+                            </div>
                             <Button variant="outlined" classes={{ root: styles.Mroot }} >
                                 Signup
                             </Button>
