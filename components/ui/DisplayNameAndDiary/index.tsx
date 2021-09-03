@@ -31,11 +31,7 @@ const DisplayNameAndDiary = (props) => {
           <div className={styles.Wrapper}>
             <p>{text}</p>
             <Button>
-              <MoreVertIcon
-                onClick={() => {
-                  handleClickOpen();
-                }}
-              />
+              <MoreVertIcon onClick={handleClickOpen} />
             </Button>
           </div>
         </Grid>

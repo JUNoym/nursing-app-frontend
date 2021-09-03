@@ -5,40 +5,61 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { makeStyles } from "@material-ui/core/styles";
 
 interface Props {
   open: boolean;
   handleClose: () => void;
 }
 
+const useStyles = makeStyles({
+  root: {
+    width: "10rem",
+    backgroundColor: "var(--c-gray-input)",
+  },
+  button: {
+    display: "block",
+    margin: "0 auto",
+    width: "9rem",
+    color: "white",
+  },
+  icon: {
+    display: "inline-block",
+    marginRight: "0.3rem",
+  },
+  text: {
+    verticalAlign: "6px",
+    display: "inline-block",
+  },
+});
+
 const DiaryDialog: React.FC<Props> = ({ open, handleClose }) => {
+  const classes = useStyles();
+
   return (
-    <div>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">
-          {"Use Google's location service?"}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending
-            anonymous location data to Google, even when no apps are running.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Disagree
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+    >
+      <div className={classes.root}>
+        <div>
+          <Button className={classes.button}>
+            <EditIcon onClick={handleClose} className={classes.icon} />
+            <span className={classes.text}>編集</span>
           </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
-            Agree
+        </div>
+        <div>
+          <Button className={classes.button}>
+            <DeleteIcon onClick={handleClose} className={classes.icon} />
+            <span className={classes.text}>削除</span>
           </Button>
-        </DialogActions>
-      </Dialog>
-    </div>
+        </div>
+      </div>
+    </Dialog>
   );
 };
 
