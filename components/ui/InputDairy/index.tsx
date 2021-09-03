@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
 
+// firebase
+import { pushNameAndDiary } from '../../../firebase-config'
+
 // material-ui
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Container from '@material-ui/core/Container'
@@ -36,7 +39,7 @@ const InputDairy = props => {
                     margin="none"
                     variant="standard"
                     id="outlined-name"
-                    multiline="true"
+                    multiline={true}
                     minRows='3'
                     onChange={(e) => setText(e.target.value)}
                 />
@@ -50,7 +53,7 @@ const InputDairy = props => {
                     onClick={() => {
                         setText(text)
                         setName(name)
-                        console.log(`${name}と${text}が送信された`)
+                        pushNameAndDiary({ name, text })
                     }}
                 >
                     利用者を追加
