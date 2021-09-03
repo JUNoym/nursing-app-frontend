@@ -1,0 +1,23 @@
+.content {
+    justify-content: space-between;
+    .form {
+        background-color: var(--c-gray-input);
+        margin: 0.5rem 0.5rem;
+        padding: 0 0;
+        .text {
+            border: 1px solid var(--c-white);
+            padding-left: 1rem;
+        }
+    }
+    .ButtonWrapper {
+        padding-right: 1rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        .MButton {
+            background-color: var(--c-white-blue);
+            color: var(--c-white);
+            border-radius: 1.25rem;
+        }
+    }
+}

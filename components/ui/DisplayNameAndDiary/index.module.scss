@@ -1,0 +1,17 @@
+.content {
+    display: flex;
+    width: 100%;
+    .container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        background-color: var(--c-gray-input);
+    }
+    .Wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    p {
+        color: var(--c-white);
+    }
+}

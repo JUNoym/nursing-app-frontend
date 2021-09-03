@@ -1,0 +1,11 @@
+.Wrapper {
+    .content {
+        background-color: #3B3B3B;
+        margin: 0rem 10rem 0rem 0.5rem;
+        padding: 0 0;
+        .text {
+            border: 1px solid var(--c-white);
+            padding-left: 1rem;
+        }
+    }
+}

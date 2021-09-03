@@ -1,20 +1,20 @@
 .content {
     background-color: var(--c-dark-twitter);
-    height: 100vh;
+    height: 130vh;
     .container {
         padding: 12rem 0;
         h1 {
-            color: white;
+            color: var(--c-white);
             font-size: 1rem;
         }
     }
     .ButtonWrapper {
-        margin: 3rem 0rem;
+        margin: 1rem 0rem;
         text-align: center;
     }
     .Wrapper {
         display: flex;
-        // margin: 1rem 0rem;
+        margin: 0rem 0rem;
         justify-content: space-between;
     }
     .Button {
@@ -24,15 +24,16 @@
 
     }
     .ButtonEdit {
-        // background-color: var(--c-white-blue);
         color: var(--c-black);
         border-radius: 1.25rem;
     }
     .form {
         margin: 1rem 0rem;
         border:1px solid var(--c-white);
-        p {
+        h1 {
             color: var(--c-white);
+            text-align: center;
+            margin: 0.5rem 0rem;
         }
         .text {
             border: 1px solid var(--c-white);
