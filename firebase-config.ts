@@ -10,9 +10,11 @@ const firebaseConfig = {
     measurementId: "G-JWLC4Z6DGX"
 };
 
-firebase.initializeApp(firebaseConfig)
+if (firebase.apps.length === 0) {
+    firebase.initializeApp(firebaseConfig);
+}
 const RealTimeDatabase = firebase.database()
-const NamesAndDiariesRef = RealTimeDatabase.ref('NamesAndDiaries')
+export const NamesAndDiariesRef = RealTimeDatabase.ref('NamesAndDiaries')
 
 export const pushNameAndDiary = ({ name, text }) => {
     NamesAndDiariesRef.push({ name, text })
