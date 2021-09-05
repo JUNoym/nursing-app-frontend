@@ -1,17 +1,16 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { makeStyles } from "@material-ui/core/styles";
 
+import { NamesAndDiariesRef } from "../../../firebase-config";
+
 interface Props {
   open: boolean;
   handleClose: () => void;
+  selectedId: string;
 }
 
 const useStyles = makeStyles({
@@ -35,8 +34,11 @@ const useStyles = makeStyles({
   },
 });
 
-const DiaryDialog: React.FC<Props> = ({ open, handleClose }) => {
+const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId }) => {
   const classes = useStyles();
+  const Delete = (selectedId) => {
+    NamesAndDiariesRef.child(selectedId).remove();
+  };
 
   return (
     <Dialog
@@ -53,8 +55,14 @@ const DiaryDialog: React.FC<Props> = ({ open, handleClose }) => {
           </Button>
         </div>
         <div>
-          <Button className={classes.button}>
-            <DeleteIcon onClick={handleClose} className={classes.icon} />
+          <Button
+            className={classes.button}
+            onClick={() => {
+              handleClose();
+              Delete(selectedId);
+            }}
+          >
+            <DeleteIcon className={classes.icon} />
             <span className={classes.text}>削除</span>
           </Button>
         </div>

@@ -19,3 +19,4 @@ export const NamesAndDiariesRef = RealTimeDatabase.ref('NamesAndDiaries')
 export const pushNameAndDiary = ({ name, text }) => {
     NamesAndDiariesRef.push({ name, text })
 }
+
