@@ -28,12 +28,14 @@ const DisplayNameAndDiary = (props) => {
       .limitToLast(10)
       .on("value", (snapshot) => {
         const NamesAndDiaries = snapshot.val();
-        if (NamesAndDiaries === null) return;
+        if (NamesAndDiaries === null) {
+          setDiaries([]);
+          return;
+        }
         const entries = Object.entries(NamesAndDiaries);
         const NewNamesAndDiaries = entries.map((entry) => {
           const key = entry[0];
           const nameAndText: NameAndText = entry[1];
-          console.log(nameAndText)
           return { key: key, ...nameAndText };
         });
         setDiaries(NewNamesAndDiaries);

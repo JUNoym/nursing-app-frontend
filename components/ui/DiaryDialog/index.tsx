@@ -34,13 +34,11 @@ const useStyles = makeStyles({
   },
 });
 
-const Delete = (selectedId) => {
-  console.log("削除した");
-  NamesAndDiariesRef.child(selectedId).remove();
-};
-
 const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId }) => {
   const classes = useStyles();
+  const Delete = (selectedId) => {
+    NamesAndDiariesRef.child(selectedId).remove();
+  };
 
   return (
     <Dialog
