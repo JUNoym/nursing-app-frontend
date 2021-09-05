@@ -5,11 +5,12 @@ import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { NamesAndDiariesRef } from '../../../firebase-config'
+import { NamesAndDiariesRef } from "../../../firebase-config";
 
 interface Props {
   open: boolean;
   handleClose: () => void;
+  selectedId: string;
 }
 
 const useStyles = makeStyles({
@@ -34,11 +35,11 @@ const useStyles = makeStyles({
 });
 
 const Delete = (selectedId) => {
-  console.log("削除した")
-  NamesAndDiariesRef.child(selectedId).remove()
-}
+  console.log("削除した");
+  NamesAndDiariesRef.child(selectedId).remove();
+};
 
-const DiaryDialog: React.FC<Props> = ({ open, handleClose }) => {
+const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId }) => {
   const classes = useStyles();
 
   return (
@@ -59,13 +60,11 @@ const DiaryDialog: React.FC<Props> = ({ open, handleClose }) => {
           <Button
             className={classes.button}
             onClick={() => {
-              handleClose()
-              Delete('-MiqKP2vO3_VSWf6pugd')
-            }
-            }>
-            <DeleteIcon
-              className={classes.icon}
-            />
+              handleClose();
+              Delete(selectedId);
+            }}
+          >
+            <DeleteIcon className={classes.icon} />
             <span className={classes.text}>削除</span>
           </Button>
         </div>
