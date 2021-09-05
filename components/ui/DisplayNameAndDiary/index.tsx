@@ -8,7 +8,6 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import List from '@material-ui/core/List'
 
 
 //コンポーネント
@@ -17,7 +16,6 @@ import DiaryDialog from "../DiaryDialog/index";
 
 const DisplayNameAndDiary = (props) => {
   //　データベースからnameとtextを取得
-  const { name, text } = props;
   const [open, setOpen] = useState(false);
   const [Diaries, setDiaries] = useState([]);
 
@@ -42,6 +40,10 @@ const DisplayNameAndDiary = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const getKey = () => {
+    console.log("ここで削除対象のキーを取得")
+  };
   return (
     <div className={styles.content}>
       <CssBaseline />
@@ -56,8 +58,14 @@ const DisplayNameAndDiary = (props) => {
               <Grid item xs={10}>
                 <div className={styles.Wrapper}>
                   <p>{text}</p>
+                  <p>{key}</p>
                   <Button>
-                    <MoreVertIcon onClick={handleClickOpen} />
+                    <MoreVertIcon
+                      onClick={() => {
+                        handleClickOpen()
+                        getKey()
+                      }}
+                    />
                   </Button>
                 </div>
               </Grid>
