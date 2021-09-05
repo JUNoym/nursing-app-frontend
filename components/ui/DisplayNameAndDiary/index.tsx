@@ -12,6 +12,11 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 //コンポーネント
 import DiaryDialog from "../DiaryDialog/index";
 
+interface NameAndText {
+  name?: string | null;
+  text?: string | null;
+}
+
 const DisplayNameAndDiary = (props) => {
   //　データベースからnameとtextを取得
   const [open, setOpen] = useState(false);
@@ -27,7 +32,8 @@ const DisplayNameAndDiary = (props) => {
         const entries = Object.entries(NamesAndDiaries);
         const NewNamesAndDiaries = entries.map((entry) => {
           const key = entry[0];
-          const nameAndText: any = entry[1];
+          const nameAndText: NameAndText = entry[1];
+          console.log(nameAndText)
           return { key: key, ...nameAndText };
         });
         setDiaries(NewNamesAndDiaries);
