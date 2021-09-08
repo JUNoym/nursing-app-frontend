@@ -30,6 +30,7 @@ const InputDairy = props => {
                     variant="standard"
                     id="outlined-name"
                     onChange={(e) => setName(e.target.value)}
+                    value={name}
                 />
                 <TextField
                     classes={{ root: styles.text }}
@@ -42,6 +43,7 @@ const InputDairy = props => {
                     multiline={true}
                     minRows='3'
                     onChange={(e) => setText(e.target.value)}
+                    value={text}
                 />
 
             </div>
@@ -51,8 +53,8 @@ const InputDairy = props => {
                     classes={{ root: styles.MButton }}
                     variant="outlined"
                     onClick={() => {
-                        setText(text)
-                        setName(name)
+                        setText('')
+                        setName('')
                         pushNameAndDiary({ name, text })
                     }}
                 >

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, VFC } from "react";
 import styles from "./index.module.scss";
 import { NamesAndDiariesRef } from "../../../firebase-config";
 
@@ -12,16 +12,19 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 //コンポーネント
 import DiaryDialog from "../DiaryDialog/index";
 
+
 interface NameAndText {
   name?: string | null;
   text?: string | null;
 }
 
-const DisplayNameAndDiary = (props) => {
+const DisplayNameAndDiary: VFC = () => {
   //　データベースからnameとtextを取得
   const [open, setOpen] = useState(false);
   const [Diaries, setDiaries] = useState([]);
   const [selectedId, setSelectedId] = useState("");
+  const [isOpenEditDialog, setIsOpenEditDialog] = useState(false)
+
 
   useEffect(() => {
     NamesAndDiariesRef.orderByKey()
@@ -82,6 +85,7 @@ const DisplayNameAndDiary = (props) => {
         handleClose={handleClose}
         selectedId={selectedId}
       />
+
     </div>
   );
 };
