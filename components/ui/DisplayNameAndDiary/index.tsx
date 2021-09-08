@@ -11,6 +11,8 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 //コンポーネント
 import DiaryDialog from "../DiaryDialog/index";
+import DisplayEditDialog from "../../../components/ui/DisplayEditDialog"
+
 
 interface NameAndText {
   name?: string | null;
@@ -22,6 +24,8 @@ const DisplayNameAndDiary = (props) => {
   const [open, setOpen] = useState(false);
   const [Diaries, setDiaries] = useState([]);
   const [selectedId, setSelectedId] = useState("");
+  const [isOpenEditDialog, setIsOpenEditDialog] = useState(false)
+
 
   useEffect(() => {
     NamesAndDiariesRef.orderByKey()
@@ -38,7 +42,7 @@ const DisplayNameAndDiary = (props) => {
           const nameAndText: NameAndText = entry[1];
           return { key: key, ...nameAndText };
         });
-        setDiaries(NewNamesAndDiaries);
+        setDiaries(entries);
       });
   }, []);
 
@@ -82,6 +86,7 @@ const DisplayNameAndDiary = (props) => {
         handleClose={handleClose}
         selectedId={selectedId}
       />
+
     </div>
   );
 };

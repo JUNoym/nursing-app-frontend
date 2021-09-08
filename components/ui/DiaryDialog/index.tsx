@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode, useState } from "react";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import EditIcon from "@material-ui/icons/Edit";
@@ -7,7 +7,12 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import { NamesAndDiariesRef } from "../../../firebase-config";
 
+// コンポーネント
+import DisplayEditDialog from "../../../components/ui/DisplayEditDialog"
+import Edit from "@material-ui/icons/Edit";
+
 interface Props {
+  childrem?: Element | ReactNode;
   open: boolean;
   handleClose: () => void;
   selectedId: string;
@@ -34,40 +39,72 @@ const useStyles = makeStyles({
   },
 });
 
-const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId }) => {
+const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId, }) => {
   const classes = useStyles();
   const Delete = (selectedId) => {
     NamesAndDiariesRef.child(selectedId).remove();
   };
 
+  const [isOpenEditDialog, setIsOpenEditDialog] = useState(false)
+
+
+  const handleClickOpen = () => {
+    console.log("編集モーダルをひらく")
+    setIsOpenEditDialog(true)
+    console.log({ isOpenEditDialog })
+  }
+
+  const handleEditClose = () => {
+    console.log("編集モーダルをひらく")
+    setIsOpenEditDialog(false)
+    console.log({ isOpenEditDialog })
+  }
+
   return (
-    <Dialog
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="alert-dialog-title"
-      aria-describedby="alert-dialog-description"
-    >
-      <div className={classes.root}>
-        <div>
-          <Button className={classes.button}>
-            <EditIcon onClick={handleClose} className={classes.icon} />
-            <span className={classes.text}>編集</span>
-          </Button>
+    <div>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <div className={classes.root}>
+          <div>
+            <Button
+              className={classes.button}
+              onClick={() => {
+                handleClose();
+                //ボタンを押したらtrueになる
+                handleClickOpen()
+              }
+              }
+            >
+              <EditIcon className={classes.icon} />
+              <span className={classes.text}>編集</span>
+            </Button>
+          </div>
+          <div>
+            <Button
+              className={classes.button}
+              onClick={() => {
+                handleClose();
+                Delete(selectedId);
+              }}
+            >
+              <DeleteIcon className={classes.icon} />
+              <span className={classes.text}>削除</span>
+            </Button>
+          </div>
         </div>
-        <div>
-          <Button
-            className={classes.button}
-            onClick={() => {
-              handleClose();
-              Delete(selectedId);
-            }}
-          >
-            <DeleteIcon className={classes.icon} />
-            <span className={classes.text}>削除</span>
-          </Button>
-        </div>
-      </div>
-    </Dialog>
+
+      </Dialog>
+      <DisplayEditDialog
+        isOpenEditDialog={isOpenEditDialog}
+        selectedId={selectedId}
+        handleClose={handleEditClose}
+      />
+
+    </div>
   );
 };
 
