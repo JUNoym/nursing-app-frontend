@@ -27,7 +27,7 @@ const Index = () => {
                         <Grid item xs={9}>
                             <h1>日誌</h1>
                         </Grid>
-                        <DisplayNameAndDiary name={name} text={text} />
+                        <DisplayNameAndDiary />
                     </Grid>
                 </Box>
 
