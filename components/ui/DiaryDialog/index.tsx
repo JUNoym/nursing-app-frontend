@@ -8,8 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { NamesAndDiariesRef } from "../../../firebase-config";
 
 // コンポーネント
-import DisplayEditDialog from "../../../components/ui/DisplayEditDialog"
-import Edit from "@material-ui/icons/Edit";
+import DisplayEditDialog from "../../../components/ui/DisplayEditDialog";
 
 interface Props {
   childrem?: Element | ReactNode;
@@ -39,23 +38,22 @@ const useStyles = makeStyles({
   },
 });
 
-const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId, }) => {
+const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId }) => {
   const classes = useStyles();
   // const [diary, setDiary] = useState('')
   const Delete = (selectedId) => {
     NamesAndDiariesRef.child(selectedId).remove();
   };
 
-  const [isOpenEditDialog, setIsOpenEditDialog] = useState(false)
-
+  const [isOpenEditDialog, setIsOpenEditDialog] = useState(false);
 
   const handleClickOpen = () => {
-    setIsOpenEditDialog(true)
-  }
+    setIsOpenEditDialog(true);
+  };
 
   const handleEditClose = () => {
-    setIsOpenEditDialog(false)
-  }
+    setIsOpenEditDialog(false);
+  };
 
   return (
     <div>
@@ -72,9 +70,8 @@ const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId, }) => {
               onClick={() => {
                 handleClose();
                 //ボタンを押したらtrueになる
-                handleClickOpen()
-              }
-              }
+                handleClickOpen();
+              }}
             >
               <EditIcon className={classes.icon} />
               <span className={classes.text}>編集</span>
@@ -93,16 +90,14 @@ const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId, }) => {
             </Button>
           </div>
         </div>
-
       </Dialog>
       <DisplayEditDialog
         isOpenEditDialog={isOpenEditDialog}
         selectedId={selectedId}
         handleClose={handleEditClose}
-      // setDiary={setDiary}
-      // diary={diary}
+        // setDiary={setDiary}
+        // diary={diary}
       />
-
     </div>
   );
 };
