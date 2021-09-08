@@ -12,18 +12,18 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 //コンポーネント
 import DiaryDialog from "../DiaryDialog/index";
 
-
 interface NameAndText {
-  name?: string | null;
-  text?: string | null;
+  name: string;
+  text: string;
 }
+
 
 const DisplayNameAndDiary: VFC = () => {
   //　データベースからnameとtextを取得
   const [open, setOpen] = useState(false);
   const [Diaries, setDiaries] = useState([]);
   const [selectedId, setSelectedId] = useState("");
-  const [isOpenEditDialog, setIsOpenEditDialog] = useState(false)
+  const [beforeEditText, setBeforeEditText] = useState("")
 
 
   useEffect(() => {
@@ -38,7 +38,8 @@ const DisplayNameAndDiary: VFC = () => {
         const entries = Object.entries(NamesAndDiaries);
         const NewNamesAndDiaries = entries.map((entry) => {
           const key = entry[0];
-          const nameAndText: NameAndText = entry[1];
+          const nameAndText: any = entry[1];
+          console.table(nameAndText)
           return { key: key, ...nameAndText };
         });
         setDiaries(NewNamesAndDiaries);
@@ -71,8 +72,10 @@ const DisplayNameAndDiary: VFC = () => {
                     onClick={() => {
                       handleClickOpen();
                       setSelectedId(key);
+                      setBeforeEditText(text);
                     }}
                   />
+                  {console.log(text + 'を取得')}
                 </Button>
               </div>
             </Grid>
@@ -84,7 +87,10 @@ const DisplayNameAndDiary: VFC = () => {
         open={open}
         handleClose={handleClose}
         selectedId={selectedId}
+        beforeEditText={beforeEditText}
       />
+      {console.log(beforeEditText + 'がDiaryDialogに渡される')}
+
 
     </div>
   );

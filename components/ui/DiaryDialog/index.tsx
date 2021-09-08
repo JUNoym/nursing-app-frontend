@@ -15,6 +15,7 @@ interface Props {
   open: boolean;
   handleClose: () => void;
   selectedId: string;
+  beforeEditText: string;
 }
 
 const useStyles = makeStyles({
@@ -38,7 +39,7 @@ const useStyles = makeStyles({
   },
 });
 
-const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId }) => {
+const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId, beforeEditText }) => {
   const classes = useStyles();
   // const [diary, setDiary] = useState('')
   const Delete = (selectedId) => {
@@ -95,9 +96,9 @@ const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId }) => {
         isOpenEditDialog={isOpenEditDialog}
         selectedId={selectedId}
         handleClose={handleEditClose}
-        // setDiary={setDiary}
-        // diary={diary}
+        beforeEditText={beforeEditText}
       />
+      {console.log(beforeEditText + 'がDisplayEditDialogに渡される')}
     </div>
   );
 };
