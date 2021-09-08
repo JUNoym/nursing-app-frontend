@@ -41,6 +41,7 @@ const useStyles = makeStyles({
 
 const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId, }) => {
   const classes = useStyles();
+  // const [diary, setDiary] = useState('')
   const Delete = (selectedId) => {
     NamesAndDiariesRef.child(selectedId).remove();
   };
@@ -49,15 +50,11 @@ const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId, }) => {
 
 
   const handleClickOpen = () => {
-    console.log("編集モーダルをひらく")
     setIsOpenEditDialog(true)
-    console.log({ isOpenEditDialog })
   }
 
   const handleEditClose = () => {
-    console.log("編集モーダルをひらく")
     setIsOpenEditDialog(false)
-    console.log({ isOpenEditDialog })
   }
 
   return (
@@ -102,6 +99,8 @@ const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId, }) => {
         isOpenEditDialog={isOpenEditDialog}
         selectedId={selectedId}
         handleClose={handleEditClose}
+      // setDiary={setDiary}
+      // diary={diary}
       />
 
     </div>
