@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import styles from "./index.module.scss";
+import styles from './index.module.scss'
+
 
 // material-ui
-import Button from "@material-ui/core/Button";
+import { Button } from '@material-ui/core'
 import Dialog from "@material-ui/core/Dialog";
 import TextField from "@material-ui/core/TextField";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -24,8 +25,8 @@ const DisplayEditDialog: React.FC<Props> = ({
     selectedId,
     beforeEditText,
 }) => {
-    const [diary, setDiary] = useState('初期値');
-    { console.log(beforeEditText + 'がDiaryDialogに渡された') }
+    { console.log(beforeEditText + 'がDisplayEditDialogに渡された') }
+    const [diary, setDiary] = useState(beforeEditText);
     return (
         <div className={styles.content}>
             <Dialog open={isOpenEditDialog} onClose={handleClose}>
@@ -44,21 +45,21 @@ const DisplayEditDialog: React.FC<Props> = ({
                         onChange={(e) => setDiary(e.target.value)}
                         value={diary}
                     />
-                    <div className={styles.buttonWrapper}>
-                        <Button
-                            classes={{ root: styles.button }}
-                            fullWidth={true}
-                            color={"primary"}
-                            onClick={() => {
-                                pushEditDiary({ selectedId, diary });
-                                handleClose();
-                                // setDiary('ボタンを押して更新されてたよ');
-                                // ↑これ消したら治った
-                            }}
-                        >
-                            編集内容を保存
-                        </Button>
-                    </div>
+                    <Button
+                        classes={{ root: styles.button }}
+                        fullWidth={true}
+                        color={"primary"}
+                        onClick={() => {
+                            pushEditDiary({ selectedId, diary });
+                            handleClose();
+                            setDiary(beforeEditText)
+                        }}
+                    >
+                        編集内容を保存
+                    </Button>
+                    <Button className={styles.button}>
+                        TOPへ戻る
+                    </Button>
                 </DialogContent>
             </Dialog>
         </div>
