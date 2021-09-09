@@ -39,8 +39,15 @@ const useStyles = makeStyles({
   },
 });
 
-const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId, beforeEditText }) => {
+const DiaryDialog: React.FC<Props> = ({
+  open,
+  handleClose,
+  selectedId,
+  beforeEditText,
+}) => {
   const classes = useStyles();
+  const [diary, setDiary] = useState("");
+
   // const [diary, setDiary] = useState('')
   const Delete = (selectedId) => {
     NamesAndDiariesRef.child(selectedId).remove();
@@ -72,6 +79,7 @@ const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId, beforeEdi
                 handleClose();
                 //ボタンを押したらtrueになる
                 handleClickOpen();
+                setDiary(beforeEditText);
               }}
             >
               <EditIcon className={classes.icon} />
@@ -96,9 +104,10 @@ const DiaryDialog: React.FC<Props> = ({ open, handleClose, selectedId, beforeEdi
         isOpenEditDialog={isOpenEditDialog}
         selectedId={selectedId}
         handleClose={handleEditClose}
-        beforeEditText={beforeEditText}
+        diary={diary}
+        setDiary={setDiary}
       />
-      {console.log(beforeEditText + 'がDisplayEditDialogに渡される')}
+      {console.log(beforeEditText + "がDisplayEditDialogに渡される")}
     </div>
   );
 };
