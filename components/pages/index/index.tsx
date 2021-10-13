@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
+import { parseISO, format } from 'date-fns'
+import ja from 'date-fns/locale/ja'
 
 // material-ui
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,6 +17,7 @@ import InputDairy from '../../ui/InputDairy/index'
 const Index = () => {
     const [text, setText] = useState('')
     const [name, setName] = useState('')
+    const date = format(new Date(), 'MM月dd日の日誌', { locale: ja })
     return (
         <div className={styles.content}>
             <CssBaseline />
@@ -24,8 +27,11 @@ const Index = () => {
                         <Grid item xs={2}>
                             <h1>名前</h1>
                         </Grid>
-                        <Grid item xs={9}>
+                        <Grid item xs={7}>
                             <h1>日誌</h1>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <h1>{date}</h1>
                         </Grid>
                         <DisplayNameAndDiary />
                     </Grid>
