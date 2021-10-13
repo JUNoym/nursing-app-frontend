@@ -59,7 +59,7 @@ const DisplayNameAndDiary: VFC = () => {
   };
 
   return (
-    <div className={styles.ContainerWrapper}>
+    <div className={styles.ContentWrapper}>
       <div className={styles.content}>
         <CssBaseline />
         {Diaries.map(({ key, name, text }) => {
