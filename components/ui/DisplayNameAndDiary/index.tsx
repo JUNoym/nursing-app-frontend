@@ -1,5 +1,7 @@
 import React, { useEffect, useState, VFC } from "react";
 import styles from "./index.module.scss";
+import { parseISO, format } from 'date-fns'
+import ja from 'date-fns/locale/ja'
 import { NamesAndDiariesRef } from "../../../firebase-config";
 
 // material-ui
@@ -8,10 +10,6 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
 
 //コンポーネント
 import DiaryDialog from "../DiaryDialog/index";
@@ -28,6 +26,8 @@ const DisplayNameAndDiary: VFC = () => {
   const [Diaries, setDiaries] = useState([]);
   const [selectedId, setSelectedId] = useState("");
   const [beforeEditText, setBeforeEditText] = useState("")
+  const date = format(new Date(), ' HH:mm:ss', { locale: ja })
+
 
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const DisplayNameAndDiary: VFC = () => {
     <div className={styles.ContentWrapper}>
       <div className={styles.content}>
         <CssBaseline />
-        {Diaries.map(({ key, name, text }) => {
+        {Diaries.map(({ key, name, text, }) => {
           return (
             <Container maxWidth="sm" classes={{ root: styles.container }}>
               <Grid item xs={2}>
@@ -71,6 +71,7 @@ const DisplayNameAndDiary: VFC = () => {
               <Grid item xs={10}>
                 <div className={styles.Wrapper}>
                   <p>{text}</p>
+                  <p>{date}</p>
                   <Button>
                     <MoreVertIcon
                       onClick={() => {
