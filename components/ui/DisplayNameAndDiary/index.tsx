@@ -8,6 +8,10 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
 
 //コンポーネント
 import DiaryDialog from "../DiaryDialog/index";
@@ -55,43 +59,43 @@ const DisplayNameAndDiary: VFC = () => {
   };
 
   return (
-    <div className={styles.content}>
-      <CssBaseline />
+    <div className={styles.ContainerWrapper}>
+      <div className={styles.content}>
+        <CssBaseline />
+        {Diaries.map(({ key, name, text }) => {
+          return (
+            <Container maxWidth="sm" classes={{ root: styles.container }}>
+              <Grid item xs={2}>
+                <p>{name}</p>
+              </Grid>
+              <Grid item xs={10}>
+                <div className={styles.Wrapper}>
+                  <p>{text}</p>
+                  <Button>
+                    <MoreVertIcon
+                      onClick={() => {
+                        handleClickOpen();
+                        setSelectedId(key);
+                        setBeforeEditText(text);
+                      }}
+                    />
+                  </Button>
+                </div>
+              </Grid>
+            </Container>
+          );
+        })}
 
-      {Diaries.map(({ key, name, text }) => {
-        return (
-          <Container maxWidth="sm" classes={{ root: styles.container }}>
-            <Grid item xs={2}>
-              <p>{name}</p>
-            </Grid>
-            <Grid item xs={10}>
-              <div className={styles.Wrapper}>
-                <p>{text}</p>
-                <Button>
-                  <MoreVertIcon
-                    onClick={() => {
-                      handleClickOpen();
-                      setSelectedId(key);
-                      setBeforeEditText(text);
-                    }}
-                  />
-                  {console.log(text + 'を取得')}
-                </Button>
-              </div>
-            </Grid>
-          </Container>
-        );
-      })}
-
-      <DiaryDialog
-        open={open}
-        handleClose={handleClose}
-        selectedId={selectedId}
-        beforeEditText={beforeEditText}
-      />
-      {console.log(beforeEditText + 'がDiaryDialogに渡される')}
+        <DiaryDialog
+          open={open}
+          handleClose={handleClose}
+          selectedId={selectedId}
+          beforeEditText={beforeEditText}
+        />
+        {console.log(beforeEditText + 'がDiaryDialogに渡される')}
 
 
+      </div>
     </div>
   );
 };
