@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './index.module.scss'
 import { parseISO, format } from 'date-fns'
 import ja from 'date-fns/locale/ja'
@@ -18,6 +18,8 @@ const Index = () => {
     const [text, setText] = useState('')
     const [name, setName] = useState('')
     const date = format(new Date(), 'MM月dd日の日誌', { locale: ja })
+    const day = format(new Date(), 'ss', { locale: ja })
+    // dateが変更されたら、その変更を<DisplayNameAndDiary />に渡してDiariesを初期化すればできそう
     return (
         <div className={styles.content}>
             <CssBaseline />

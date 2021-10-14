@@ -26,8 +26,8 @@ const DisplayNameAndDiary: VFC = () => {
   const [Diaries, setDiaries] = useState([]);
   const [selectedId, setSelectedId] = useState("");
   const [beforeEditText, setBeforeEditText] = useState("")
-  const date = format(new Date(), ' HH:mm:ss', { locale: ja })
-
+  const date = format(new Date(), 'MM月dd日', { locale: ja })
+  const [isDayChange, setIsDayChange] = useState(date)
 
 
   useEffect(() => {
@@ -43,10 +43,18 @@ const DisplayNameAndDiary: VFC = () => {
         const NewNamesAndDiaries = entries.map((entry) => {
           const key = entry[0];
           const nameAndText: any = entry[1];
-          console.table(nameAndText)
           return { key: key, ...nameAndText };
         });
         setDiaries(NewNamesAndDiaries);
+        // todo 日付が変わったらsetDiaries([])でデータを空にする
+        if (date !== isDayChange) {
+          console.log(`日付が変更されたのでデータを${date}の日誌を非表示`)
+          setDiaries([])
+          return
+        }
+        else {
+          console.log("日付は変わっていない")
+        }
       });
   }, []);
 
@@ -62,7 +70,7 @@ const DisplayNameAndDiary: VFC = () => {
     <div className={styles.ContentWrapper}>
       <div className={styles.content}>
         <CssBaseline />
-        {Diaries.map(({ key, name, text, }) => {
+        {Diaries?.map(({ key, name, text, }) => {
           return (
             <Container maxWidth="sm" classes={{ root: styles.container }}>
               <Grid item xs={2}>
@@ -93,7 +101,6 @@ const DisplayNameAndDiary: VFC = () => {
           selectedId={selectedId}
           beforeEditText={beforeEditText}
         />
-        {console.log(beforeEditText + 'がDiaryDialogに渡される')}
 
 
       </div>
