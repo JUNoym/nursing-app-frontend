@@ -14,13 +14,14 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 //コンポーネント
 import DiaryDialog from "../DiaryDialog/index";
 
-interface NameAndText {
+interface NameAndTextAndDate {
   name: string;
   text: string;
+  today: string
 }
 
 
-const DisplayNameAndDiary: VFC = (props) => {
+const DisplayNameAndDiary: VFC<NameAndTextAndDate> = (props) => {
   const { today } = props
   //　データベースからnameとtextを取得
   const [open, setOpen] = useState(false);
@@ -64,8 +65,10 @@ const DisplayNameAndDiary: VFC = (props) => {
       <div className={styles.content}>
         <CssBaseline />
         {Diaries?.map(({ key, name, text, date }) => {
-          if (date !== today) {
-            console.log(`日付が変更されたのでデータを${today}の日誌を非表示`)
+          const date1 = date
+          const today1 = today
+          if (date1 !== today1) {
+            console.log(`日付が変更されたのでデータを${date1}の日誌を非表示`)
             // setDiaries([])
             return
           }

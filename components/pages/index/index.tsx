@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, VFC } from 'react'
 import styles from './index.module.scss'
 import { parseISO, format } from 'date-fns'
 import ja from 'date-fns/locale/ja'
@@ -13,8 +13,11 @@ import Grid from '@material-ui/core/Grid';
 import DisplayNameAndDiary from '../../ui/DisplayNameAndDiary/index'
 import InputDairy from '../../ui/InputDairy/index'
 
+interface Props {
+    today: string
+}
 
-const Index = () => {
+const Index: VFC<Props> = () => {
     const [text, setText] = useState('')
     const [name, setName] = useState('')
     const today = format(new Date(), 'MM月dd日', { locale: ja })
