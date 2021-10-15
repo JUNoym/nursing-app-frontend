@@ -47,14 +47,14 @@ const DisplayNameAndDiary: VFC = () => {
         });
         setDiaries(NewNamesAndDiaries);
         // todo 日付が変わったらsetDiaries([])でデータを空にする
-        if (date !== isDayChange) {
-          console.log(`日付が変更されたのでデータを${date}の日誌を非表示`)
-          setDiaries([])
-          return
-        }
-        else {
-          console.log("日付は変わっていない")
-        }
+        // if (date !== isDayChange) {
+        //   console.log(`日付が変更されたのでデータを${date}の日誌を非表示`)
+        //   setDiaries([])
+        //   return
+        // }
+        // else {
+        //   console.log("日付は変わっていない")
+        // }
       });
   }, []);
 

@@ -16,8 +16,8 @@ if (firebase.apps.length === 0) {
 const RealTimeDatabase = firebase.database();
 export const NamesAndDiariesRef = RealTimeDatabase.ref("NamesAndDiaries");
 
-export const pushNameAndDiary = ({ name, text }) => {
-  NamesAndDiariesRef.push({ name, text });
+export const pushNameAndDiary = ({ name, text, date }) => {
+  NamesAndDiariesRef.push({ name, text, date });
 };
 export const pushEditDiary = ({ selectedId, diary }) => {
   NamesAndDiariesRef.child(selectedId).update({ text: diary });

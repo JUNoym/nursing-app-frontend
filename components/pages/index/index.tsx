@@ -17,8 +17,13 @@ import InputDairy from '../../ui/InputDairy/index'
 const Index = () => {
     const [text, setText] = useState('')
     const [name, setName] = useState('')
-    const date = format(new Date(), 'MM月dd日の日誌', { locale: ja })
-    const day = format(new Date(), 'ss', { locale: ja })
+    const today = format(new Date(), 'MM月dd日', { locale: ja })
+    const [date, setDate] = useState('')
+
+    const getTime = async () => {
+        const time = (await (format(new Date(), 'MM月dd日', { locale: ja })))
+        setDate(time)
+    }
     // dateが変更されたら、その変更を<DisplayNameAndDiary />に渡してDiariesを初期化すればできそう
     return (
         <div className={styles.content}>
@@ -33,7 +38,7 @@ const Index = () => {
                             <h1>日誌</h1>
                         </Grid>
                         <Grid item xs={3}>
-                            <h1>{date}</h1>
+                            <h1>{today}の日誌</h1>
                         </Grid>
                         <DisplayNameAndDiary />
                     </Grid>
@@ -47,7 +52,7 @@ const Index = () => {
                             </Grid>
 
                             <Grid item xs={12}>
-                                <InputDairy name={name} text={text} setName={setName} setText={setText} />
+                                <InputDairy name={name} text={text} setName={setName} setText={setText} today={today} getTime={getTime} date={date} />
                             </Grid>
 
                         </Grid>
