@@ -15,8 +15,6 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import DiaryDialog from "../DiaryDialog/index";
 
 interface NameAndTextAndDate {
-  name: string;
-  text: string;
   today: string
 }
 
