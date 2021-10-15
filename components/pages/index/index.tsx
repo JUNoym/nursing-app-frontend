@@ -13,11 +13,9 @@ import Grid from '@material-ui/core/Grid';
 import DisplayNameAndDiary from '../../ui/DisplayNameAndDiary/index'
 import InputDairy from '../../ui/InputDairy/index'
 
-interface Props {
-    today: string
-}
 
-const Index: VFC<Props> = () => {
+
+const Index = () => {
     const [text, setText] = useState('')
     const [name, setName] = useState('')
     const today = format(new Date(), 'MM月dd日', { locale: ja })
