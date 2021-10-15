@@ -40,7 +40,7 @@ const Index = () => {
                         <Grid item xs={3}>
                             <h1>{today}の日誌</h1>
                         </Grid>
-                        <DisplayNameAndDiary />
+                        <DisplayNameAndDiary today={today} />
                     </Grid>
                 </Box>
 

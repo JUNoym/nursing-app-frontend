@@ -20,14 +20,13 @@ interface NameAndText {
 }
 
 
-const DisplayNameAndDiary: VFC = () => {
+const DisplayNameAndDiary: VFC = (props) => {
+  const { today } = props
   //　データベースからnameとtextを取得
   const [open, setOpen] = useState(false);
   const [Diaries, setDiaries] = useState([]);
   const [selectedId, setSelectedId] = useState("");
   const [beforeEditText, setBeforeEditText] = useState("")
-  const date = format(new Date(), 'MM月dd日', { locale: ja })
-  const [isDayChange, setIsDayChange] = useState(date)
 
 
   useEffect(() => {
@@ -40,23 +39,17 @@ const DisplayNameAndDiary: VFC = () => {
           return;
         }
         const entries = Object.entries(NamesAndDiaries);
+        // console.log(NamesAndDiaries)
+        // console.log(entries)
         const NewNamesAndDiaries = entries.map((entry) => {
           const key = entry[0];
-          const nameAndText: any = entry[1];
-          return { key: key, ...nameAndText };
+          const nameAndTextAndDate: any = entry[1];
+          return { key: key, ...nameAndTextAndDate };
         });
         setDiaries(NewNamesAndDiaries);
         // todo 日付が変わったらsetDiaries([])でデータを空にする
-        // if (date !== isDayChange) {
-        //   console.log(`日付が変更されたのでデータを${date}の日誌を非表示`)
-        //   setDiaries([])
-        //   return
-        // }
-        // else {
-        //   console.log("日付は変わっていない")
-        // }
       });
-  }, []);
+  }, [NamesAndDiariesRef]);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -70,7 +63,15 @@ const DisplayNameAndDiary: VFC = () => {
     <div className={styles.ContentWrapper}>
       <div className={styles.content}>
         <CssBaseline />
-        {Diaries?.map(({ key, name, text, }) => {
+        {Diaries?.map(({ key, name, text, date }) => {
+          if (date !== today) {
+            console.log(`日付が変更されたのでデータを${today}の日誌を非表示`)
+            // setDiaries([])
+            return
+          }
+          else {
+            console.log("日付は変わっていない")
+          }
           return (
             <Container maxWidth="sm" classes={{ root: styles.container }}>
               <Grid item xs={2}>

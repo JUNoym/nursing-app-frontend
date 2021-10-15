@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
-import { parseISO, format } from 'date-fns'
-import ja from 'date-fns/locale/ja'
 
 // firebase
 import { pushNameAndDiary } from '../../../firebase-config'
@@ -12,7 +10,7 @@ import TextField from '@material-ui/core/TextField'
 
 
 const InputDairy = props => {
-    const { name, text, setName, setText, today, getTime, date } = props
+    const { name, text, setName, setText, getTime, date } = props
 
     return (
         <div className={styles.content}>
