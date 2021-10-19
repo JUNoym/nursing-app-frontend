@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid';
 // コンポーネント
 import DisplayNameAndDiary from '../../ui/DisplayNameAndDiary/index'
 import InputDairy from '../../ui/InputDairy/index'
+import { HeadlineLink } from '../../ui/HeadlineLink';
 
 
 const Index = () => {
@@ -22,6 +23,7 @@ const Index = () => {
         <div className={styles.content}>
             <CssBaseline />
             <Container maxWidth="sm" classes={{ root: styles.container }}>
+                <HeadlineLink />
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={1}>
                         <Grid item xs={2}>
