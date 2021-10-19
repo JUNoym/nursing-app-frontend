@@ -24,26 +24,12 @@ const Index = () => {
             <CssBaseline />
             <Container maxWidth="sm" classes={{ root: styles.container }}>
                 <HeadlineLink />
-                <Box sx={{ flexGrow: 1 }}>
-                    <Grid container spacing={1}>
-                        <Grid item xs={2}>
-                            <h1>名前</h1>
-                        </Grid>
-                        <Grid item xs={7}>
-                            <h1>日誌</h1>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <h1>{date}</h1>
-                        </Grid>
-                        <DisplayNameAndDiary />
-                    </Grid>
-                </Box>
 
                 <div className={styles.form}>
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={1}>
                             <Grid item xs={12}>
-                                <h1>夜勤日誌</h1>
+                                <h1>排泄記録表</h1>
                             </Grid>
 
                             <Grid item xs={12}>

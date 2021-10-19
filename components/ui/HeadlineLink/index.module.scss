@@ -1,0 +1,14 @@
+.content {
+    margin-top: -3.5rem;
+    margin-bottom: 2rem;
+    background-color: var(--c-dark-twitter);
+    .link {
+        display: flex;
+        justify-content: space-around;
+        a {
+            color: var(--c-white);
+            font-weight: bold;
+            text-decoration: none;
+        }
+    }
+}
