@@ -18,7 +18,6 @@ const SendNameAndDiary = (props) => {
                     onClick={() => {
                         setText(text)
                         setName(name)
-                        console.log(`${name}と${text}が送信された`)
                     }}
                 >
                     日誌を保存

@@ -14,20 +14,18 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 //コンポーネント
 import DiaryDialog from "../DiaryDialog/index";
 
-interface NameAndText {
-  name: string;
-  text: string;
+interface NameAndTextAndDate {
+  today: string
 }
 
 
-const DisplayNameAndDiary: VFC = () => {
+const DisplayNameAndDiary: VFC<NameAndTextAndDate> = (props) => {
+  const { today } = props
   //　データベースからnameとtextを取得
   const [open, setOpen] = useState(false);
   const [Diaries, setDiaries] = useState([]);
   const [selectedId, setSelectedId] = useState("");
   const [beforeEditText, setBeforeEditText] = useState("")
-  const date = format(new Date(), ' HH:mm:ss', { locale: ja })
-
 
 
   useEffect(() => {
@@ -40,15 +38,17 @@ const DisplayNameAndDiary: VFC = () => {
           return;
         }
         const entries = Object.entries(NamesAndDiaries);
+        // console.log(NamesAndDiaries)
+        // console.log(entries)
         const NewNamesAndDiaries = entries.map((entry) => {
           const key = entry[0];
-          const nameAndText: any = entry[1];
-          console.table(nameAndText)
-          return { key: key, ...nameAndText };
+          const nameAndTextAndDate: any = entry[1];
+          return { key: key, ...nameAndTextAndDate };
         });
         setDiaries(NewNamesAndDiaries);
+        // todo 日付が変わったらsetDiaries([])でデータを空にする
       });
-  }, []);
+  }, [NamesAndDiariesRef]);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -62,7 +62,17 @@ const DisplayNameAndDiary: VFC = () => {
     <div className={styles.ContentWrapper}>
       <div className={styles.content}>
         <CssBaseline />
-        {Diaries.map(({ key, name, text, }) => {
+        {Diaries?.map(({ key, name, text, date }) => {
+          const date1 = date
+          const today1 = today
+          if (date1 !== today1) {
+            console.log(`日付が変更されたのでデータを${date1}の日誌を非表示`)
+            // setDiaries([])
+            return
+          }
+          else {
+            console.log("日付は変わっていない")
+          }
           return (
             <Container maxWidth="sm" classes={{ root: styles.container }}>
               <Grid item xs={2}>
@@ -93,7 +103,6 @@ const DisplayNameAndDiary: VFC = () => {
           selectedId={selectedId}
           beforeEditText={beforeEditText}
         />
-        {console.log(beforeEditText + 'がDiaryDialogに渡される')}
 
 
       </div>

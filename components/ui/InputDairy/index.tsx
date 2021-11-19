@@ -5,18 +5,12 @@ import styles from './index.module.scss'
 import { pushNameAndDiary } from '../../../firebase-config'
 
 // material-ui
-import CssBaseline from '@material-ui/core/CssBaseline'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
-import List from '@material-ui/core/List'
-import DisplayNameAndDiary from '../SendNameAndDiary/index'
 
 
 const InputDairy = props => {
-    const { name, text, setName, setText } = props
+    const { name, text, setName, setText, getTime, date } = props
 
     return (
         <div className={styles.content}>
@@ -30,6 +24,7 @@ const InputDairy = props => {
                     variant="standard"
                     id="outlined-name"
                     onChange={(e) => setName(e.target.value)}
+                    onClick={() => getTime()}
                     value={name}
                 />
                 <TextField
@@ -55,7 +50,8 @@ const InputDairy = props => {
                     onClick={() => {
                         setText('')
                         setName('')
-                        pushNameAndDiary({ name, text })
+                        getTime()
+                        pushNameAndDiary({ name, text, date })
                     }}
                 >
                     利用者を追加

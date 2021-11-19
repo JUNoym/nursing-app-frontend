@@ -107,7 +107,6 @@ const DiaryDialog: React.FC<Props> = ({
         diary={diary}
         setDiary={setDiary}
       />
-      {console.log(beforeEditText + "がDisplayEditDialogに渡される")}
     </div>
   );
 };
