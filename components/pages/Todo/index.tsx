@@ -14,10 +14,16 @@ const index = () => {
     }, [])
 
     return (
-        <div>
+        <>
             <h1>Todoリスト</h1>
-            <h1>Todoリスト</h1>
-        </div>
+            {todos.map((todo) => {
+                return (
+                    <div key={todo.id}>
+                        <p>{todo.name}</p>
+                    </div>
+                )
+            })}
+        </>
     )
 }
 
