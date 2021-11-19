@@ -31,6 +31,11 @@ export const HeadlineLink = (props: Props) => {
                         <a>夜間日誌</a>
                     </Link>
                 </Button>
+                <Button classes={{ root: styles.button }}>
+                    <Link href="/todo">
+                        <a>Todoリスト</a>
+                    </Link>
+                </Button>
             </div>
         </div>
     )
