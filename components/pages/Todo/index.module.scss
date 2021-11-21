@@ -18,10 +18,14 @@
     &:hover {
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     }
-    .Todo__name {
-        display: flex;
-        input {
-        margin: 0.3rem;
+    .Todo {
+        height: 1;
+        .Todo__name {
+            display: flex;
+
+            input {
+            margin: 0.3rem;
+            }
         }
     }
 }

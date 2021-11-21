@@ -27,7 +27,6 @@ const DisplayEditDialog: React.FC<Props> = ({
   setDiary,
 }) => {
   {
-    console.log(diary + "がDisplayEditDialogに渡された");
   }
 
   return (

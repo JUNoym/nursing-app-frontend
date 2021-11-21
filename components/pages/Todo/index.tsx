@@ -21,7 +21,6 @@ const index = () => {
         if (sure) {
             api().delete('/todos/destroy_all')
                 .then(res => {
-                    console.log(res.data, "レスポンス")
                     setTodos([])
                 })
         }

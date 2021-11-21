@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './index.module.scss'
 import api from '../../../../api/config'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
-
-import { toast } from 'react-toastify'
-import { NOTIMP } from 'dns'
 
 const index = (props) => {
     const initialTodoState = {
@@ -16,11 +12,11 @@ const index = (props) => {
 
     const [todo, setTodo] = useState(initialTodoState)
 
+
     const router = useRouter()
 
     const handleInputChange = (event) => {
         const { name, value } = event.target
-        console.log(value)
         setTodo({ ...todo, [name]: value })
         // todoをスプレッド構文で展開して、その中の要素であるnameカラムを更新している
     }
@@ -37,10 +33,9 @@ const index = (props) => {
                     name: res.data.name,
                     is_completed: res.data.is_completed
                 })
-                // /todosにリダイレクトする
-                // props.router.push('/todo')
-                router.push('/todo')
-                // alert("Todoを追加しました")
+                setTodo(initialTodoState)
+                //他に書き方があるので改善する↓
+                window.location.reload()
             })
     }
 
