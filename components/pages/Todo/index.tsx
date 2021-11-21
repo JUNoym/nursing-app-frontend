@@ -1,6 +1,10 @@
 import styles from './index.module.scss'
 import React, { useState, useEffect } from 'react'
 import api from '../../../api/config'
+import DisplayTodo from '../../../components/pages/Todo/DisplayTodo'
+import AddTodo from '../../../components/pages/Todo/AddTodo'
+import { HeadlineLink } from '../../ui/HeadlineLink';
+
 
 const index = () => {
     const [todos, setTodos] = useState([])
@@ -8,7 +12,6 @@ const index = () => {
     useEffect(() => {
         api().get('/todos.json')
             .then(res => {
-                console.log(res.data, "レスポンス")
                 setTodos(res.data)
             })
     }, [])
@@ -40,19 +43,18 @@ const index = () => {
     }
 
     return (
-        <>
-            <h1>Todoリスト</h1>
-            <button onClick={removeAllTodos}>
-                Remove All
-            </button>
-            {todos.map((todo) => {
-                return (
-                    <div key={todo.id}>
-                        <p>{todo.name}</p>
-                    </div>
-                )
-            })}
-        </>
+        <div className={styles.content_top}>
+            <div className={styles.content}>
+                <HeadlineLink />
+                <div className={styles.Todo__list}>
+                    <button className={styles.button} onClick={removeAllTodos}>
+                        Remove All
+                    </button>
+                    <AddTodo />
+                </div>
+                <DisplayTodo todos={todos} updateIsCompleted={updateIsCompleted} />
+            </div>
+        </div>
     )
 }
 
