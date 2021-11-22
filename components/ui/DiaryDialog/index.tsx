@@ -11,7 +11,7 @@ import { NamesAndDiariesRef } from "../../../firebase-config";
 import DisplayEditDialog from "../../../components/ui/DisplayEditDialog";
 
 interface Props {
-  childrem?: Element | ReactNode;
+  children?: Element | ReactNode;
   open: boolean;
   handleClose: () => void;
   selectedId: string;
