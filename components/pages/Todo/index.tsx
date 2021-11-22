@@ -10,7 +10,7 @@ const index = () => {
     const [todos, setTodos] = useState([])
 
     useEffect(() => {
-        api().get('/todos.json')
+        api().get('/todos')
             .then(res => {
                 setTodos(res.data)
             })
