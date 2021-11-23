@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './index.module.scss'
 
 // firebase
@@ -14,9 +14,18 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 import List from '@material-ui/core/List'
 import DisplayNameAndDiary from '../SendNameAndDiary/index'
 
+//api
+import api from '../../../api/config'
+
 
 const InputDairy = props => {
-    const { name, text, setName, setText } = props
+
+    useEffect(() => {
+        api().get("/excretion").then(res => {
+            console.log(res.data)
+        })
+    }, [])
+
 
     return (
         <div className={styles.content}>
@@ -29,21 +38,8 @@ const InputDairy = props => {
                     margin="none"
                     variant="standard"
                     id="outlined-name"
-                    onChange={(e) => setName(e.target.value)}
-                    value={name}
-                />
-                <TextField
-                    classes={{ root: styles.text }}
-                    fullWidth
-                    required
-                    placeholder="利用者の様子を記録"
-                    margin="none"
-                    variant="standard"
-                    id="outlined-name"
-                    multiline={true}
-                    minRows='3'
-                    onChange={(e) => setText(e.target.value)}
-                    value={text}
+                // onChange={(e) => setName(e.target.value)}
+                // value={name}
                 />
 
             </div>
