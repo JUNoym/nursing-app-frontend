@@ -12,7 +12,6 @@ import List from '@material-ui/core/List'
 
 //api
 import api from '../../../../api/config'
-import { pushNameAndDiary } from '../../../../firebase-config'
 
 const index = () => {
     const initialState = {
@@ -34,7 +33,7 @@ const index = () => {
             name: name.name,
         }
 
-        api().post('/excretion', data)
+        api().post('/users', data)
         window.location.reload()
     }
 
@@ -53,9 +52,9 @@ const index = () => {
             <div className={styles.ButtonWrapper}>
                 <Button
                     classes={{ root: styles.Button }}
-                    variant="outlined"
+                    variant="contained"
+                    disabled={!name.name}
                     onClick={() => {
-                        setName('')
                         saveName()
                     }}
                 >
