@@ -71,12 +71,18 @@ const index = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className={styles.time}>
-                            {data.care_actions.map(care_action => {
-                                return (<p>{JSON.stringify(care_action.name)}</p>)
-                            }
-                            )}
-
+                        <div className={styles.timeWrapper}>
+                            <div className={styles.time}>
+                                {data.care_actions.map(care_action => {
+                                    return (
+                                        <>
+                                            <p>{(care_action.name)}</p>
+                                            <p>{(care_action.updated_at)}</p>
+                                        </>
+                                    )
+                                }
+                                )}
+                            </div>
                         </div>
                     </div>
 
