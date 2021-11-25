@@ -74,10 +74,20 @@ const index = () => {
                         <div className={styles.timeWrapper}>
                             <div className={styles.time}>
                                 {data.care_actions.map(care_action => {
+                                    const time = care_action.created_at
+                                    const format_time = `${time[14]}${time[16]}${time[17]}${time[18]}`
+                                    console.log(care_action.created_at, '時間')
+
                                     return (
                                         <>
+                                            <p className={styles.module_space}></p>
                                             <p>{(care_action.name)}</p>
-                                            <p>{(care_action.updated_at)}</p>
+                                            <p>{
+                                                (
+                                                    format_time
+                                                )
+                                            }
+                                            </p>
                                         </>
                                     )
                                 }
