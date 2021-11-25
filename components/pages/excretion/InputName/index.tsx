@@ -2,13 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styles from './index.module.scss'
 
 // material-ui
-import CssBaseline from '@material-ui/core/CssBaseline'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
-import List from '@material-ui/core/List'
 
 //api
 import api from '../../../../api/config'
