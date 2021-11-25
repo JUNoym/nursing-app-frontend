@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './index.module.scss'
 import { parseISO, format } from 'date-fns'
 import ja from 'date-fns/locale/ja'
@@ -12,10 +12,17 @@ import Grid from '@material-ui/core/Grid';
 // コンポーネント
 import DisplayNameAndDiary from '../../ui/DisplayNameAndDiary/index'
 import InputDairy from '../../ui/InputDairy/index'
-import { HeadlineLink } from '../../ui/HeadlineLink';
+import { HeadlineLink } from '../../ui/HeadlineLink'
+import DisplayNameAndButton from '../excretion/DisplayNameAndButton'
+import InputName from '../excretion/InputName'
+
+//api
+import api from '../../../api/config'
+
 
 
 const Index = () => {
+
     const [text, setText] = useState('')
     const [name, setName] = useState('')
     const date = format(new Date(), 'MM月dd日の日誌', { locale: ja })
@@ -24,7 +31,7 @@ const Index = () => {
             <CssBaseline />
             <Container maxWidth="sm" classes={{ root: styles.container }}>
                 <HeadlineLink />
-
+                <DisplayNameAndButton />
                 <div className={styles.form}>
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={1}>
@@ -33,7 +40,7 @@ const Index = () => {
                             </Grid>
 
                             <Grid item xs={12}>
-                                <InputDairy name={name} text={text} setName={setName} setText={setText} />
+                                <InputName />
                             </Grid>
 
                         </Grid>

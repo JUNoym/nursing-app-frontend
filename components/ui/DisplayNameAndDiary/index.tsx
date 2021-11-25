@@ -43,7 +43,6 @@ const DisplayNameAndDiary: VFC = () => {
         const NewNamesAndDiaries = entries.map((entry) => {
           const key = entry[0];
           const nameAndText: any = entry[1];
-          console.table(nameAndText)
           return { key: key, ...nameAndText };
         });
         setDiaries(NewNamesAndDiaries);
@@ -93,7 +92,6 @@ const DisplayNameAndDiary: VFC = () => {
           selectedId={selectedId}
           beforeEditText={beforeEditText}
         />
-        {console.log(beforeEditText + 'がDiaryDialogに渡される')}
 
 
       </div>
