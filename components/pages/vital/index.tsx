@@ -10,9 +10,8 @@ import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid';
 
 // コンポーネント
-import DisplayNameAndDiary from '../../ui/DisplayNameAndDiary/index'
-import InputDairy from '../../ui/InputDairy/index'
 import { HeadlineLink } from '../../ui/HeadlineLink';
+import InputName from '../vital/InputName'
 
 
 const Index = () => {
@@ -34,7 +33,7 @@ const Index = () => {
                             </Grid>
 
                             <Grid item xs={12}>
-                                <InputDairy name={name} text={text} setName={setName} setText={setText} />
+                                <InputName />
                             </Grid>
 
                         </Grid>
