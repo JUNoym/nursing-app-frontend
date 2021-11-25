@@ -6,78 +6,77 @@ import api from '../../../../api/config'
 import { resourceLimits } from 'worker_threads'
 import { getTime } from 'date-fns'
 
-
 const index = () => {
     const [name, setName] = useState([])
     const [time, setTime] = useState('')
     useEffect(() => {
-        api().get("/users").then(res => {
-            console.log(res.data)
-            const result = res.data.map(r => {
-                return r.name
+        fetchData()
+    }, [])
+
+    const fetchData = () => {
+        api().get("/user_care_actions").then(res => {
+            const result = res.data.map(response => {
+                return response
             })
             setName(result)
         })
-    }, [])
-
-    const getTime = () => {
-        console.log("時間が取得された！")
-        const date = new Date()
-        const res = date.getHours() + ":" + date.getMinutes()
-        console.log(res)
-        setTime(res)
     }
 
-    const saveAction = () => {
-        console.log("保存した！")
-        // api().post("/users", {
-        //     name: time
-        // }).then(res => {
-        //     console.log(res.data)
-        // })
-    }
-
-    const saveTime = (time) => {
-
-
-
-        console.log((time), "ボタンが押された！")
-        // var data {
-        //     time: time.time,
-        // }
-        // apiに時間を送る
-        api().post("/excretion", {
-            time: time
+    const saveAction = (user_id, care_action_id) => {
+        api().post(`/user_care_actions?user_id=${user_id}&care_action_id=${care_action_id}`, {
         }).then(res => {
-            console.log(res.data)
-        }
-        )
+            fetchData()
+
+        })
     }
 
-    { console.log(name, "name") }
+    const fetchUserCareActions = (user_id, user_name) => {
+        api().get(`users/${user_id}`, {
+        }).then(response => {
+            const care_actions = response.data.map(response => {
+                return { "title": response.name, "time": response.updated_at }
+            })
+            const response_data = { "user_name": user_name, "user_id": user_id, "care_actions": care_actions }
+            return response_data
+        })
+    }
+
     return (
         <div className={styles.container}>
-            {name.map(n => {
+            {name.map(data => {
                 return (
                     <div className={styles.miniContainer}>
                         <div className={styles.content}>
-                            <h1>{n}</h1>
+                            <h1>{data.user_name}</h1>
                             <div className={styles.buttonContainer}>
-                                <button>排便</button>
-                                <button>排尿</button>
                                 <button
                                     onClick={
                                         () => {
-                                            saveAction()
+                                            saveAction(data.user_id, 1)
+                                        }
+                                    }>排便</button>
+                                <button
+                                    onClick={
+                                        () => {
+                                            saveAction(data.user_id, 2)
+                                        }
+                                    }>排尿</button>
+                                <button
+                                    onClick={
+                                        () => {
+                                            saveAction(data.user_id, 3)
                                         }
                                     }>
                                     パッド交換
-                                    value={3}
                                 </button>
                             </div>
                         </div>
                         <div className={styles.time}>
-                            <p>時間を表示</p>
+                            {data.care_actions.map(care_action => {
+                                return (<p>{JSON.stringify(care_action.name)}</p>)
+                            }
+                            )}
+
                         </div>
                     </div>
 

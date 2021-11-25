@@ -6,7 +6,7 @@
         color: rgb(253, 253, 253);
     }
     .miniContainer{
-        border: silver 1px solid;
+        border: rgb(228, 14, 14) 1px solid;
         .content {
             display: flex;
             justify-content: space-between;
@@ -25,6 +25,11 @@
                     font-weight: bold;
                     border-radius: 0.625rem;
                     cursor: pointer;
+                }
+                .time {
+                    background-color: rgb(228, 14, 14);
+                    display: flex;
+                    width: 100%;
                 }
             }
         }
