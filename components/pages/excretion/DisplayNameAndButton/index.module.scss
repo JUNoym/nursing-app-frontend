@@ -3,13 +3,14 @@
     height: 19.625rem;
     overflow: scroll;
     p {
-        color: rgb(253, 253, 253);
+        color: var(--c-silver);
     }
     .miniContainer{
-        border: rgb(228, 14, 14) 1px solid;
+        border: var(--c-silver) 1px solid;
         .content {
             display: flex;
             justify-content: space-between;
+            padding: 0.5rem;
             .buttonContainer {
                 display: flex;
                 justify-content:space-around;
@@ -19,7 +20,7 @@
                     width: 25%;
                     height: 75%;
                     border: none;
-                    background-color: #fff;
+                    background-color: var(--c-white);
                     color: #000;
                     font-size: 1.125rem;
                     font-weight: bold;
@@ -44,6 +45,6 @@
 
 .module_space {
     width: 1rem;
-    height: 0.625rem;
+    height: 0.5rem;
 }
 
