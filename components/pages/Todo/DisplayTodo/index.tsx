@@ -13,7 +13,7 @@ const index = (props) => {
                             <div className={styles.Todo__name}>
                                 {value.name}
                                 {value.is_completed ?
-                                    <input type="checkbox" checked="checked" onClick={() => updateIsCompleted(key, value)} />
+                                    <input type="checkbox" onClick={() => updateIsCompleted(key, value)} />
                                     :
                                     <input type="checkbox" onClick={() => updateIsCompleted(key, value)} />
                                 }
