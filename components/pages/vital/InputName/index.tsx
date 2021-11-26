@@ -9,24 +9,53 @@ import Button from '@material-ui/core/Button'
 import api from '../../../../api/config'
 
 const index = () => {
-    const inisialState = {
+    const initialState = {
         id: null,
         name: '',
     }
 
-    const [name, setName] = useState(inisialState)
+    const [content, setContent] = useState(initialState)
+    const [kt, setKT] = useState('')
+    const [bp, setBT] = useState('')
+    const [plus, setPLUS] = useState('')
+    const [spo2, setSPO2] = useState('')
 
     const handleInputChange = (event) => {
         const { name, value } = event.target
-        setName({
-            ...name,
-            [name]: value
+        setContent({
+            ...content,
+            [name]: value,
         })
     }
+    const handleInputChange2 = (e) => {
+        setKT(e.target.value)
+        console.log(kt)
+    }
+
+    const handleInputChange3 = (e) => {
+        setBT(e.target.value)
+        console.log(bp)
+    }
+
+    const handleInputChange4 = (e) => {
+        setPLUS(e.target.value)
+        console.log(plus)
+    }
+
+    const handleInputChange5 = (e) => {
+        setSPO2(e.target.value)
+        console.log(spo2)
+    }
+
+
 
     const saveName = async () => {
         var data = {
-            name: name.name,
+            name: content.name,
+            kt: kt,
+            bp: bp,
+            plus: plus,
+            spo2: spo2,
         }
 
         api().post('/vital_users', data)
@@ -36,26 +65,69 @@ const index = () => {
 
     return (
         <div className={styles.content}>
-            <div className={styles.form}>
-                <input
-                    type="text"
-                    placeholder="利用者を追加"
-                    value={name.name}
-                    onChange={handleInputChange}
-                    name="name"
-                />
+            <div className={styles.formGrope}>
+                <div className={styles.form}>
+                    <input
+                        type="text"
+                        placeholder="名前"
+                        value={content.name}
+                        onChange={handleInputChange}
+                        name="name"
+                    />
+                </div>
             </div>
+            <div className={styles.formGrope}>
+                <div className={styles.form}>
+                    <input
+                        type="text"
+                        placeholder="体温"
+                        value={kt}
+                        onChange={handleInputChange2}
+                        name="kt"
+                    />
+                </div>
+                <div className={styles.form}>
+                    <input
+                        type="text"
+                        placeholder="血圧"
+                        value={bp}
+                        onChange={handleInputChange3}
+                        name="bp"
+                    />
+                </div>
+            </div>
+            <div className={styles.formGrope}>
+                <div className={styles.form}>
+                    <input
+                        type="text"
+                        placeholder="心拍数"
+                        value={plus}
+                        onChange={handleInputChange4}
+                        name="plus"
+                    />
+                </div>
+                <div className={styles.form}>
+                    <input
+                        type="text"
+                        placeholder="SPO2"
+                        value={spo2}
+                        onChange={handleInputChange5}
+                        name="spo2"
+                    />
+                </div>
+            </div>
+
 
             <div className={styles.ButtonWrapper}>
                 <Button
                     classes={{ root: styles.Button }}
                     variant="contained"
-                    disabled={!name.name}
+                    disabled={!content.name}
                     onClick={() => {
                         saveName()
                     }}
                 >
-                    利用者を追加
+                    データを追加
                 </Button>
             </div>
         </div>

@@ -5,12 +5,12 @@ import styles from './index.module.scss'
 import api from '../../../../api/config'
 
 const index = () => {
-    const [name, setName] = useState([])
+    const [content, setContent] = useState([])
 
     useEffect(() => {
         api().get('vital_users').then(res => {
-            setName(res.data)
-            console.log(res.data)
+            setContent(res.data)
+            console.log(res.data, "レスポンス")
         })
     }, [])
 
@@ -18,15 +18,16 @@ const index = () => {
 
     return (
         <div className={styles.container}>
-            {name.map(data => {
+            {console.log(content, "content")}
+            {content.map(data => {
                 return (
                     <div className={styles.miniContainer}>
                         <div className={styles.content}>
                             <h1>{data.name}</h1>
-                            <p>KT: 36.6</p>
-                            <p>BP: 122/65</p>
-                            <p>P: 55</p>
-                            <p>SPO2: 98%</p>
+                            <p>KT:{data.kt}</p>
+                            <p>BP: {data.bp}</p>
+                            <p>P: {data.plus}</p>
+                            <p>SPO2: {data.spo2}%</p>
                         </div>
                     </div>
                 )
