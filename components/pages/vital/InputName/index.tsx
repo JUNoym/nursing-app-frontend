@@ -122,7 +122,7 @@ const index = () => {
                 <Button
                     classes={{ root: styles.Button }}
                     variant="contained"
-                    disabled={!content.name}
+                    disabled={!content.name || !kt || !bp || !plus || !spo2}
                     onClick={() => {
                         saveName()
                     }}

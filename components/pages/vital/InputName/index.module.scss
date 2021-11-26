@@ -19,6 +19,10 @@
             display: flex;
             justify-content: center;
             margin: 2rem 0;
+            :disabled {
+                background-color: var(--c-gray);
+                color: var(--c-white);
+            }
             .Button {
                 background-color: var(--c-white-blue);
                 color: var(--c-white);
@@ -26,6 +30,7 @@
                 font-weight: bold;
                 border-radius: 0.625rem;
                 cursor: pointer;
+             
             }
         
         }
