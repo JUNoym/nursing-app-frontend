@@ -1,0 +1,49 @@
+.content {
+    .formGrope {
+        display: flex;
+        justify-content: center;
+        .form {
+            width: 50%;
+            text-align: center;
+            input {
+                width: 80%;
+                height: 40px;
+                border-radius: 4px;
+                font-size: 14px;
+                margin: .5rem auto;
+            }
+        }
+    }
+
+        .ButtonWrapper {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            .Button {
+                background-color: var(--c-white-blue);
+                color: var(--c-white);
+                font-size: 1.125rem;
+                font-weight: bold;
+                border-radius: 0.625rem;
+                cursor: pointer;
+            }
+        
+        }
+
+}
+.timeWrapper {
+    .time {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+
+
+.module_space {
+    width: 1rem;
+    height: 0.5rem;
+}
+
