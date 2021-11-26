@@ -65,7 +65,7 @@ const DisplayNameAndDiary: VFC = () => {
           return (
             <Container maxWidth="sm" classes={{ root: styles.container }}>
               <Grid item xs={2}>
-                <p>{name}</p>
+                <p>{name}様</p>
               </Grid>
               <Grid item xs={10}>
                 <div className={styles.Wrapper}>

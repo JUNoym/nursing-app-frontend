@@ -47,7 +47,7 @@ const index = () => {
                 return (
                     <div className={styles.miniContainer}>
                         <div className={styles.content}>
-                            <h1>{data.user_name}</h1>
+                            <h1>{data.user_name}様</h1>
                             <div className={styles.buttonContainer}>
                                 <button
                                     onClick={
@@ -68,6 +68,15 @@ const index = () => {
                                         }
                                     }>
                                     パッド交換
+                                </button>
+
+                                <button
+                                    onClick={
+                                        () => {
+                                            saveAction(data.user_id, 4)
+                                        }
+                                    }>
+                                    失禁
                                 </button>
                             </div>
                         </div>
