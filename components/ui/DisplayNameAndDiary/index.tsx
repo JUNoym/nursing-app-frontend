@@ -70,7 +70,6 @@ const DisplayNameAndDiary: VFC = () => {
               <Grid item xs={10}>
                 <div className={styles.Wrapper}>
                   <p>{text}</p>
-                  <p>{date}</p>
                   <Button>
                     <MoreVertIcon
                       onClick={() => {
