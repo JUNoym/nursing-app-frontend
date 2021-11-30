@@ -29,22 +29,18 @@ const index = () => {
     }
     const handleInputChange2 = (e) => {
         setKT(e.target.value)
-        console.log(kt)
     }
 
     const handleInputChange3 = (e) => {
         setBT(e.target.value)
-        console.log(bp)
     }
 
     const handleInputChange4 = (e) => {
         setPLUS(e.target.value)
-        console.log(plus)
     }
 
     const handleInputChange5 = (e) => {
         setSPO2(e.target.value)
-        console.log(spo2)
     }
 
 
