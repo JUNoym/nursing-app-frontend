@@ -20,14 +20,17 @@ const index = () => {
     }, [getContent])
 
 
+    if (loading) {
+        return <h1>loading...</h1>
+    }
+
+    if (content.length === 0) {
+        return <h1>no data</h1>
+    }
 
     return (
         <div className={styles.container}>
-            {loading ? (
-                <div className={styles.loading}>
-                    <h1>ローディング中...</h1>
-                </div>
-            ) : content.length > 0 ? (content.map(data => {
+            {(content.map(data => {
                 return (
                     <div className={styles.miniContainer}>
                         <div className={styles.content}>
@@ -40,8 +43,6 @@ const index = () => {
                     </div>
                 )
             })
-            ) : (
-                <h1>データがありません</h1>
             )
             }
         </div >
