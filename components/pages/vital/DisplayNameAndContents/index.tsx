@@ -6,10 +6,12 @@ import api from '../../../../api/config'
 
 const index = () => {
     const [content, setContent] = useState([])
+    const [loading, setLoading] = useState(true)
 
     const getContent = useCallback(async () => {
         const response = await api().get('/vital_users')
         setContent(response.data)
+        setLoading(false)
     }, [])
 
 
@@ -18,10 +20,17 @@ const index = () => {
     }, [getContent])
 
 
+    if (loading) {
+        return <h1>loading...</h1>
+    }
+
+    if (content.length === 0) {
+        return <h1>no data</h1>
+    }
 
     return (
         <div className={styles.container}>
-            {content.map(data => {
+            {(content.map(data => {
                 return (
                     <div className={styles.miniContainer}>
                         <div className={styles.content}>
@@ -33,7 +42,9 @@ const index = () => {
                         </div>
                     </div>
                 )
-            })}
+            })
+            )
+            }
         </div >
     )
 }
