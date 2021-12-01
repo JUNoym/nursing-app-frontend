@@ -1,16 +1,38 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useCallback, useReducer } from 'react'
 import styles from './index.module.scss'
 
 //api
 import api from '../../../../api/config'
 
+
+const initialState = {
+    data: [],
+    loading: true,
+}
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case "end": {
+            return {
+                ...state,
+                data: action.data,
+                loading: false
+            }
+        }
+    }
+}
+
 const index = () => {
-    const [name, setName] = useState([])
-    const [loading, setLoading] = useState(true)
+    // const [name, setName] = useState([])
+    // const [loading, setLoading] = useState(true)
+
+    const [state, dispatch] = useReducer(reducer, initialState)
+
+
+
     const fetchData = useCallback(async () => {
         const result = await api().get("/user_care_actions")
-        setName(result.data)
-        setLoading(false)
+        dispatch({ type: "end", data: result.data })
     }, [])
 
     useEffect(() => {
@@ -22,7 +44,6 @@ const index = () => {
         api().post(`/user_care_actions?user_id=${user_id}&care_action_id=${care_action_id}`, {
         }).then(res => {
             fetchData()
-
         })
     }
 
@@ -37,18 +58,18 @@ const index = () => {
         })
     }
 
-    if (loading) {
+    if (state.loading) {
         return <h1>Loading...</h1>
     }
 
-    if (name.length === 0) {
+    if (state.data.length === 0) {
         return <h1>No data</h1>
     }
 
     return (
         <div className={styles.container}>
 
-            {name.map(data => {
+            {state.data.map(data => {
                 return (
                     <div className={styles.miniContainer}>
                         <div className={styles.content}>
