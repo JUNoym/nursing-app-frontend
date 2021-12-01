@@ -6,10 +6,12 @@ import api from '../../../../api/config'
 
 const index = () => {
     const [content, setContent] = useState([])
+    const [loading, setLoading] = useState(true)
 
     const getContent = useCallback(async () => {
         const response = await api().get('/vital_users')
         setContent(response.data)
+        setLoading(false)
     }, [])
 
 
@@ -21,7 +23,11 @@ const index = () => {
 
     return (
         <div className={styles.container}>
-            {content.map(data => {
+            {loading ? (
+                <div className={styles.loading}>
+                    <h1>ローディング中...</h1>
+                </div>
+            ) : content.length > 0 ? (content.map(data => {
                 return (
                     <div className={styles.miniContainer}>
                         <div className={styles.content}>
@@ -33,7 +39,11 @@ const index = () => {
                         </div>
                     </div>
                 )
-            })}
+            })
+            ) : (
+                <h1>データがありません</h1>
+            )
+            }
         </div >
     )
 }

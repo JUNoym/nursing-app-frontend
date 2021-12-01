@@ -1,26 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import styles from './index.module.scss'
 
 //api
 import api from '../../../../api/config'
-import { resourceLimits } from 'worker_threads'
-import { getTime } from 'date-fns'
 
 const index = () => {
     const [name, setName] = useState([])
-    const [time, setTime] = useState('')
-    useEffect(() => {
-        fetchData()
+    const [loading, setLoading] = useState(true)
+    const fetchData = useCallback(async () => {
+        const result = await api().get("/user_care_actions")
+        setName(result.data)
+        setLoading(false)
     }, [])
 
-    const fetchData = () => {
-        api().get("/user_care_actions").then(res => {
-            const result = res.data.map(response => {
-                return response
-            })
-            setName(result)
-        })
-    }
+    useEffect(() => {
+        fetchData()
+    }, [fetchData])
+
 
     const saveAction = (user_id, care_action_id) => {
         api().post(`/user_care_actions?user_id=${user_id}&care_action_id=${care_action_id}`, {
@@ -43,7 +39,12 @@ const index = () => {
 
     return (
         <div className={styles.container}>
-            {name.map(data => {
+
+            {loading ? (
+                <div className={styles.loading}>
+                    <h1>ローディング中...</h1>
+                </div>
+            ) : name.length > 0 ? name.map(data => {
                 return (
                     <div className={styles.miniContainer}>
                         <div className={styles.content}>
@@ -105,7 +106,9 @@ const index = () => {
                     </div>
 
                 )
-            })}
+            }) : (
+                <h1>データがありません</h1>
+            )}
         </div >
     )
 }
