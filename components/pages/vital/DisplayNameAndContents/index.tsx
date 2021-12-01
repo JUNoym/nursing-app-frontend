@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import styles from './index.module.scss'
 
 //api
@@ -7,18 +7,20 @@ import api from '../../../../api/config'
 const index = () => {
     const [content, setContent] = useState([])
 
-    useEffect(() => {
-        api().get('vital_users').then(res => {
-            setContent(res.data)
-            console.log(res.data, "レスポンス")
-        })
+    const getContent = useCallback(async () => {
+        const response = await api().get('/vital_users')
+        setContent(response.data)
     }, [])
+
+
+    useEffect(() => {
+        getContent()
+    }, [getContent])
 
 
 
     return (
         <div className={styles.container}>
-            {console.log(content, "content")}
             {content.map(data => {
                 return (
                     <div className={styles.miniContainer}>
