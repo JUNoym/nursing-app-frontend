@@ -23,8 +23,6 @@ const reducer = (state, action) => {
 }
 
 const index = () => {
-    // const [name, setName] = useState([])
-    // const [loading, setLoading] = useState(true)
 
     const [state, dispatch] = useReducer(reducer, initialState)
 
@@ -33,6 +31,7 @@ const index = () => {
     const fetchData = useCallback(async () => {
         const result = await api().get("/user_care_actions")
         dispatch({ type: "end", data: result.data })
+        console.log(result.data)
     }, [])
 
     useEffect(() => {
@@ -110,7 +109,14 @@ const index = () => {
                             <div className={styles.time}>
                                 {data.care_actions.map(care_action => {
                                     const time = care_action.created_at
-                                    const format_time = `${time[14]}${time[16]}${time[17]}${time[18]}`
+                                    const date = new Date(time)
+                                    const year = date.getFullYear()
+                                    const month = date.getMonth() + 1
+                                    const day = date.getDate()
+                                    const hour = date.getHours()
+                                    const minute = date.getMinutes()
+                                    const second = date.getSeconds()
+
 
                                     return (
                                         <>
@@ -118,7 +124,7 @@ const index = () => {
                                             <p>{(care_action.name)}</p>
                                             <p>{
                                                 (
-                                                    format_time
+                                                    month + "/" + day + " " + hour + ":" + minute
                                                 )
                                             }
                                             </p>
