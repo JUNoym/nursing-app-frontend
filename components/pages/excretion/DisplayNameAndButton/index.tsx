@@ -3,6 +3,9 @@ import styles from './index.module.scss'
 
 //api
 import api from '../../../../api/config'
+// components
+import DisplayTimeAndAction from "../DisplayTimeAndAction"
+
 
 
 const initialState = {
@@ -11,11 +14,12 @@ const initialState = {
 }
 
 const reducer = (state, action) => {
+    console.log(action)
     switch (action.type) {
         case "end": {
             return {
                 ...state,
-                data: action.data,
+                data: action.data.user_care_actions,
                 loading: false
             }
         }
@@ -31,7 +35,7 @@ const index = () => {
     const fetchData = useCallback(async () => {
         const result = await api().get("/user_care_actions")
         dispatch({ type: "end", data: result.data })
-        console.log(result.data)
+        console.log(result.data, "result")
     }, [])
 
     useEffect(() => {
@@ -108,26 +112,17 @@ const index = () => {
                         <div className={styles.timeWrapper}>
                             <div className={styles.time}>
                                 {data.care_actions.map(care_action => {
-                                    const time = care_action.created_at
+                                    const time = care_action.registered_at
                                     const date = new Date(time)
-                                    const year = date.getFullYear()
                                     const month = date.getMonth() + 1
                                     const day = date.getDate()
                                     const hour = date.getHours()
                                     const minute = date.getMinutes()
-                                    const second = date.getSeconds()
 
 
                                     return (
                                         <>
-                                            <p className={styles.module_space}></p>
-                                            <p>{(care_action.name)}</p>
-                                            <p>{
-                                                (
-                                                    month + "/" + day + " " + hour + ":" + minute
-                                                )
-                                            }
-                                            </p>
+                                            <DisplayTimeAndAction care_action={care_action} time={time} />
                                         </>
                                     )
                                 }
