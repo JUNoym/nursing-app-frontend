@@ -1,37 +1,49 @@
 .content {
   .RootBar {
     height: 4.5rem;
-      }
-      .tool {
-        height: inherit;
-        padding: 0;
-        display: flex;
-        justify-content: space-between;
-        h1 {
-          font-size: 1rem;
-        }
-      }
-      .container {
-        height: 100%;
-      }
-      .signupWrapper {
-        .Mroot {
-          background-color: var(--c-white-blue);
-          border-radius: 15px;
-        }
-      }
-      .signin {
-        margin-right: 1rem;
-      }
-      .logo {
-        flex-grow: 1;
-      }
-      .icon {
-        margin-right: -3rem;
-        margin-left: 1rem;
-      }
-      .menu {
-        padding-right: 0;
+    background-color: var(--c-dark-twitter);
+    border-bottom: 1px solid rgb(255, 255, 255);
+    }
+    .tool {
+      height: inherit;
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+      h1 {
+        font-size: 1rem;
       }
     }
-  
+    .container {
+      height: 100%;
+    }
+    .signupWrapper {
+      width: 10rem;
+      display: flex;
+      margin-right: 2rem;
+      .Mroot {
+        background-color: var(--c-white-blue);
+        border-radius: 1.25rem;
+        color: rgb(243, 243, 243);
+      }
+    }
+    .signin {
+      margin-right: 1rem;
+    }
+    .logo {
+      flex-grow: 1;
+    }
+    .icon {
+      margin-right: -3rem;
+      margin-left: 1rem;
+    }
+    .menu {
+      padding-right: 0;
+    }
+   
+    .link {
+      color: var(--c-white-blue);
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
