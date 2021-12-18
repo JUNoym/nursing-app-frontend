@@ -1,5 +1,5 @@
 import Layout from "../components/Layout"
-import Index from '../components/pages/excretion/index'
+import Index from '../components/pages/archive'
 import React from 'react'
 
 

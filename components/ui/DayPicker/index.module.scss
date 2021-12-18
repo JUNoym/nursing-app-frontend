@@ -1,0 +1,27 @@
+.content {
+    background-color: var(--c-dark-twitter);
+    .Wrapper {
+        display: flex;
+        margin: 0rem 0rem;
+        justify-content: space-between;
+    }
+    .Button {
+        background-color: var(--c-white-blue);
+        color: var(--c-white);
+    }
+    .Button {
+        margin: 1rem;
+        background-color: var(--c-white-blue);
+        color: var(--c-white);
+    }
+    input {
+        background-color: var(--c-gray-input);
+        color: var(--c-white);
+        width: 60%;
+        height: 40px;
+        border-radius: 4px;
+        font-size: 14px;
+        margin: 1rem;
+    }
+
+}
