@@ -66,14 +66,15 @@
    
   }
   .Box {
-    background-color: var(--c-gray-input);
+    background-color: var(--c-dark-twitter);
     width: 10rem;
     margin-left: auto;
     margin-right: 2rem;
     margin-top: 3rem;
-   
+    border-radius: 4px;
+    border: 1px solid var(--c-white);
     .Button {
-      background-color: var(--c-gray-input);
+      background-color: var(--c-dark-twitter);
       color: var(--c-white);
       font-size: 1rem;
       font-weight: bold;
