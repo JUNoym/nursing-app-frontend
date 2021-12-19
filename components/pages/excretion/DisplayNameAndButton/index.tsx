@@ -53,16 +53,24 @@ const index = () => {
         })
     }
 
-    const fetchUserCareActions = (user_id, user_name) => {
-        api().get(`users/${user_id}`, {
-        }).then(response => {
-            const care_actions = response.data.map(response => {
-                return { "title": response.name, "time": response.updated_at }
-            })
-            const response_data = { "user_name": user_name, "user_id": user_id, "care_actions": care_actions }
-            return response_data
-        })
+    const deleteAction = (user_id) => {
+        api().delete(`/users/${user_id}`, {
+        }).then(res => {
+            fetchData()
+        }
+        )
     }
+
+    // const fetchUserCareActions = (user_id, user_name) => {
+    //     api().get(`users/${user_id}`, {
+    //     }).then(response => {
+    //         const care_actions = response.data.map(response => {
+    //             return { "title": response.name, "time": response.updated_at }
+    //         })
+    //         const response_data = { "user_name": user_name, "user_id": user_id, "care_actions": care_actions }
+    //         return response_data
+    //     })
+    // }
 
     if (state.loading) {
         return <h1>Loading...</h1>
@@ -82,7 +90,12 @@ const index = () => {
                             <h1>{data.user_name}様</h1>
 
                             <div className={styles.buttonContainer}>
-                                <button className={styles.deleteButton}>
+                                <button
+                                    className={styles.deleteButton}
+                                    onClick={() => {
+                                        deleteAction(data.user_id)
+                                    }}
+                                >
                                     <DeleteIcon />
                                 </button>
                                 <button
