@@ -14,10 +14,22 @@ import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import LogoutIcon from '@material-ui/icons/ExitToApp';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
+import { Modal } from '@material-ui/core'
+import Box from '@material-ui/core/Box'
+
 
 interface Props { }
 
 const Header = (props: Props) => {
+    const [open, setOpen] = React.useState(false)
+    const handleOpen = () => {
+        setOpen(true)
+        console.log('open')
+    }
+    const handleClose = () => {
+        setOpen(false)
+    }
+
 
     return (
         <div className={styles.content}>
@@ -54,18 +66,58 @@ const Header = (props: Props) => {
                             <Button
                                 variant="outlined"
                                 className={styles.MenuButton}
+                                onClick={() => {
+                                    console.log('click')
+                                    handleOpen()
+                                }}
                             >
                                 <Link href="/">
                                     <MenuIcon fontSize="large" className={styles.MenuIcon} />
                                 </Link>
                             </Button>
 
+
                         </div>
-
-
-
-
                     </Toolbar>
+
+                    <Modal
+                        hideBackdrop
+                        open={open}
+                        onClose={handleClose}
+                    >
+                        <Box className={styles.Box}>
+                            <Link href="/search">
+                                <Button
+                                    onClick={handleClose}
+                                    className={styles.Button}
+                                >
+                                    <SearchIcon fontSize="large" className={styles.icon1} />
+                                    <div className={styles.text}>
+                                        検索
+                                    </div>
+                                </Button>
+                            </Link>
+                            <Link href="/archive">
+                                <Button
+                                    onClick={handleClose}
+                                    className={styles.Button}
+                                >
+                                    <CalendarTodayIcon fontSize="large" className={styles.icon} />
+                                    アーカイブ
+                                </Button>
+                            </Link>
+                            <Link href="/excretion">
+                                <Button
+                                    onClick={handleClose}
+                                    className={styles.Button}
+                                >
+                                    <LogoutIcon fontSize="large" className={styles.icon} />
+                                    ログアウト
+                                </Button>
+                            </Link>
+                        </Box>
+                    </Modal>
+
 
                 </Container>
             </AppBar>

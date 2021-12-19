@@ -36,6 +36,7 @@
       font-size: 1rem;
       font-weight: bold;
       text-decoration: none;
+      
       .MenuButton {
         display: none;
         .MenuIcon {
@@ -62,6 +63,32 @@
         }
       }
     } 
+   
+  }
+  .Box {
+    background-color: var(--c-gray-input);
+    width: 10rem;
+    margin-left: auto;
+    margin-right: 2rem;
+    margin-top: 3rem;
+   
+    .Button {
+      background-color: var(--c-gray-input);
+      color: var(--c-white);
+      font-size: 1rem;
+      font-weight: bold;
+      width: 100%;
+      .text {
+        margin-left: 1.4rem;
+      }
+      .icon {
+        margin-right: 1rem;
+      }
+      .icon1 {
+       margin-left: -3rem;
+      }
+
+    }
   }
 
   
