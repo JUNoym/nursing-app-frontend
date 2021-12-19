@@ -1,12 +1,17 @@
 .content {
     justify-content: space-between;
     .form {
-        background-color: var(--c-gray-input);
         margin: 0.5rem 0.5rem;
         padding: 0 0;
-        .text {
-            border: 1px solid var(--c-white);
-            padding-left: 1rem;
+        .input {
+            background-color: var(--c-gray-input);
+            color: var(--c-white);
+            width: 100%;
+            border-radius: 4px;
+            font-size: 14px;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            text-decoration: none;
         }
     }
     .ButtonWrapper {

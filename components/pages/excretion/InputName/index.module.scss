@@ -4,11 +4,13 @@
     .form {
         width: 70%;
         input {
-            width: 80%;
+            width: 85%;
             height: 40px;
             border-radius: 4px;
             font-size: 14px;
-            margin: 1rem;
+            margin: 1rem 2.5rem;
+            background-color: var(--c-gray-input);
+            color: var(--c-white);
         }
         
     }

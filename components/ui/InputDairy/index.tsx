@@ -21,27 +21,19 @@ const InputDairy = props => {
     return (
         <div className={styles.content}>
             <div className={styles.form}>
-                <TextField
-                    classes={{ root: styles.text }}
-                    fullWidth
+                <input
+                    className={styles.input}
                     required
                     placeholder="名前を入力"
-                    margin="none"
-                    variant="standard"
                     id="outlined-name"
                     onChange={(e) => setName(e.target.value)}
                     value={name}
                 />
-                <TextField
-                    classes={{ root: styles.text }}
-                    fullWidth
+                <input
+                    className={styles.input}
                     required
                     placeholder="利用者の様子を記録"
-                    margin="none"
-                    variant="standard"
                     id="outlined-name"
-                    multiline={true}
-                    minRows='3'
                     onChange={(e) => setText(e.target.value)}
                     value={text}
                 />
