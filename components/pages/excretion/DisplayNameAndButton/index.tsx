@@ -6,6 +6,9 @@ import api from '../../../../api/config'
 // components
 import DisplayTimeAndAction from "../DisplayTimeAndAction"
 
+// mui
+import DeleteIcon from '@material-ui/icons/Delete'
+
 
 
 const initialState = {
@@ -77,7 +80,11 @@ const index = () => {
                     <div className={styles.miniContainer}>
                         <div className={styles.content}>
                             <h1>{data.user_name}様</h1>
+
                             <div className={styles.buttonContainer}>
+                                <button className={styles.deleteButton}>
+                                    <DeleteIcon />
+                                </button>
                                 <button
                                     onClick={
                                         () => {
