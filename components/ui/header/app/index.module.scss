@@ -1,3 +1,4 @@
+@import '/styles/mixins.scss';
 .content {
   .RootBar {
     height: 4.5rem;
@@ -9,25 +10,19 @@
       padding: 0;
       display: flex;
       justify-content: space-between;
-      h1 {
+      @include mq(sm) {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      h3 {
         font-size: 1rem;
+        @include mq(sm) {
+          margin-left: -4rem;
+        }
       }
     }
     .container {
       height: 100%;
-    }
-    .signupWrapper {
-      width: 10rem;
-      display: flex;
-      margin-right: 2rem;
-      .Mroot {
-        background-color: var(--c-white-blue);
-        border-radius: 1.25rem;
-        color: rgb(243, 243, 243);
-      }
-    }
-    .signin {
-      margin-right: 1rem;
     }
     .logo {
       flex-grow: 1;
@@ -41,8 +36,32 @@
       font-size: 1rem;
       font-weight: bold;
       text-decoration: none;
+      .MenuButton {
+        display: none;
+        .MenuIcon {
+          color: var(--c-white);
+        }
+        @include mq(sm) {
+          display: flex;
+        }
+      }
+      .button {
+        @include mq(sm) {
+          display: none;
+        }
+      }
+      @include mq(sm) {
+        width: 0%;
+        background-color: rgb(130, 238, 139); 
+      }
       .icon {
         color: var(--c-white);
+        @include mq(sm) {
+          display: none;
+          width: 0%;
+        }
       }
-    }
+    } 
   }
+
+  

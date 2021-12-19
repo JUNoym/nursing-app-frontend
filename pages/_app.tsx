@@ -6,6 +6,7 @@ import { ThemeProvider, StylesProvider } from '@material-ui/core/styles'
 
 // global css
 import '../styles/global.scss'
+import '../styles/mixins.scss'
 
 export default function MyApp({ Component, pageProps }) {
     return (
