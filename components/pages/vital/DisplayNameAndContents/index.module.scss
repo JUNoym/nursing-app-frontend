@@ -17,10 +17,28 @@
     }
     .miniContainer{
         border: var(--c-silver) 1px solid;
-        .content {
-            display: flex;
-            justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
+        .name {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--c-white);
+            margin-left: 1rem;
             padding: .5rem 1rem;
+        }
+        .content {
+            padding: .5rem 1rem;
+            display: flex;
+            margin-right: 1rem;
+            .deleteButton {
+                background-color: transparent;
+                color: var(--c-white);
+                border: none;
+                margin-right: 1.5rem;
+            }
+            p {
+                margin: 0.5rem
+            }
             .buttonContainer {
                 display: flex;
                 justify-content:space-around;

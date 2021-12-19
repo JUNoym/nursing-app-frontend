@@ -4,6 +4,9 @@ import styles from './index.module.scss'
 //api
 import api from '../../../../api/config'
 
+// mui
+import DeleteIcon from '@material-ui/icons/Delete'
+
 const initialState = {
     data: [],
     loading: true,
@@ -33,6 +36,12 @@ const index = () => {
         })
     }, [])
 
+    const deleteContent = useCallback(async (id) => {
+        const response = await api().delete(`/vital_users/${id}`)
+        getContent()
+    }, [getContent])
+
+
 
     useEffect(() => {
         getContent()
@@ -52,8 +61,18 @@ const index = () => {
             {(state.data.map(d => {
                 return (
                     <div className={styles.miniContainer}>
-                        <div className={styles.content}>
+                        <div className={styles.name}>
                             <h1>{d.name}様</h1>
+                        </div>
+                        <div className={styles.content}>
+                            <button
+                                className={styles.deleteButton}
+                                onClick={async () => {
+                                    deleteContent(d.id)
+                                }}
+                            >
+                                <DeleteIcon />
+                            </button>
                             <p>KT:{d.kt}</p>
                             <p>BP: {d.bp}</p>
                             <p>P: {d.plus}回/m</p>
