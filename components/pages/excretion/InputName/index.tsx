@@ -3,6 +3,7 @@ import styles from './index.module.scss'
 
 // material-ui
 import Button from '@material-ui/core/Button'
+import SendIcon from '@material-ui/icons/Send'
 
 //api
 import api from '../../../../api/config'
@@ -53,6 +54,16 @@ const index = () => {
                     }}
                 >
                     利用者を追加
+                </Button>
+                <Button
+                    classes={{ root: styles.ButtonPhone }}
+                    variant="contained"
+                    disabled={!name.name}
+                    onClick={() => {
+                        saveName()
+                    }}
+                >
+                    <SendIcon className={styles.icon} />
                 </Button>
             </div>
         </div>

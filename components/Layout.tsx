@@ -21,10 +21,9 @@ const Layout = (props: Props) => (
     </Head>
     <Header />
     {props.children}
-    <footer>
-      <hr />
-      <span>I'm here to stay (Footer)</span>
-    </footer>
+    {/* <footer>
+      <span>大山純矢</span>
+    </footer> */}
   </div >
 )
 

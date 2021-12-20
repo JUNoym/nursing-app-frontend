@@ -1,8 +1,12 @@
+@import '/styles/mixins.scss';
 .content {
     display: flex;
     justify-content: space-between;
     .form {
         width: 70%;
+        @include mq(sm) {
+            margin-right: 4rem;
+        }
         input {
             width: 85%;
             height: 40px;
@@ -11,11 +15,13 @@
             margin: 1rem 2.5rem;
             background-color: var(--c-gray-input);
             color: var(--c-white);
+           
         }
         
     }
     .ButtonWrapper {
-        margin: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
         .Button {
             border: none;
             background-color: var(--c-white-blue);
@@ -24,6 +30,24 @@
             font-weight: bold;
             border-radius: 0.625rem;
             cursor: pointer;
+            margin-right: 2rem;
+            @include mq(sm) {
+                display: none;
+            }
+        }
+        .ButtonPhone {
+            display: none;
+            @include mq(sm) {
+                display: block;
+                border: none;
+                background-color: var(--c-white-blue);
+                color: var(--c-white);
+                font-size: 1.125rem;
+                font-weight: bold;
+                border-radius: 0.625rem;
+                cursor: pointer;
+                margin-right: 1rem;
+            }
         }
     }
 }

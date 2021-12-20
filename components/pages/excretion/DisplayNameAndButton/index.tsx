@@ -17,7 +17,6 @@ const initialState = {
 }
 
 const reducer = (state, action) => {
-    console.log(action)
     switch (action.type) {
         case "end": {
             return {
@@ -91,32 +90,74 @@ const index = () => {
 
                             <div className={styles.buttonContainer}>
                                 <button
-                                    className={styles.deleteButton}
                                     onClick={() => {
                                         deleteAction(data.user_id)
                                     }}
+                                    className={styles.deleteButton}
                                 >
                                     <DeleteIcon />
+                                </button>
+
+                                <button
+                                    onClick={
+                                        () => {
+                                            saveAction(data.user_id, 1)
+                                        }
+                                    }
+                                    className={styles.button}
+                                >
+                                    排便
                                 </button>
                                 <button
                                     onClick={
                                         () => {
                                             saveAction(data.user_id, 1)
                                         }
-                                    }>排便</button>
+                                    }
+                                    className={styles.button}
+                                >
+                                    排便
+                                </button>
                                 <button
                                     onClick={
                                         () => {
                                             saveAction(data.user_id, 2)
                                         }
-                                    }>排尿</button>
+                                    }
+                                    className={styles.buttonPhone}
+                                >
+                                    💩
+                                </button>
+
+                                <button
+                                    onClick={
+                                        () => {
+                                            saveAction(data.user_id, 2)
+                                        }
+                                    }
+                                    className={styles.buttonPhone}
+                                >
+                                    💧
+                                </button>
                                 <button
                                     onClick={
                                         () => {
                                             saveAction(data.user_id, 3)
                                         }
-                                    }>
+                                    }
+                                    className={styles.button}
+                                >
                                     パッド交換
+                                </button>
+                                <button
+                                    onClick={
+                                        () => {
+                                            saveAction(data.user_id, 3)
+                                        }
+                                    }
+                                    className={styles.buttonPhone}
+                                >
+                                    🩳
                                 </button>
 
                                 <button
@@ -124,8 +165,20 @@ const index = () => {
                                         () => {
                                             saveAction(data.user_id, 4)
                                         }
-                                    }>
+                                    }
+                                    className={styles.button}
+                                >
                                     失禁
+                                </button>
+                                <button
+                                    onClick={
+                                        () => {
+                                            saveAction(data.user_id, 4)
+                                        }
+                                    }
+                                    className={styles.buttonPhone}
+                                >
+                                    ❌
                                 </button>
                             </div>
                         </div>
