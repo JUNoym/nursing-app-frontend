@@ -22,20 +22,40 @@ import api from '../../../api/config'
 
 const index = () => {
     const router = useRouter()
-    const [data, setData] = useState([])
+    const [data, setData] = useState()
 
     useEffect(() => {
         const fetchData = async () => {
             const result = await api().get(`/archives/search_name?name=${router.query.name}`)
-            setData(result.data)
+            // console.log(result.data, 'result')
+            const data = result.data
+            const array = Object.entries(data)
+            const array2 = array.map(([key, value]) => {
+                return value
+            })
+            // console.log(array2, 'array2')
+            const array3 = array2.flat()
+            console.log(array3.flat(), 'array3')
+
+            // setData(array3)
+            const list = array3.map(obj => {
+                const 体調 = [obj.name, obj.kt, obj.bp, obj.plus, obj.spo2]
+                // const excretion = [obj.user_name, obj.care_actions]
+                return { 体調 }
+            })
+            const list2 = array3.map(obj => {
+                const 排泄 = [obj.user_name, obj.care_actions]
+                return { 排泄 }
+            })
+            // console.log(...list, 'list')
+            // console.log(...list2, 'list2')
+            const list3 = [...list, ...list2]
+            // console.log(list3, 'list3')
+            setData(...list3)
         }
+
         fetchData()
     }, [])
-
-
-    for (const [key, value] of Object.entries(data)) {
-        console.log(value, "バリュ０")
-    }
 
     return (
         <div className={styles.content}>
@@ -45,22 +65,15 @@ const index = () => {
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         {
-                            (() => {
-                                for (const [key, value] of Object.entries(data)) {
-                                    return (
-                                        <>
-                                            <h1>{JSON.stringify(value)}</h1>
-                                        </>
-                                    )
-                                }
-                            })()
-
+                            <h1>{JSON.stringify(data)}</h1>
                         }
                     </Grid>
                 </Grid>
             </Container>
-        </div >
+        </div>
     )
 }
+
+
 
 export default index
