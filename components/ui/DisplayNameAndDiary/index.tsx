@@ -72,6 +72,7 @@ const DisplayNameAndDiary: VFC = () => {
                   <p>{text}</p>
                   <Button>
                     <MoreVertIcon
+                      className={styles.moreIcon}
                       onClick={() => {
                         handleClickOpen();
                         setSelectedId(key);

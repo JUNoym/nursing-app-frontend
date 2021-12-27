@@ -4,15 +4,19 @@
     overflow: scroll;
 }
 .content {
+    border: 1px solid var(--c-white);
     display: flex;
     width: 100%;
     flex-wrap: wrap;
- 
+    .moreIcon {
+        color: var(--c-silver);
+    }
+    
     .container {
         width: 100%;
         display: flex;
         justify-content: space-between;
-        background-color: var(--c-gray-input);
+        background-color: var(--c-dark-twitter);
     }
     
     .Wrapper {
