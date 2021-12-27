@@ -28,7 +28,7 @@ const Index = props => {
                 <input
                     type="date"
                     name="name"
-                    onChange={(e) => setDate(e.target.value)}
+                    onChange={(e: any) => setDate(e.target.value)}
                 />
 
                 <Button
