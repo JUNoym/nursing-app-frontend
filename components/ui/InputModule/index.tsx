@@ -17,9 +17,13 @@ const Index = () => {
     const [search, setSearch] = useState('')
 
     const handleSearch = async () => {
+
         router.push({
             pathname: '/result',
-            query: { name: search }
+            query: {
+                type: 'name',
+                q: search
+            }
         })
     }
 

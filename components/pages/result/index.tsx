@@ -18,6 +18,7 @@ import DisplayNameAndButton from '../excretion/DisplayNameAndButton'
 import InputName from '../excretion/InputName'
 
 import api from '../../../api/config'
+import { InsertEmoticon } from '@material-ui/icons'
 
 
 const index = () => {
@@ -26,34 +27,19 @@ const index = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await api().get(`/archives/search_name?name=${router.query.name}`)
-            // console.log(result.data, 'result')
-            const data = result.data
-            const array = Object.entries(data)
-            const array2 = array.map(([key, value]) => {
-                return value
-            })
-            // console.log(array2, 'array2')
-            const array3 = array2.flat()
-            console.log(array3.flat(), 'array3')
-
-            // setData(array3)
-            const list = array3.map(obj => {
-                const 体調 = [obj.name, obj.kt, obj.bp, obj.plus, obj.spo2]
-                // const excretion = [obj.user_name, obj.care_actions]
-                return { 体調 }
-            })
-            const list2 = array3.map(obj => {
-                const 排泄 = [obj.user_name, obj.care_actions]
-                return { 排泄 }
-            })
-            // console.log(...list, 'list')
-            // console.log(...list2, 'list2')
-            const list3 = [...list, ...list2]
-            // console.log(list3, 'list3')
-            setData(...list3)
+            console.log(router.query)
+            if (router.query.type == 'name') {
+                const res = await api().get(`/archives/search?type=name&q=${router.query.q}`)
+                console.log(res.data)
+                setData(res.data)
+            }
+            // http://localhost:3030/api/v1/archives/search/?type=date&q=2021-12-27
+            else if (router.query.type == 'date') {
+                const res = await api().get(`/archives/search?type=date&q=${router.query.q}`)
+                console.log(res.data)
+                setData(res.data)
+            }
         }
-
         fetchData()
     }, [])
 
@@ -65,12 +51,12 @@ const index = () => {
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         {
-                            <h1>{JSON.stringify(data)}</h1>
+                            <h1>{JSON.stringify({ data })}</h1>
                         }
                     </Grid>
                 </Grid>
             </Container>
-        </div>
+        </div >
     )
 }
 
