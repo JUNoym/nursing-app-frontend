@@ -17,7 +17,6 @@ const initialState = {
 }
 
 const reducer = (state, action) => {
-    console.log(action)
     switch (action.type) {
         case "end": {
             return {
@@ -38,7 +37,6 @@ const index = () => {
     const fetchData = useCallback(async () => {
         const result = await api().get("/user_care_actions")
         dispatch({ type: "end", data: result.data })
-        console.log(result.data, "result")
     }, [])
 
     useEffect(() => {
