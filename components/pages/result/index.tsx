@@ -13,32 +13,34 @@ import { HeadlineLink } from '../../ui/HeadlineLink'
 
 import api from '../../../api/config'
 
+type Array = {
+    info: string[]
+    type: string
+    user_name: string
+}[]
 
 const index = () => {
     const router = useRouter()
-    const [data, setData] = useState()
+    const [data, setData] = useState<Array>()
     const [name, setName] = useState()
     const [info, setInfo] = useState()
 
+
+
     useEffect(() => {
         const fetchData = async () => {
-            let array_name: any = []
-            let array_info: any = []
             if (router.query.type == 'name') {
                 const res = await api().get(`/archives/search?type=name&q=${router.query.q}`)
-                for (let i of res.data.result) {
-                    const name = i.user_name
-                    const info = i.info
-                    array_name.push(name)
-                    array_info.push(info)
-                    setName(array_name)
-                    setInfo(array_info)
-                }
+                console.log(res.data, 'res.data')
+                setData(res.data)
+                console.log(data, 'data') // → ここにデータが入ってこないのが問題
+
             }
             // http://localhost:3030/api/v1/archives/search/?type=date&q=2021-12-27
             else if (router.query.type == 'date') {
                 const res = await api().get(`/archives/search?type=date&q=${router.query.q}`)
                 setData(res.data)
+
             }
         }
         fetchData()
@@ -52,9 +54,7 @@ const index = () => {
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         {
-                            <>
-                                <DisplayName key={index} name={name} info={info} />
-                            </>
+                            <p>{JSON.stringify(data)}</p>
                         }
                     </Grid>
                 </Grid>

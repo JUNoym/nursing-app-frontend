@@ -3,10 +3,10 @@ import styles from './index.module.scss'
 
 
 const index = (props) => {
-    const { name, info } = props
+    const { user_name } = props
     return (
         <div className={styles.content}>
-            <p>{name}</p>
+            <p>{user_name}</p>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, ChangeEvent } from 'react'
 import styles from './index.module.scss'
 
 import api from '../../../api/config'
@@ -9,8 +9,10 @@ import Button from '@material-ui/core/Button'
 
 
 
-const Index = props => {
-    const [date, setDate] = useState()
+
+
+const Index = () => {
+    const [date, setDate] = useState('')
 
     const handleClick = (date) => {
         router.push({
@@ -28,7 +30,7 @@ const Index = props => {
                 <input
                     type="date"
                     name="name"
-                    onChange={(e: any) => setDate(e.target.value)}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setDate(e.target.value)}
                 />
 
                 <Button
