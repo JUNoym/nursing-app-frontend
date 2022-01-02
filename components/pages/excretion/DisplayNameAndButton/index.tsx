@@ -8,6 +8,10 @@ import DisplayTimeAndAction from "../DisplayTimeAndAction"
 
 // mui
 import DeleteIcon from '@material-ui/icons/Delete'
+import ja from 'date-fns/locale/ja'
+import { parseISO, format } from 'date-fns'
+
+
 
 
 
@@ -31,6 +35,7 @@ const reducer = (state, action) => {
 const index = () => {
 
     const [state, dispatch] = useReducer(reducer, initialState)
+    const date = format(new Date(), 'MM月dd日の排泄記録', { locale: ja })
 
 
 
@@ -71,7 +76,7 @@ const index = () => {
 
     return (
         <div className={styles.container}>
-
+            <h1>{date}</h1>
             {state.data.map(data => {
                 return (
                     <div className={styles.miniContainer}>
