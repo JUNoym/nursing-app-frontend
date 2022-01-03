@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react'
 import Head from 'next/head'
+import styles from './index.module.scss'
+
 
 // component
 // import Header from '../components/ui/header/service'
@@ -21,10 +23,10 @@ const Layout = (props: Props) => (
     </Head>
     <Header />
     {props.children}
-    <footer>
+    {/* <footer className={styles.footer}>
       <hr />
       <span>I'm here to stay (Footer)</span>
-    </footer>
+    </footer> */}
   </div >
 )
 
