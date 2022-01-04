@@ -28,6 +28,7 @@ const Index = () => {
                                     className={styles.textField}
                                     id="outlined-helperText"
                                     label="パスワードを入力"
+                                    type='password'
                                 />
 
                                 <Button
