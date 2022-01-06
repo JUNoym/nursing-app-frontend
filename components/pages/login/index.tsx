@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { HtmlHTMLAttributes } from 'react'
 import styles from './index.module.scss'
 
 // material-ui
@@ -11,17 +11,19 @@ import Button from '@material-ui/core/Button'
 
 
 
-const Index = () => {
+const Index = (props) => {
+    const { loggedInStatus, setLoggedInStatus } = props
 
     return (
         <div className={styles.content}>
             <CssBaseline />
             <Container maxWidth="sm" classes={{ root: styles.container }}>
+                <p>password:qqqq</p>
                 <div className={styles.form}>
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={1}>
                             <Grid item xs={12}>
-                                <h1>パスワードを入力して入室</h1>
+                                <h1>パスワードを入力して入室 </h1>
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
@@ -29,16 +31,10 @@ const Index = () => {
                                     id="outlined-helperText"
                                     label="パスワードを入力"
                                     type='password'
-                                />
-
-                                <Button
-                                    classes={{ root: styles.Button }}
-                                    variant="contained"
-                                    onClick={() => {
+                                    onChange={(e) => {
+                                        e.target.value === "qqqq" ? setLoggedInStatus("ログイン中") : setLoggedInStatus("未ログイン")
                                     }}
-                                >
-                                    入室
-                                </Button>
+                                />
                             </Grid>
 
 

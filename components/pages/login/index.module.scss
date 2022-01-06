@@ -7,6 +7,10 @@
             color: var(--c-white);
             font-size: 1rem;
         }
+        p {
+            color: var(--c-white);
+            font-size: 1rem;
+        }
     }
     .ButtonWrapper {
         margin: 1rem 0rem;
@@ -40,8 +44,7 @@
             background-color:var(--c-silver);
         }
         .textField {
-            width: 70%;
-            margin: 1rem 1rem 2rem 2rem;
+            width: 100%;
             border: 1px solid var(--c-white);
             background-color: var(--c-gray-input);
             color: var(--c-white);
