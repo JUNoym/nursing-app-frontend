@@ -15,9 +15,9 @@ import { HeadlineLink } from '../../ui/HeadlineLink'
 import api from '../../../api/config'
 
 type Array = {
-    info: string[]
-    type: string
-    user_name: string
+    info?: string[]
+    type?: string
+    user_name?: string
 }[]
 
 const index = () => {
@@ -29,20 +29,18 @@ const index = () => {
         const fetchData = async () => {
             if (router.query.type == 'name') {
                 const res = await api().get(`/archives/search?type=name&q=${router.query.q}`)
-                console.log(res.data.result, 'res.data')
-                setData(res.data.result)
-                // {type: 'vital', user_name: 'isomura', info: {…}}
-                var array = Object.entries(data)
-                console.log(array, 'array')
-                setData(array)
+                var array = Object.entries(res.data.result).map((data: Array) => {
+                    return [data[1].user_name, data[1].info]
+                })
+                setData(array as Array)
             }
             // http://localhost:3030/api/v1/archives/search/?type=date&q=2021-12-27
             else if (router.query.type == 'date') {
-                const res = await api().get(`/archives/search?type=date&q=${router.query.q}`)
-                setData(res.data)
-                var array = Object.entries(data)
-                console.log(array, 'array')
-                setData(array)
+                // const res = await api().get(`/archives/search?type=date&q=${router.query.q}`)
+                // setData(res.data)
+                // var array = Object.entries(data)
+                // console.log(array, 'array')
+                // setData(array)
 
             }
 
@@ -62,12 +60,13 @@ const index = () => {
                             // 三項演算子
                             data ? data.map((item, index) => {
                                 return (
-                                    <DisplayName
-                                        key={index}
-                                        info={item.info}
-                                        type={item.type}
-                                        user_name={item.user_name}
-                                    />
+                                    <>
+                                        <h1>{item[0]}</h1>
+                                        <DisplayName
+                                            key={index}
+                                            info={item[1]}
+                                        />
+                                    </>
                                 )
                             }) : <p>データがありません</p>
 
