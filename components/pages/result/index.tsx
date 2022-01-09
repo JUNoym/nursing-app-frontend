@@ -36,11 +36,11 @@ const index = () => {
             }
             // http://localhost:3030/api/v1/archives/search/?type=date&q=2021-12-27
             else if (router.query.type == 'date') {
-                // const res = await api().get(`/archives/search?type=date&q=${router.query.q}`)
-                // setData(res.data)
-                // var array = Object.entries(data)
-                // console.log(array, 'array')
-                // setData(array)
+                const res = await api().get(`/archives/search?type=date&q=${router.query.q}`)
+                var array = Object.entries(res.data.result).map((data: Array) => {
+                    return [data[1].user_name, data[1].info]
+                })
+                setData(array as Array)
 
             }
 
