@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from './index.module.scss'
 import { useRouter } from 'next/router'
-import useSWR from 'swr'
 
 // material-ui
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -23,7 +22,6 @@ type Array = {
 const index = () => {
     const router = useRouter()
     const [data, setData] = useState<Array>()
-    // const { data, error } = useSWR(`api().get('/search?q=${router.query.q}')`)
 
     useEffect(() => {
         const fetchData = async () => {
