@@ -37,7 +37,12 @@ const Header = (props: Props) => {
                             </Button>
                             <Button variant="outlined">
                                 <Link href="/">
-                                    <LogoutIcon fontSize="large" className={styles.icon} />
+                                    <LogoutIcon fontSize="large" className={styles.icon} onClick={
+                                        () => {
+                                            localStorage.clear()
+                                            window.location.reload()
+                                        }
+                                    } />
                                 </Link>
                             </Button>
                         </div>

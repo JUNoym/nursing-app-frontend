@@ -18,7 +18,7 @@ const Index = (props) => {
         <div className={styles.content}>
             <CssBaseline />
             <Container maxWidth="sm" classes={{ root: styles.container }}>
-                <p>password:qqqq</p>
+                <p>password : qqqq</p>
                 <div className={styles.form}>
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={1}>
