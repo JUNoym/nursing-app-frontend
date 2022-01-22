@@ -11,7 +11,7 @@ const index = (props) => {
                 // data[0] === 'care_actions'の時排泄記録を表示する
                 if (data[0] === 'care_actions') {
                     return (
-                        <div key={index}>
+                        <div key={index} className={styles.data}>
                             {Object.entries(data[1]).map((data, index) => {
                                 return <h1>{data[1].title}</h1>
                             })}
@@ -21,7 +21,7 @@ const index = (props) => {
                 // data[0] === 'care_actions'以外の時はバイタル記録を表示する
                 else {
                     return (
-                        <div key={index}>
+                        <div key={index} className={styles.data}>
                             <h1>{data[1]}</h1>
                         </div>
                     )
