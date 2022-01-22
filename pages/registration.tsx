@@ -16,9 +16,7 @@ const registration = () => {
         api().post('/registrations', data,
             { withCredentials: true },
         ).then(res => {
-            console.log(res)
         }).catch(e => {
-            console.log(e)
         })
         event.preventDefault()
         window.location.reload()

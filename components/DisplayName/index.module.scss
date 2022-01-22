@@ -1,6 +1,10 @@
 .content {
     display: flex;
     border: 1px solid var(--c-gray);
+    .dataWrapper {
+        width: 100%;
+        border: 1px solid var(--c-white);
+    }
     .data {
         display: flex;
         justify-content: center;
@@ -8,6 +12,9 @@
         height: 100%;
         background-color: var(--c-dark);
         border: 2px solid var(--c-white);
+        h1 {
+            padding: 0.5rem;
+        }
     }
     p {
         font-size: 1.5rem;
