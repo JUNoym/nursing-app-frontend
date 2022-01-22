@@ -7,10 +7,10 @@ import ja from 'date-fns/locale/ja'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid'
 
 // コンポーネント
-import { HeadlineLink } from '../../ui/HeadlineLink';
+import { HeadlineLink } from '../../ui/HeadlineLink'
 import InputName from '../vital/InputName'
 import DisplayNameAndContents from '../vital/DisplayNameAndContents'
 
