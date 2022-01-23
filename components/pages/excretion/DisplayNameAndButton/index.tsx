@@ -76,7 +76,6 @@ const index = () => {
 
     return (
         <div className={styles.container}>
-            <h1>{date}</h1>
             {state.data.map(data => {
                 return (
                     <div className={styles.miniContainer}>
