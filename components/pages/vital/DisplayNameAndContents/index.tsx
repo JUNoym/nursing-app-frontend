@@ -53,7 +53,7 @@ const index = () => {
     }
 
     if (state.data.length === 0) {
-        return <h1>no data</h1>
+        return <h1>No data</h1>
     }
 
     return (
