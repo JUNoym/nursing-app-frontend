@@ -8,12 +8,18 @@ const index = (props) => {
         <div className={styles.content}>
             {Object.entries(info).map((data, index) => {
                 // data[0] === 'care_actions'の時排泄記録を表示する
+                console.log(data[1])
                 if (data[0] === 'care_actions') {
                     return (
                         <div className={styles.dataWrapper}>
                             <div key={index} className={styles.data}>
                                 {Object.entries(data[1]).map((data, index) => {
-                                    return <h1>{data[1].title}</h1>
+                                    return (
+                                        <>
+                                            <h1>{data[1].title}</h1>
+                                            <p className={styles.time}>{data[1].registered_at}</p>
+                                        </>
+                                    )
                                 })}
                             </div>
                         </div>
