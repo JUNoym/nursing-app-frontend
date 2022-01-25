@@ -49,7 +49,7 @@ const index = () => {
 
 
     if (state.loading) {
-        return <h1>loading...</h1>
+        return <h1>Loading...</h1>
     }
 
     if (state.data.length === 0) {
