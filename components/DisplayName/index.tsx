@@ -31,7 +31,6 @@ const index = (props) => {
                 else {
                     return (
                         <div className={styles.dataWrapper}>
-                            {console.log(data)}
                             <div key={index} className={styles.data}>
                                 <h1>{data[1]}</h1>
                             </div>
