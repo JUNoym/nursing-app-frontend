@@ -13,10 +13,13 @@ const index = (props) => {
                         <div className={styles.dataWrapper}>
                             <div key={index} className={styles.data}>
                                 {Object.entries(data[1]).map((data, index) => {
+                                    const time = data[1].registered_at
+                                    const date = time.slice(0, 10).split('T')
+                                    const care_time = time.slice(11, 16).split('T')
                                     return (
                                         <>
                                             <h1>{data[1].title}</h1>
-                                            <p className={styles.time}>{data[1].registered_at}</p>
+                                            <p className={styles.time}>{date + " " + care_time}</p>
                                         </>
                                     )
                                 })}
@@ -28,6 +31,7 @@ const index = (props) => {
                 else {
                     return (
                         <div className={styles.dataWrapper}>
+                            {console.log(data)}
                             <div key={index} className={styles.data}>
                                 <h1>{data[1]}</h1>
                             </div>
