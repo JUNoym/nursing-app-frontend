@@ -28,7 +28,7 @@ const Index = () => {
             <div className={styles.content}>
                 <input
                     type="text"
-                    placeholder="利用者を追加"
+                    placeholder="名前で検索"
                     name="name"
                     value={search}
                     onChange={e => setSearch(e.target.value)}
