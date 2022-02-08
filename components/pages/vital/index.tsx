@@ -7,27 +7,25 @@ import ja from 'date-fns/locale/ja'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid'
 
 // コンポーネント
-import { HeadlineLink } from '../../ui/HeadlineLink';
+import { HeadlineLink } from '../../ui/HeadlineLink'
 import InputName from '../vital/InputName'
-import DisplayNameAndVontents from '../vital/DisplayNameAndContents'
+import DisplayNameAndContents from '../vital/DisplayNameAndContents'
 
 
 const Index = () => {
-    const [text, setText] = useState('')
-    const [name, setName] = useState('')
-    const date = format(new Date(), 'MM月dd日の日誌', { locale: ja })
+    const date = format(new Date(), 'MM月dd日のバイタル記録', { locale: ja })
     return (
         <div className={styles.content}>
             <CssBaseline />
             <Container maxWidth="sm" classes={{ root: styles.container }}>
                 <HeadlineLink />
-
+                <h1>{date}</h1>
                 <div className={styles.form}>
                     <Box sx={{ flexGrow: 1 }}>
-                        <DisplayNameAndVontents />
+                        <DisplayNameAndContents />
                         <Grid container spacing={1}>
                             <Grid item xs={12}>
                                 <h1>バイタルチェック</h1>

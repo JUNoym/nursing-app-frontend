@@ -1,11 +1,27 @@
 .content {
     background-color: var(--c-dark-twitter);
-    min-height: 100vh;
+    min-height: 100vh;    
+    p {
+        color: var(--c-white);
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+    }
     .container {
         padding: 12rem 0;
         h1 {
             color: var(--c-white);
             font-size: 1rem;
+        }
+        .name_and_date {
+            display: flex;
+            justify-content: space-between;
+            p {
+                color: var(--c-white);
+                font-size: 1rem;
+                padding: .5rem;
+            }
         }
     }
     .ButtonWrapper {

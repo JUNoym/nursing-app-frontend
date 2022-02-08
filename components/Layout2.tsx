@@ -4,9 +4,9 @@ import styles from './index.module.scss'
 
 
 // component
-// import Header from '../components/ui/header/service'
+import Header from '../components/ui/header/service'
 // ↓ログイン後のヘッダー
-import Header from '../components/ui/header/app'
+// import Header from '../components/ui/header/app'
 import MainComponents from '../components/ui/main/app'
 
 type Props = {
@@ -23,6 +23,9 @@ const Layout = (props: Props) => (
     </Head>
     <Header />
     {props.children}
+    {/* <footer className={styles.footer}>
+      <hr />
+      <span>I'm here to stay (Footer)</span>
     </footer> */}
   </div >
 )

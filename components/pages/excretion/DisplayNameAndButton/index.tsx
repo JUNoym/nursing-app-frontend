@@ -8,6 +8,10 @@ import DisplayTimeAndAction from "../DisplayTimeAndAction"
 
 // mui
 import DeleteIcon from '@material-ui/icons/Delete'
+import ja from 'date-fns/locale/ja'
+import { parseISO, format } from 'date-fns'
+
+
 
 
 
@@ -31,13 +35,13 @@ const reducer = (state, action) => {
 const index = () => {
 
     const [state, dispatch] = useReducer(reducer, initialState)
+    const date = format(new Date(), 'MM月dd日の排泄記録', { locale: ja })
 
 
 
     const fetchData = useCallback(async () => {
         const result = await api().get("/user_care_actions")
         dispatch({ type: "end", data: result.data })
-        console.log(result.data, "result")
     }, [])
 
     useEffect(() => {
@@ -60,16 +64,7 @@ const index = () => {
         )
     }
 
-    // const fetchUserCareActions = (user_id, user_name) => {
-    //     api().get(`users/${user_id}`, {
-    //     }).then(response => {
-    //         const care_actions = response.data.map(response => {
-    //             return { "title": response.name, "time": response.updated_at }
-    //         })
-    //         const response_data = { "user_name": user_name, "user_id": user_id, "care_actions": care_actions }
-    //         return response_data
-    //     })
-    // }
+
 
     if (state.loading) {
         return <h1>Loading...</h1>
@@ -81,7 +76,6 @@ const index = () => {
 
     return (
         <div className={styles.container}>
-
             {state.data.map(data => {
                 return (
                     <div className={styles.miniContainer}>

@@ -22,5 +22,16 @@
                 font-size: 8px;
             }
         }
+        .li {
+            background-color: transparent;
+            list-style: none;
+        }
+        .active {
+            background-color: var(--c-white-blue);
+            padding: 0.8rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--c-white);
+        }
     }
+   
 }

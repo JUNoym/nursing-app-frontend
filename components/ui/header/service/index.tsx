@@ -17,7 +17,7 @@ const Header = (props: Props) => {
                 <Container className={styles.container}>
                     <Toolbar className={styles.tool}>
                         <h1>夜勤日誌アプリ</h1>
-                        <div className={styles.signupWrapper}>
+                        {/* <div className={styles.signupWrapper}>
                             <div className={styles.signin}>
                                 <Button color="inherit">
                                     Login
@@ -26,7 +26,7 @@ const Header = (props: Props) => {
                             <Button variant="outlined" classes={{ root: styles.Mroot }} >
                                 Signup
                             </Button>
-                        </div>
+                        </div> */}
                     </Toolbar>
                 </Container>
             </AppBar>

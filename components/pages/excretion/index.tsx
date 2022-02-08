@@ -25,12 +25,13 @@ const Index = () => {
 
     const [text, setText] = useState('')
     const [name, setName] = useState('')
-    const date = format(new Date(), 'MM月dd日の日誌', { locale: ja })
+    const date = format(new Date(), 'MM月dd日の排泄記録表', { locale: ja })
     return (
         <div className={styles.content}>
             <CssBaseline />
             <Container maxWidth="sm" classes={{ root: styles.container }}>
                 <HeadlineLink />
+                <h1>{date}</h1>
                 <DisplayNameAndButton />
                 <div className={styles.form}>
                     <Box sx={{ flexGrow: 1 }}>

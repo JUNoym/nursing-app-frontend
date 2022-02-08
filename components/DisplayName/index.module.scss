@@ -1,0 +1,25 @@
+.content {
+    display: flex;
+    border: 1px solid var(--c-gray);
+    .dataWrapper {
+        width: 100%;
+        border: 1px solid var(--c-white);
+    }
+    .data {
+        width: 100%;
+        height: 100%;
+        background-color: var(--c-dark);
+        border: 2px solid var(--c-white);
+        h1 {
+            padding: 0.5rem;
+            text-align: center;
+        }
+        .time {
+            color: var(--c-liner-background);
+            font-weight: 1px;
+            font-size: 1px;
+            text-align: center;
+            padding: 0.5rem;
+        }
+    }
+}

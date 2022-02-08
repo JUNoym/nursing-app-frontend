@@ -1,7 +1,7 @@
 @import '/styles/mixins.scss';
 .content {
     background-color: var(--c-dark-twitter);
-    height: 100vh;
+    min-height: 100vh;    
     .container {
         padding: 12rem 0;
         h1 {

@@ -14,9 +14,9 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 //コンポーネント
 import DiaryDialog from "../DiaryDialog/index";
 
-interface NameAndText {
-  name: string;
-  text: string;
+type NameAndText = {
+  name?: string;
+  text?: string;
 }
 
 
@@ -26,7 +26,6 @@ const DisplayNameAndDiary: VFC = () => {
   const [Diaries, setDiaries] = useState([]);
   const [selectedId, setSelectedId] = useState("");
   const [beforeEditText, setBeforeEditText] = useState("")
-  const date = format(new Date(), ' HH:mm:ss', { locale: ja })
 
 
 
@@ -42,7 +41,7 @@ const DisplayNameAndDiary: VFC = () => {
         const entries = Object.entries(NamesAndDiaries);
         const NewNamesAndDiaries = entries.map((entry) => {
           const key = entry[0];
-          const nameAndText: any = entry[1];
+          const nameAndText: NameAndText = entry[1];
           return { key: key, ...nameAndText };
         });
         setDiaries(NewNamesAndDiaries);
@@ -72,6 +71,7 @@ const DisplayNameAndDiary: VFC = () => {
                   <p>{text}</p>
                   <Button>
                     <MoreVertIcon
+                      className={styles.moreIcon}
                       onClick={() => {
                         handleClickOpen();
                         setSelectedId(key);

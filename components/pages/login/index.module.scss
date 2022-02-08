@@ -7,6 +7,10 @@
             color: var(--c-white);
             font-size: 1rem;
         }
+        p {
+            color: var(--c-white);
+            font-size: 1rem;
+        }
     }
     .ButtonWrapper {
         margin: 1rem 0rem;
@@ -21,7 +25,7 @@
         background-color: var(--c-white-blue);
         color: var(--c-white);
         border-radius: 1.25rem;
-
+        margin: 1.5rem 1rem 1rem 2rem;
     }
     .ButtonEdit {
         color: var(--c-black);
@@ -38,6 +42,17 @@
         .text {
             border: 1px solid var(--c-white);
             background-color:var(--c-silver);
+        }
+        .textField {
+            width: 100%;
+            border: 1px solid var(--c-white);
+            background-color: var(--c-gray-input);
+            color: var(--c-white);
+            padding-left: 0.5rem;
+            label {
+                color: var(--c-white);
+            }
+      
         }
     }
 

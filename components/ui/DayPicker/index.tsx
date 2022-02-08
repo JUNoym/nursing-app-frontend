@@ -1,12 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, ChangeEvent } from 'react'
 import styles from './index.module.scss'
+
+import api from '../../../api/config'
+import router from 'next/router';
 
 // material-ui
 import Button from '@material-ui/core/Button'
 
 
 
-const Index = props => {
+
+
+const Index = () => {
+    const [date, setDate] = useState('')
+
+    const handleClick = (date) => {
+        router.push({
+            pathname: '/result',
+            query: {
+                type: 'date',
+                q: date
+            }
+        })
+    }
 
     return (
         <div className={styles.content}>
@@ -14,12 +30,14 @@ const Index = props => {
                 <input
                     type="date"
                     name="name"
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setDate(e.target.value)}
                 />
 
                 <Button
                     variant="contained"
                     classes={{ root: styles.Button }}
                     onClick={() => {
+                        handleClick(date)
                     }}
                 >
                     指定した日付で検索
