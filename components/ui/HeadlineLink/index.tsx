@@ -1,41 +1,49 @@
 import React from 'react'
 import styles from './index.module.scss'
 import Link from 'next/link'
-
+import clsx from 'clsx'
+import { useRouter } from 'next/router'
 
 // material-ui
 import Button from '@material-ui/core/Button'
 
 
-// コンポーネント
-
-interface Props {
-}
-
-export const HeadlineLink = (props: Props) => {
+export const HeadlineLink = () => {
+    const router = useRouter()
+    const isActive = (url: string) => {
+        return router.pathname === url
+    }
     return (
         <div className={styles.content}>
             <div className={styles.link}>
-                <Button classes={{ root: styles.button }}>
-                    <Link href="/excretion">
-                        <a>排泄記録表</a>
-                    </Link>
+                <Button>
+                    <div className={clsx(styles.li, isActive('/excretion') && styles.active)}>
+                        <Link href="/excretion">
+                            <a>排泄記録表</a>
+                        </Link>
+                    </div>
                 </Button>
-                <Button classes={{ root: styles.button }}>
-                    <Link href="/vital">
-                        <a>バイタルチェック</a>
-                    </Link>
+                <Button>
+                    <div className={clsx(styles.li, isActive('/vital') && styles.active)}>
+                        <Link href="/vital">
+                            <a>バイタル記録表</a>
+                        </Link>
+                    </div>
                 </Button>
-                <Button classes={{ root: styles.button }}>
-                    <Link href="/">
-                        <a>夜間日誌</a>
-                    </Link>
+                <Button>
+                    <div className={clsx(styles.li, isActive('/') && styles.active)}>
+                        <Link href="/">
+                            <a>夜勤日誌</a>
+                        </Link>
+                    </div>
                 </Button>
-                {/* <Button classes={{ root: styles.button }}>
-                    <Link href="/todo">
-                        <a>Todoリスト</a>
-                    </Link>
-                </Button> */}
+                <Button>
+                    <div className={clsx(styles.li, isActive('/todo') && styles.active)}>
+                        <Link href="/todo">
+                            <a>出勤</a>
+                        </Link>
+                    </div>
+                </Button>
             </div>
         </div>
     )
