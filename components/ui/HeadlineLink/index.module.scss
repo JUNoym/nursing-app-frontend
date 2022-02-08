@@ -1,14 +1,26 @@
+@import '/styles/mixins.scss';
+
 .content {
     margin-top: -3.5rem;
     margin-bottom: 2rem;
     background-color: var(--c-dark-twitter);
+    @include mq(sm) {
+    }
     .link {
         display: flex;
         justify-content: space-around;
+        @include mq(sm) {
+            margin: 0 2rem;
+            padding: 0 0.5rem;
+            font-size: 8px;
+        }
         a {
             color: var(--c-white);
             font-weight: bold;
             text-decoration: none;
+            @include mq(sm) {
+                font-size: 8px;
+            }
         }
         .li {
             background-color: transparent;

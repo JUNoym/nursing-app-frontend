@@ -23,9 +23,6 @@ const Layout = (props: Props) => (
     </Head>
     <Header />
     {props.children}
-    {/* <footer className={styles.footer}>
-      <hr />
-      <span>I'm here to stay (Footer)</span>
     </footer> */}
   </div >
 )

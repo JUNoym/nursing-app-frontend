@@ -1,3 +1,4 @@
+@import '/styles/mixins.scss';
 .content {
     background-color: var(--c-dark-twitter);
     min-height: 100vh;    
@@ -6,6 +7,11 @@
         h1 {
             color: var(--c-white);
             font-size: 1rem;
+        }
+        .title {
+            @include mq(sm) {
+                display: none;
+            }
         }
     }
     .ButtonWrapper {
@@ -30,6 +36,9 @@
     .form {
         margin: 1rem 0rem;
         border:1px solid var(--c-white);
+        @include mq(sm) {
+            margin: 1rem 3rem;
+        }
         h1 {
             color: var(--c-white);
             text-align: center;

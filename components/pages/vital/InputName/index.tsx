@@ -75,7 +75,7 @@ const index = () => {
             <div className={styles.formGrope}>
                 <div className={styles.form}>
                     <input
-                        type="text"
+                        type="number"
                         placeholder="体温"
                         value={kt}
                         onChange={handleInputChange2}
@@ -84,7 +84,7 @@ const index = () => {
                 </div>
                 <div className={styles.form}>
                     <input
-                        type="text"
+                        type="number"
                         placeholder="血圧"
                         value={bp}
                         onChange={handleInputChange3}
@@ -95,7 +95,7 @@ const index = () => {
             <div className={styles.formGrope}>
                 <div className={styles.form}>
                     <input
-                        type="text"
+                        type="select"
                         placeholder="心拍数"
                         value={plus}
                         onChange={handleInputChange4}
@@ -104,7 +104,7 @@ const index = () => {
                 </div>
                 <div className={styles.form}>
                     <input
-                        type="text"
+                        type="number"
                         placeholder="SPO2"
                         value={spo2}
                         onChange={handleInputChange5}
