@@ -32,7 +32,7 @@ const Index = (props) => {
                                     label="パスワードを入力"
                                     type='password'
                                     onChange={(e) => {
-                                        e.target.value === "qqqq" ? setLoggedInStatus("ログイン中") : setLoggedInStatus("未ログイン")
+                                        e.target.value === process.env.NEXT_PUBLIC_PASSWORD ? setLoggedInStatus("ログイン中") : setLoggedInStatus("未ログイン")
                                     }}
                                 />
                             </Grid>
