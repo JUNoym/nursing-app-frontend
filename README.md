@@ -1,2 +1,2 @@
-アプリURL
-https://nursing-app-frontend3.vercel.app/search
+## アプリURL
+https://nursing-app-frontend.vercel.app/
