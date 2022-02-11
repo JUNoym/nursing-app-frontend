@@ -38,8 +38,8 @@ export const HeadlineLink = () => {
                     </div>
                 </Button>
                 <Button>
-                    <div className={clsx(styles.li, isActive('/todo') && styles.active)}>
-                        <Link href="/todo">
+                    <div className={clsx(styles.li, isActive('/attendance') && styles.active)}>
+                        <Link href="/attendance">
                             <a>出勤</a>
                         </Link>
                     </div>
