@@ -23,6 +23,7 @@ const Index = () => {
             <Container maxWidth="sm" classes={{ root: styles.container }}>
                 <HeadlineLink />
                 <h1>{date}</h1>
+                {/* Todo: ボタンが押されたら名前が表示できるようにする */}
                 <div className={styles.form}>
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={1}>
