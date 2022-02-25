@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid';
 // コンポーネント
 import { HeadlineLink } from '../../ui/HeadlineLink'
 import RegisterName from '../attendance/register_staff'
+import DisplayStaffName from './DisplayStaffName'
 
 
 const Index = () => {
@@ -23,7 +24,7 @@ const Index = () => {
             <Container maxWidth="sm" classes={{ root: styles.container }}>
                 <HeadlineLink />
                 <h1>{date}</h1>
-                {/* Todo: ボタンが押されたら名前が表示できるようにする */}
+                <DisplayStaffName />
                 <div className={styles.form}>
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={1}>

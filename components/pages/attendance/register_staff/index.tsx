@@ -7,10 +7,14 @@ import Button from '@material-ui/core/Button'
 //api
 import api from '../../../../api/config'
 
+// types
+import { InputRegisterStaff } from '../../../../types/pages/register_staff'
 const index = () => {
-    const initialState = {
-        id: null,
-        name: '',
+    const initialState: InputRegisterStaff = {
+        name: '大山',
+        have_work: true,
+        work_in: '18:00',
+        work_out: '9:00',
     }
     const [name, setName] = useState(initialState)
 
@@ -25,10 +29,12 @@ const index = () => {
     const saveName = async () => {
         var data = {
             name: name.name,
+            have_work: true,
+            work_in: '18:00',
+            work_out: '9:00',
         }
-        // apiが完成したらここを修正
-        // api().post('/users', data)
-        // window.location.reload()
+        api().post('/register_staffs', data)
+        window.location.reload()
     }
 
     return (
