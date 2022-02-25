@@ -8,13 +8,14 @@ import Button from '@material-ui/core/Button'
 import api from '../../../../api/config'
 
 // types
-import { InputRegisterStaff } from '../../../../types/pages/register_staff'
+// import { InputRegisterStaff } from '../../../../types/pages/register_staff'
 const index = () => {
-    const initialState: InputRegisterStaff = {
-        name: '大山',
+    const initialState: any = {
+        // TODO ここの型エラーをanyではなくInputRegisterStaffを使うようにする
+        name: '',
         have_work: true,
-        work_in: '18:00',
-        work_out: '9:00',
+        work_in: '',
+        work_out: '',
     }
     const [name, setName] = useState(initialState)
 
@@ -29,9 +30,9 @@ const index = () => {
     const saveName = async () => {
         var data = {
             name: name.name,
-            have_work: true,
-            work_in: '18:00',
-            work_out: '9:00',
+            have_work: false,
+            work_in: '',
+            work_out: '',
         }
         api().post('/register_staffs', data)
         window.location.reload()

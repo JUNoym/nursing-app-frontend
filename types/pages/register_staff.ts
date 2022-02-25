@@ -1,6 +1,6 @@
 export type InputRegisterStaff = {
-    name: string
-    have_work: boolean
-    work_in: string | Date
-    work_out: string | Date
-}
+    name: string | null
+    have_work?: boolean
+    work_in?: string | Date | null
+    work_out?: string | Date | null
+}[]
