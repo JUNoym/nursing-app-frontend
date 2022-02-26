@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styles from './index.module.scss'
 
-// material-ui
-import CssBaseline from '@material-ui/core/CssBaseline'
 // api
 import api from '../../../../api/config'
 // types
 import { InputRegisterStaff } from '../../../../types/pages/register_staff'
+
+// MUI
+import { Button } from '@material-ui/core'
 
 type Array = {
     name?: string,
@@ -31,25 +32,42 @@ const index = () => {
     }, [])
 
     return (
-        <>
-            <CssBaseline />
+        <div className={styles.content}>
             {
                 data ? data.map((d) => {
                     let startTime = d[2] ? d[2].slice(11, 16).split('T') : '登録されていません'
                     let endTime = d[3] ? d[3].slice(11, 16).split('T') : '登録されていません'
                     return (
-                        <>
-                            <h1>{d[0]}</h1>
-                            {d[1] ? <h1>出勤しています</h1> : <h1>出勤していません</h1>}
-                            <h1>出勤時間 : {startTime}</h1>
-                            <h1>退勤時間 : {endTime}</h1>
-                        </>
+                        <div className={styles.container}>
+                            <div className={styles.name_attendance}>
+                                <h1>{d[0]}</h1>
+                                <div className={styles.ButtonWrapper}>
+                                    {d[1] ?
+                                        <Button
+                                            classes={{ root: styles.Button }}
+                                        >
+                                            出勤
+                                        </Button>
+                                        :
+                                        <Button
+                                            classes={{ root: styles.Button_holiday }}
+                                        >
+                                            休み
+                                        </Button>
+                                    }
+                                </div>
+                            </div>
+                            <div className={styles.attendance}>
+                                <h1>出勤時間 : {startTime}</h1>
+                                <h1>退勤時間 : {endTime}</h1>
+                            </div>
+                        </div>
                     )
                 })
                     :
                     <h1>データないよ</h1>
             }
-        </>
+        </div>
     )
 }
 

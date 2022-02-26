@@ -22,9 +22,6 @@ import api from '../../../api/config'
 
 
 const Index = () => {
-
-    const [text, setText] = useState('')
-    const [name, setName] = useState('')
     const date = format(new Date(), 'MM月dd日の排泄記録表', { locale: ja })
     return (
         <div className={styles.content}>

@@ -1,0 +1,40 @@
+.content {
+    width: 100%;
+    height: 19.625rem;
+    overflow: scroll;
+    border: 1px solid var(--c-white);
+    .container {
+        border-bottom: 1px solid var(--c-white);
+        .name_attendance {
+            display: flex;
+            justify-content: space-around;
+            margin: .5rem;
+            .ButtonWrapper {
+                margin: .5rem;
+                .Button {
+                    border: none;
+                    background-color: var(--c-white-blue);
+                    color: var(--c-white);
+                    font-size: .125rem;
+                    font-weight: bold;
+                    border-radius: 0.625rem;
+                    cursor: pointer;
+                }
+                .Button_holiday {
+                    border: none;
+                    background-color: red;
+                    color: var(--c-white);
+                    font-size: .125rem;
+                    font-weight: bold;
+                    border-radius: 0.625rem;
+                    cursor: pointer;
+                }
+            }
+        }
+        .attendance {
+            margin: .5rem;
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+}
