@@ -48,6 +48,17 @@ const index = () => {
                     onChange={handleInputChange}
                     name="name"
                 />
+
+                <div className={styles.time_select}>
+                    <input
+                        type="time"
+                        name="example"
+                    />
+                    <input
+                        type="time"
+                        name="example"
+                    />
+                </div>
             </div>
 
             <div className={styles.ButtonWrapper}>
@@ -62,7 +73,7 @@ const index = () => {
                     スタッフ追加
                 </Button>
             </div>
-        </div>
+        </div >
     )
 }
 

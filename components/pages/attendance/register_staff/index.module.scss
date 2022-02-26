@@ -1,26 +1,43 @@
 .content {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    .time_select {
+        display: flex;
+    }
     .form {
-        width: 70%;
+        width: 100%;
+        display: flex;
         input {
-            width: 85%;
+            width: 90%;
             height: 40px;
             border-radius: 4px;
             font-size: 14px;
-            margin: 1rem 2.5rem;
+            margin: .5rem 2.5rem;
             background-color: var(--c-gray-input);
             color: var(--c-white);
+        }
+        .time_select {
+            display: flex;
+            input {
+                width: 90%;
+                height: 40px;
+                border-radius: 4px;
+                font-size: 14px;
+                margin: .5rem 2.5rem;
+                background-color: var(--c-gray-input);
+                color: var(--c-white);
+            }
         }
         
     }
     .ButtonWrapper {
-        margin: 1rem;
+        margin: 0.5rem;
+        // margin-bottom: .6rem;
         .Button {
             border: none;
             background-color: var(--c-white-blue);
             color: var(--c-white);
-            font-size: 1.125rem;
+            font-size: .125rem;
             font-weight: bold;
             border-radius: 0.625rem;
             cursor: pointer;
