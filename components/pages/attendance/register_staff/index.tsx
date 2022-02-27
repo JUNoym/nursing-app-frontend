@@ -41,7 +41,7 @@ const index = () => {
     return (
         <div className={styles.content}>
             <div className={styles.form}>
-                <div>
+                <div className={styles.input_field}>
                     <h1>名前</h1>
                     <input
                         type="text"
@@ -51,35 +51,38 @@ const index = () => {
                         name="name"
                     />
                 </div>
+                <div className={styles.input_field}>
+                    <div>
+                        <h1>出勤時間</h1>
+                    </div>
+                    <div className={styles.time_select}>
+                        <input
+                            type="time"
+                            name="example"
+                        />
+                        <input
+                            type="time"
+                            name="example"
+                        />
+                    </div>
+                </div>
+                <div className={styles.input_field}>
+                    <div>
+                        <h1>出勤時間</h1>
+                    </div>
 
-                <div>
-                    <h1>出勤時間</h1>
-                </div>
-                <div className={styles.time_select}>
-                    <input
-                        type="time"
-                        name="example"
-                    />
-                    <input
-                        type="time"
-                        name="example"
-                    />
-                </div>
-                <div>
-                    <h1>出勤時間</h1>
-                </div>
-
-                <div className={styles.is_attendance}>
-                    <input
-                        type="radio"
-                        name="is_attendance"
-                    />
-                    <label htmlFor="huey">有</label>
-                    <input
-                        type="radio"
-                        name="is_attendance"
-                    />
-                    <label htmlFor="huey">無</label>
+                    <div className={styles.is_attendance}>
+                        <input
+                            type="radio"
+                            name="is_attendance"
+                        />
+                        <label htmlFor="huey">有</label>
+                        <input
+                            type="radio"
+                            name="is_attendance"
+                        />
+                        <label htmlFor="huey">無</label>
+                    </div>
                 </div>
             </div>
 
