@@ -41,14 +41,20 @@ const index = () => {
     return (
         <div className={styles.content}>
             <div className={styles.form}>
-                <input
-                    type="text"
-                    placeholder="スタッフを追加"
-                    value={name.name}
-                    onChange={handleInputChange}
-                    name="name"
-                />
+                <div>
+                    <h1>名前</h1>
+                    <input
+                        type="text"
+                        placeholder="スタッフを追加"
+                        value={name.name}
+                        onChange={handleInputChange}
+                        name="name"
+                    />
+                </div>
 
+                <div>
+                    <h1>出勤時間</h1>
+                </div>
                 <div className={styles.time_select}>
                     <input
                         type="time"
@@ -58,6 +64,22 @@ const index = () => {
                         type="time"
                         name="example"
                     />
+                </div>
+                <div>
+                    <h1>出勤時間</h1>
+                </div>
+
+                <div className={styles.is_attendance}>
+                    <input
+                        type="radio"
+                        name="is_attendance"
+                    />
+                    <label htmlFor="huey">有</label>
+                    <input
+                        type="radio"
+                        name="is_attendance"
+                    />
+                    <label htmlFor="huey">無</label>
                 </div>
             </div>
 

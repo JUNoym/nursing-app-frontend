@@ -1,12 +1,9 @@
 .content {
-    display: flex;
-    justify-content: space-around;
     .time_select {
         display: flex;
     }
     .form {
         width: 100%;
-        display: flex;
         input {
             width: 90%;
             height: 40px;
@@ -28,11 +25,26 @@
                 color: var(--c-white);
             }
         }
-        
+        .is_attendance {
+            display: flex;
+            justify-content: center;
+            label {
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                width: 100%;
+                height: 40px;
+                border-radius: 4px;
+                font-size: 1.0rem;
+                margin: .5rem 2.5rem;
+                color: var(--c-white);
+            }
+        }
     }
     .ButtonWrapper {
-        margin: 0.5rem;
-        // margin-bottom: .6rem;
+        margin: 1.5rem;
+        display: flex;
+        justify-content: center;
         .Button {
             border: none;
             background-color: var(--c-white-blue);
