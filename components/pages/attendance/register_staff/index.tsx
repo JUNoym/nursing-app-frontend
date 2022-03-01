@@ -75,6 +75,7 @@ const index = () => {
                         <input
                             type="radio"
                             name="is_attendance"
+                            checked
                         />
                         <label htmlFor="huey">有</label>
                         <input
