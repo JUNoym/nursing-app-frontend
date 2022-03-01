@@ -5,7 +5,6 @@
     .link {
         display: flex;
         justify-content: space-around;
-        // border-bottom: 1px solid var(--c-white);
         a {
             color: var(--c-white);
             font-weight: bold;
@@ -17,7 +16,7 @@
         }
         .active {
             padding: 0.5rem;
-            border-bottom: 5px solid var(--c-white);
+            border-bottom: 5px solid var(--c-white-blue);
             border-top-left-radius: 0.5rem;
             border-top-right-radius: 0.5rem;
         }
