@@ -39,6 +39,15 @@
                 margin: .5rem 2.5rem;
                 color: var(--c-white);
             }
+            input {
+                width: 7.5rem;
+                height: 2.5rem;
+                border-radius: 4px;
+                font-size: 1.0rem;
+                margin: .5rem 2.5rem;
+                background-color: var(--c-gray-input);
+                color: var(--c-white);
+            }
         }
         .input_field {
             h1 {

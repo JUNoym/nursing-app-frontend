@@ -68,7 +68,7 @@ const index = () => {
                 </div>
                 <div className={styles.input_field}>
                     <div>
-                        <h1>出勤時間</h1>
+                        <h1>出勤有無</h1>
                     </div>
 
                     <div className={styles.is_attendance}>
