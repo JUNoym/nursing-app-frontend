@@ -17,22 +17,38 @@ const index = () => {
         work_in: '',
         work_out: '',
     }
-    const [name, setName] = useState(initialState)
+    const [state, setState] = useState(initialState)
 
     const handleInputChange = (e) => {
-        const { name, value } = e.target
-        setName({
-            ...name,
-            [name]: value
+        const { value } = e.target
+        setState({
+            ...state,
+            name: value,
+        })
+    }
+
+    const handleWorkInChange = (e) => {
+        const { value } = e.target
+        setState({
+            ...state,
+            work_in: value,
+        })
+    }
+
+    const handleWorkOutChange = (e) => {
+        const { value } = e.target
+        setState({
+            ...state,
+            work_out: value,
         })
     }
 
     const saveName = async () => {
         var data = {
-            name: name.name,
+            name: state.name,
             have_work: false,
-            work_in: '',
-            work_out: '',
+            work_in: state.work_in,
+            work_out: state.work_out,
         }
         api().post('/register_staffs', data)
         window.location.reload()
@@ -46,7 +62,7 @@ const index = () => {
                     <input
                         type="text"
                         placeholder="スタッフを追加"
-                        value={name.name}
+                        value={state.name}
                         onChange={handleInputChange}
                         name="name"
                     />
@@ -59,10 +75,12 @@ const index = () => {
                         <input
                             type="time"
                             name="example"
+                            onChange={handleWorkInChange}
                         />
                         <input
                             type="time"
                             name="example"
+                            onChange={handleWorkOutChange}
                         />
                     </div>
                 </div>
@@ -91,7 +109,6 @@ const index = () => {
                 <Button
                     classes={{ root: styles.Button }}
                     variant="contained"
-                    disabled={!name.name}
                     onClick={() => {
                         saveName()
                     }}
