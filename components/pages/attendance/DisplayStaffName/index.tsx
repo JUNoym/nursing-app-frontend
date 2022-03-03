@@ -26,7 +26,6 @@ const index = () => {
                 return [d[1].name, d[1].have_work, d[1].work_in, d[1].work_out]
             })
             setData(EditedData)
-            console.log(EditedData, "data")
         }
         fetchData()
     }, [])

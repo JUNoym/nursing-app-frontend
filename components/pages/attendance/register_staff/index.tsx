@@ -43,10 +43,24 @@ const index = () => {
         })
     }
 
+    const handleHasWorkChange = () => {
+        setState({
+            ...state,
+            have_work: true,
+        })
+    }
+
+    const handleHasNotWorkChange = () => {
+        setState({
+            ...state,
+            have_work: false,
+        })
+    }
+
     const saveName = async () => {
         var data = {
             name: state.name,
-            have_work: false,
+            have_work: state.have_work,
             work_in: state.work_in,
             work_out: state.work_out,
         }
@@ -94,11 +108,13 @@ const index = () => {
                             type="radio"
                             name="is_attendance"
                             checked
+                            onChange={handleHasWorkChange}
                         />
                         <label htmlFor="huey">有</label>
                         <input
                             type="radio"
                             name="is_attendance"
+                            onChange={handleHasNotWorkChange}
                         />
                         <label htmlFor="huey">無</label>
                     </div>
