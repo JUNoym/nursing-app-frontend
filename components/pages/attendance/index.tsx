@@ -21,19 +21,21 @@ const Index = () => {
     return (
         <div className={styles.content}>
             <CssBaseline />
-            <Container maxWidth="sm" classes={{ root: styles.container }}>
+            <Container maxWidth="md" classes={{ root: styles.container }}>
                 <HeadlineLink />
                 <h1>{date}</h1>
-                <DisplayStaffName />
-                <div className={styles.form}>
-                    <Box sx={{ flexGrow: 1 }}>
-                        <Grid container spacing={1}>
-                            <Grid item xs={12}>
-                                <RegisterName />
-                            </Grid>
+                <div className={styles.mini_content}>
+                    <DisplayStaffName />
+                    <div className={styles.form}>
+                        <Box sx={{ flexGrow: 1 }}>
+                            <Grid container spacing={1}>
+                                <Grid item xs={12}>
+                                    <RegisterName />
+                                </Grid>
 
-                        </Grid>
-                    </Box>
+                            </Grid>
+                        </Box>
+                    </div>
                 </div>
             </Container>
         </div >

@@ -30,6 +30,7 @@
     .form {
         margin: 1rem 0rem;
         border:1px solid var(--c-white);
+        width: 50%;
         h1 {
             color: var(--c-white);
             text-align: center;
@@ -39,6 +40,9 @@
             border: 1px solid var(--c-white);
             background-color:var(--c-silver);
         }
+    }
+    .mini_content {
+        display: flex;
     }
 
 }
