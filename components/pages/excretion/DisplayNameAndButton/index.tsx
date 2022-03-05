@@ -46,7 +46,7 @@ const index = () => {
 
     useEffect(() => {
         fetchData()
-    }, [fetchData])
+    }, [state])
 
 
     const saveAction = (user_id, care_action_id) => {

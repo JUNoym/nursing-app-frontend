@@ -55,7 +55,6 @@ const index = () => {
         }
 
         api().post('/vital_users', data)
-        window.location.reload()
     }
 
 
