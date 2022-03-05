@@ -65,7 +65,6 @@ const index = () => {
             work_out: state.work_out,
         }
         api().post('/register_staffs', data)
-        window.location.reload()
     }
 
     return (

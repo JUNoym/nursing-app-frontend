@@ -31,6 +31,21 @@
                     cursor: pointer;
                 }
             }
+            .Delate_icon {
+                margin: .5rem;
+                cursor: pointer;
+                color: var(--c-white);
+                margin-left: -6.5rem;
+                .deleteButton {
+                    border: none;
+                    background-color: transparent;
+                    color: var(--c-white);
+                    font-size: .125rem;
+                    font-weight: bold;
+                    border-radius: 0.625rem;
+                    cursor: pointer;
+                }
+            }
         }
         .attendance {
             margin: .5rem;
