@@ -22,7 +22,9 @@ const Index = () => {
         <div className={styles.content}>
             <CssBaseline />
             <Container maxWidth="md" classes={{ root: styles.container }}>
-                <HeadlineLink />
+                <Container maxWidth="sm" classes={{ root: styles.mini_container }}>
+                    <HeadlineLink />
+                </Container>
                 <h1>{date}</h1>
                 <div className={styles.mini_content}>
                     <DisplayStaffName />
