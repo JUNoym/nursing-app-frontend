@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import styles from './index.module.scss'
+import { useRouter } from 'next/router'
+
 
 // api
 import api from '../../../../api/config'
@@ -28,6 +30,14 @@ const index = () => {
     const handleClickDelete = (id: number) => {
         api().delete(`/register_staffs/${id}`)
             .then(() => {
+                fetchData()
+            })
+    }
+
+    const update_has_work = async (id: number, value: boolean) => {
+        await api().put(`/register_staffs/update_status/?id=${id}&have_work=${value}`)
+            .then((res) => {
+                console.log(res.data)
                 fetchData()
             })
     }
@@ -68,12 +78,18 @@ const index = () => {
                                     {d[2] ?
                                         <Button
                                             classes={{ root: styles.Button }}
+                                            onClick={() => {
+                                                update_has_work(d[0], !d[2])
+                                            }}
                                         >
                                             出勤
                                         </Button>
                                         :
                                         <Button
                                             classes={{ root: styles.Button_holiday }}
+                                            onClick={() => {
+                                                update_has_work(d[0], !d[2])
+                                            }}
                                         >
                                             休み
                                         </Button>
