@@ -45,7 +45,7 @@ const index = () => {
 
     useEffect(() => {
         getContent()
-    }, [getContent])
+    }, [state])
 
 
     if (state.loading) {

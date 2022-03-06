@@ -28,7 +28,6 @@ const index = () => {
         }
 
         api().post('/users', data)
-        window.location.reload()
     }
 
     return (
