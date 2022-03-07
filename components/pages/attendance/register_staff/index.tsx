@@ -109,13 +109,13 @@ const index = () => {
                             checked
                             onChange={handleHasWorkChange}
                         />
-                        <label htmlFor="huey">有</label>
+                        <label>有</label>
                         <input
                             type="radio"
                             name="is_attendance"
                             onChange={handleHasNotWorkChange}
                         />
-                        <label htmlFor="huey">無</label>
+                        <label>無</label>
                     </div>
                 </div>
             </div>
