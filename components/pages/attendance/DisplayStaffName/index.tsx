@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import styles from './index.module.scss'
 import { useRouter } from 'next/router'
+import { proxy, useSnapshot } from 'valtio'
+
 
 
 // api
@@ -11,6 +13,9 @@ import { InputRegisterStaff } from '../../../../types/pages/register_staff'
 // MUI
 import { Button } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
+// Store
+import { GlobalData } from './..//././../../../State/state'
+
 
 type Array = {
     id?: number
@@ -21,6 +26,9 @@ type Array = {
 }[]
 const index = () => {
     const [data, setData] = useState<InputRegisterStaff>()
+    // const [Gdata, setGData] = useState<InputRegisterStaff>()
+    const res = useSnapshot(GlobalData.data)
+
 
     const fetchData = useCallback(async () => {
         const res = await api().get("/register_staffs")
@@ -52,14 +60,14 @@ const index = () => {
             setData(EditedData)
         }
         fetchData()
-    }, [data])
+    }, [res])
 
     return (
         <div className={styles.content}>
             {
-                data ? data.map((d) => {
-                    let startTime = d[3] ? d[3].slice(11, 16).split('T') : '登録されていません'
-                    let endTime = d[4] ? d[4].slice(11, 16).split('T') : '登録されていません'
+                res ? res.map((d) => {
+                    // let startTime = d[3] ? d[3].slice(11, 16).split('T') : '登録されていません'
+                    // let endTime = d[4] ? d[4].slice(11, 16).split('T') : '登録されていません'
                     return (
                         <div className={styles.container}>
                             <div className={styles.name_attendance}>
@@ -97,8 +105,8 @@ const index = () => {
                                 </div>
                             </div>
                             <div className={styles.attendance}>
-                                <h1>出勤時間 : {startTime}</h1>
-                                <h1>退勤時間 : {endTime}</h1>
+                                {/* <h1>出勤時間 : {startTime}</h1> */}
+                                {/* <h1>退勤時間 : {endTime}</h1> */}
                             </div>
                         </div>
                     )

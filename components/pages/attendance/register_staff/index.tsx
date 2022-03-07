@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
+import { proxy, useSnapshot } from 'valtio'
 
 // material-ui
 import Button from '@material-ui/core/Button'
 
 //api
 import api from '../../../../api/config'
+import valtio from '../../../../pages/valtio'
+
+// state
+import { fetchData } from './..//././../../../State/state'
+import { GlobalData } from './..//././../../../State/state'
 
 // types
 // import { InputRegisterStaff } from '../../../../types/pages/register_staff'
@@ -18,6 +24,7 @@ const index = () => {
         work_out: '',
     }
     const [state, setState] = useState(initialState)
+    const [data, setData] = useState(initialState)
 
     const handleInputChange = (e) => {
         const { value } = e.target
@@ -66,6 +73,7 @@ const index = () => {
         }
         api().post('/register_staffs', data)
     }
+    const res = useSnapshot(GlobalData.data)
 
     return (
         <div className={styles.content}>
@@ -126,6 +134,14 @@ const index = () => {
                     variant="contained"
                     onClick={() => {
                         saveName()
+                        // TODO saveName()をしたら、fetchData()でregister_staffsを叩きにいく
+                        // その結果をグローバルに使えるようにvaltioで状態管理をし
+                        // valtioの状態を取得してデータを表示する
+                        // valtioの中の状態が変化したら、Effectがそれを検知して
+                        // 際レンダリングされるはず
+                        fetchData()
+
+                        console.log(res, "レスだよー")
                     }}
                 >
                     スタッフ追加
