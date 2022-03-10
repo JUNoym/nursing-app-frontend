@@ -25,7 +25,10 @@ const Header = (props: Props) => {
                 <Container className={styles.container}>
                     <Toolbar className={styles.tool}>
                         <Link href="/">
-                            <h3 className={styles.logo}>夜勤日誌アプリ</h3>
+                            <h3 className={styles.logo}>
+                                夜勤日誌アプリ
+                                <img className={styles.icon} src="/favicons/favicon-32x32.png" alt="icon" />
+                            </h3>
                         </Link>
                         <div className={styles.link}>
                             <Button variant="outlined">

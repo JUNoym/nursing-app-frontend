@@ -17,6 +17,12 @@ type Props = {
 const Layout = (props: Props) => (
   <div>
     <Head>
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicons/favicon-32x32.png"
+      />
       <title>{props.title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
