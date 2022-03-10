@@ -40,7 +40,7 @@ export const HeadlineLink = () => {
                 <Button>
                     <div className={clsx(styles.li, isActive('/attendance') && styles.active)}>
                         <Link href="/attendance">
-                            <a>出勤(beta)</a>
+                            <a>出勤表</a>
                         </Link>
                     </div>
                 </Button>
