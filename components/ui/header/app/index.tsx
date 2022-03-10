@@ -13,6 +13,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import LogoutIcon from '@material-ui/icons/ExitToApp';
 import Button from '@material-ui/core/Button';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 
 interface Props { }
 
@@ -45,6 +46,18 @@ const Header = (props: Props) => {
                                             window.location.reload()
                                         }
                                     } />
+                                </Link>
+                            </Button>
+                            <Button variant="outlined">
+                                <Link href="/">
+                                    <AccountCircleOutlinedIcon fontSize="large" className={styles.icon}
+                                        onClick={
+                                            () => {
+                                                localStorage.clear()
+                                                window.location.reload()
+                                            }
+                                        }
+                                    />
                                 </Link>
                             </Button>
                         </div>

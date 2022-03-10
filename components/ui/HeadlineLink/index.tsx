@@ -44,6 +44,13 @@ export const HeadlineLink = () => {
                         </Link>
                     </div>
                 </Button>
+                <Button>
+                    <div className={clsx(styles.li, isActive('/chat') && styles.active)}>
+                        <Link href="/chat">
+                            <a>掲示板(実装中)</a>
+                        </Link>
+                    </div>
+                </Button>
             </div>
         </div>
     )
