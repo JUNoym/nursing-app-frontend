@@ -1,5 +1,6 @@
 import styles from './index.module.scss'
 import React from 'react'
+import Link from 'next/link'
 
 // material
 import AppBar from '@material-ui/core/AppBar'
@@ -19,13 +20,18 @@ const Header = (props: Props) => {
                         <h1>夜勤日誌アプリ</h1>
                         <div className={styles.signupWrapper}>
                             <div className={styles.signin}>
-                                <Button color="inherit">
-                                    Login
-                                </Button>
+                                <Link href="/signIn">
+                                    <Button color="inherit">
+                                        Login
+                                    </Button>
+                                </Link>
                             </div>
-                            <Button variant="outlined" classes={{ root: styles.Mroot }} >
-                                Signup
-                            </Button>
+
+                            <Link href="/signup">
+                                <Button variant="outlined" classes={{ root: styles.Mroot }} >
+                                    Signup
+                                </Button>
+                            </Link>
                         </div>
                     </Toolbar>
                 </Container>
