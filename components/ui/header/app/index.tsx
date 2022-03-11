@@ -51,7 +51,7 @@ const Header = (props: Props) => {
                                     } />
                                 </Link>
                             </Button>
-                            {/* <Button variant="outlined">
+                            <Button variant="outlined">
                                 <Link href="/">
                                     <AccountCircleOutlinedIcon fontSize="large" className={styles.icon}
                                         onClick={
@@ -62,7 +62,7 @@ const Header = (props: Props) => {
                                         }
                                     />
                                 </Link>
-                            </Button> */}
+                            </Button>
                         </div>
 
                     </Toolbar>
