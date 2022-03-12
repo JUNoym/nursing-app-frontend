@@ -3,6 +3,7 @@ import styles from './index.module.scss'
 
 // material-ui
 import Button from '@material-ui/core/Button'
+import AddTaskIcon from '@material-ui/icons/AddCircleOutline'
 
 //api
 import api from '../../../../api/config'
@@ -51,6 +52,7 @@ const index = () => {
                         saveName()
                     }}
                 >
+                    <AddTaskIcon classes={{ root: styles.add }} />
                     利用者を追加
                 </Button>
             </div>

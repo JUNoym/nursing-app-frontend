@@ -5,14 +5,8 @@ import styles from './index.module.scss'
 import { pushNameAndDiary } from '../../../firebase-config'
 
 // material-ui
-import CssBaseline from '@material-ui/core/CssBaseline'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
+import AddTaskIcon from '@material-ui/icons/AddCircleOutline'
 import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
-import List from '@material-ui/core/List'
-import DisplayNameAndDiary from '../SendNameAndDiary/index'
 
 
 const InputDairy = props => {
@@ -50,6 +44,7 @@ const InputDairy = props => {
                         pushNameAndDiary({ name, text })
                     }}
                 >
+                    <AddTaskIcon classes={{ root: styles.add }} />
                     利用者を追加
                 </Button>
             </div>

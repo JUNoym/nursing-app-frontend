@@ -21,8 +21,14 @@
         text-align: center;
         .MButton {
             background-color: var(--c-white-blue);
-            color: var(--c-white);
-            border-radius: 1.25rem;
+            color: var(--c-white2);
+            border-radius: .5rem;
+            margin: 2rem auto;
+            font-weight: bold;
+            font-size: .8rem;
+            .add {
+                margin-right: 0.3rem;
+            }
         }
     }
 }

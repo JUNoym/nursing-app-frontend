@@ -1,7 +1,7 @@
 .content {
   .RootBar {
     height: 4.5rem;
-    background-color: var(--c-dark-twitter);
+    background-color: var(--c-background);
     border-bottom: 1px solid rgb(255, 255, 255);
     }
     .tool {
@@ -11,6 +11,8 @@
       justify-content: space-between;
       h1 {
         font-size: 1rem;
+        color: var(--c-white);
+        cursor: pointer;
       }
     }
     .container {
@@ -23,7 +25,7 @@
       .Mroot {
         background-color: var(--c-white-blue);
         border-radius: 1.25rem;
-        color: rgb(243, 243, 243);
+        color: var(--c-white2);
       }
     }
     .signin {

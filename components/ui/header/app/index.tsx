@@ -51,18 +51,12 @@ const Header = (props: Props) => {
                                     } />
                                 </Link>
                             </Button>
-                            {/* <Button variant="outlined">
-                                <Link href="/">
+                            <Button variant="outlined">
+                                <Link href="/signup">
                                     <AccountCircleOutlinedIcon fontSize="large" className={styles.icon}
-                                        onClick={
-                                            () => {
-                                                localStorage.clear()
-                                                window.location.reload()
-                                            }
-                                        }
                                     />
                                 </Link>
-                            </Button> */}
+                            </Button>
                         </div>
 
                     </Toolbar>

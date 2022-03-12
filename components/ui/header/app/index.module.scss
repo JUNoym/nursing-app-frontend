@@ -1,7 +1,7 @@
 .content {
   .RootBar {
     height: 4.5rem;
-    background-color: var(--c-dark-twitter);
+    background-color: var(--c-background);
     border-bottom: 1px solid rgb(255, 255, 255);
     }
     .tool {
@@ -42,6 +42,7 @@
     }
     .logo {
       flex-grow: 1;
+      color: var(--c-white);
     }
     .menu {
       padding-right: 0;
