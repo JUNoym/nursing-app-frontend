@@ -28,11 +28,13 @@
             .Button {
                 background-color: var(--c-white-blue);
                 color: var(--c-white2);
-                font-size: 1.125rem;
+                font-size: .8rem;
                 font-weight: bold;
                 border-radius: 0.625rem;
                 cursor: pointer;
-             
+                .add {
+                    margin-right: 0.3rem;
+                }
             }
         
         }
