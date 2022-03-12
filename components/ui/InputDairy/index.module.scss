@@ -22,7 +22,9 @@
         .MButton {
             background-color: var(--c-white-blue);
             color: var(--c-white2);
-            border-radius: 1.25rem;
+            border-radius: .5rem;
+            margin: 2rem auto;
+            font-weight: bold;
         }
     }
 }

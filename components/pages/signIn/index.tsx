@@ -89,7 +89,7 @@ const Index = () => {
                                         onClick={handleSubmit(onSubmit)}
 
                                     >
-                                        ログイン
+                                        sign in
                                     </Button>
                                 </div>
                             </Grid>

@@ -30,6 +30,7 @@
     .form {
         margin: 1rem 0rem;
         border:1px solid var(--c-white);
+        border-radius: 1rem;
         h1 {
             color: var(--c-white);
             text-align: center;
@@ -68,6 +69,8 @@
                 border-radius: 4px;
                 margin: 2rem auto;
                 width: 90%;
+                background-image: linear-gradient(65deg, rgb(17, 236, 229) 30%, rgb(195, 27, 226) 114%);
+                font-weight: bold;
             }
         }
     }
