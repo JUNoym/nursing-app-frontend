@@ -1,5 +1,5 @@
 .content {
-    background-color: var(--c-dark-twitter);
+    background-color: var(--c-background);
     min-height: 100vh;
     .container {
         padding: 12rem 0;
@@ -47,7 +47,7 @@
                 margin: 0rem 2rem;
             }
             input {
-                background-color: var(--c-gray-input);
+                background-color: var(--c-input);
                 color: var(--c-white);
                 width: 90%;
                 height: 2.5rem;
@@ -64,7 +64,7 @@
             justify-content: center;
             .Button {
                 background-color: var(--c-white-blue);
-                color: var(--c-white);
+                color: var(--c-white2);
                 border-radius: 4px;
                 margin: 2rem auto;
                 width: 90%;
