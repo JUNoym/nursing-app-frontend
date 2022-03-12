@@ -12,21 +12,16 @@ import { ThemeProvider, StylesProvider } from '@material-ui/core/styles'
 import '../styles/global.scss'
 
 export default function MyApp({ Component, pageProps }) {
-    const [loggedInStatus, setLoggedInStatus] = useState("未ログイン")
-    if (loggedInStatus === "ログイン中") {
-        return (
-            <div>
-                <Component {...pageProps} />
-            </div>
-        )
-    } else {
-        return (
-            <div>
+    return (
+        <div>
+            <Component {...pageProps} />
+            {/* <div>
                 < Layout title="夜勤日誌アプリ" >
                     <CssBaseline />
-                    <Index loggedInStatus={loggedInStatus} setLoggedInStatus={setLoggedInStatus} />
+                    <Index />
                 </Layout >
-            </div>
-        )
-    }
+            </div> */}
+        </div>
+    )
+
 }
