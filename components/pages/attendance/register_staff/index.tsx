@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button'
 
 //api
 import api from '../../../../api/config'
+// コンポーネント
 
 // types
 // import { InputRegisterStaff } from '../../../../types/pages/register_staff'
