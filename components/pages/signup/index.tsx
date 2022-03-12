@@ -46,7 +46,7 @@ const Index = () => {
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={1}>
                             <Grid item xs={12}>
-                                <h1>新規登録</h1>
+                                <h1>Sign Up</h1>
                             </Grid>
 
                             <Grid item xs={12}>
