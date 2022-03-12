@@ -17,7 +17,9 @@ const Header = (props: Props) => {
             <AppBar position="fixed" classes={{ root: styles.RootBar }}>
                 <Container className={styles.container}>
                     <Toolbar className={styles.tool}>
-                        <h1>夜勤日誌アプリ</h1>
+                        <Link href="/">
+                            <h1>夜勤日誌アプリ</h1>
+                        </Link>
                         <div className={styles.signupWrapper}>
                             <div className={styles.signin}>
                                 <Link href="/signIn">
