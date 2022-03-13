@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
 import { useForm } from 'react-hook-form'
+import { proxy, useSnapshot } from 'valtio'
 
 // material-ui
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +13,9 @@ import FormControl from '@material-ui/core/FormControl'
 
 // api
 import api from '../../../api/config'
+
+// token
+import { setAuthorizationHeader } from '../../../api/config'
 
 // type
 type Inputs = {
@@ -27,11 +31,12 @@ const Index = () => {
     const { register, handleSubmit } = useForm()
 
     const onSubmit = async (input: Inputs) => {
-        // console.log(input)
-        const res = await api().post("/sessions/", input)
-        // console.log(res)
-        if (res.data.status === "SUCCESS") {
-            alert("ログインに成功しました")
+        const res = await api().post("/auth/sign_in", input)
+        console.log(res.data.data.name)
+        setAuthorizationHeader(res.data.data.name)
+        var name = localStorage.getItem("deviseAuthToken")
+        if (res.statusText === "OK") {
+            alert(`ログインに成功しました${name}さん`)
             window.location.href = "/"
         }
         else {

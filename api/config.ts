@@ -6,14 +6,15 @@ export default (options?: any) => {
         headers = { ...headers, ...options.headers }
     }
 
-    if (process.browser) {
-        const jwtIdToken = localStorage.getItem('FirebaseIdToken')
-        axios.defaults.headers.common['Authorization'] = jwtIdToken
-    }
+    // if (process.browser) {
+    //     const jwtIdToken = localStorage.getItem('FirebaseIdToken')
+    //     axios.defaults.headers.common['Authorization'] = jwtIdToken
+    // }
 
     return axios.create({
-        baseURL: "https://stormy-anchorage-72030.herokuapp.com/api/v1",
-        // baseURL: "http://localhost:3030/api/v1",
+        // baseURL: "https://stormy-anchorage-72030.herokuapp.com/api/v1",
+        baseURL: "http://localhost:3030/api/v1",
+        withCredentials: true,
         headers: {
             'Content-Type': 'application/json',
             ...headers,
@@ -28,8 +29,8 @@ export const sleep = (ms: number) => {
 }
 
 export const setAuthorizationHeader = (token: string) => {
-    const firebaseIdToken = `Bearer ${token}`
+    const deviseAuthToken = `${token}`
 
-    localStorage.setItem('FirebaseIdToken', firebaseIdToken)
-    axios.defaults.headers.common['Authorization'] = firebaseIdToken
+    localStorage.setItem('deviseAuthToken', deviseAuthToken)
+    axios.defaults.headers.common['Authorization'] = deviseAuthToken
 }
