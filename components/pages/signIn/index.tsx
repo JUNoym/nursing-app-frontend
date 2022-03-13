@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './index.module.scss'
 import { useForm } from 'react-hook-form'
 import { proxy, useSnapshot } from 'valtio'
@@ -13,6 +13,7 @@ import FormControl from '@material-ui/core/FormControl'
 
 // api
 import api from '../../../api/config'
+import { useGetMe } from '../../../api/useGetMe';
 
 // token
 import { setAuthorizationHeader } from '../../../api/config'
@@ -30,19 +31,29 @@ const Index = () => {
     // react-hook-form
     const { register, handleSubmit } = useForm()
 
+
     const onSubmit = async (input: Inputs) => {
         const res = await api().post("/auth/sign_in", input)
-        console.log(res.data.data.name)
-        setAuthorizationHeader(res.data.data.name)
-        var name = localStorage.getItem("deviseAuthToken")
+        const res_id = res.data.data.id
+        const res_name = res.data.data.name
+        setAuthorizationHeader([res_name, res_id])
+        var name = localStorage.getItem("deviseAuthToken1")
+        var id = localStorage.getItem("deviseAuthToken2")
         if (res.statusText === "OK") {
-            alert(`ログインに成功しました${name}さん`)
+            alert(`ログインに成功しました${name}さん idは${id}です`)
             window.location.href = "/"
         }
         else {
             alert("ログインに失敗しました")
         }
     }
+
+    useEffect(() => {
+        const data = useGetMe.getMe(18)
+        if (data) {
+            console.log(data)
+        }
+    }, [])
 
     return (
         <div className={styles.content}>

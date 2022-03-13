@@ -1,4 +1,11 @@
 import axios from 'axios'
+import { type } from 'os'
+
+// type
+type Input = {
+    name: string
+    id: number
+}[]
 
 export default (options?: any) => {
     let headers = {}
@@ -28,9 +35,13 @@ export const sleep = (ms: number) => {
     return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-export const setAuthorizationHeader = (token: string) => {
-    const deviseAuthToken = `${token}`
+export const setAuthorizationHeader = (token: Input) => {
+    const [name, id] = token
+    const deviseAuthToken1 = `${name}`
+    const deviseAuthToken2 = `${id}`
 
-    localStorage.setItem('deviseAuthToken', deviseAuthToken)
-    axios.defaults.headers.common['Authorization'] = deviseAuthToken
+    localStorage.setItem('deviseAuthToken1', deviseAuthToken1)
+    localStorage.setItem('deviseAuthToken2', deviseAuthToken2)
+
+    // axios.defaults.headers.common['Authorization'] = deviseAuthToken1
 }

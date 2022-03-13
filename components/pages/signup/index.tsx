@@ -32,7 +32,7 @@ const Index = () => {
     const onSubmit = async (input: Inputs) => {
         const res = await api().post("/auth/", input)
         setAuthorizationHeader(res.data.data.name)
-        var name = localStorage.getItem("deviseAuthToken")
+        var name = localStorage.getItem("deviseAuthToken1")
         if (res.data.status === "success") {
             alert(`登録しました${name}さん`)
             window.location.href = "/"
