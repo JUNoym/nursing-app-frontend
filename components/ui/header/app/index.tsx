@@ -36,7 +36,7 @@ const Header = (props: Props) => {
                                 <img className={styles.icon} src="/favicons/favicon-32x32.png" alt="icon" />
                             </h3>
                         </Link>
-                        <h1>ようこそ{name}さん</h1>
+                        {name ? <h1>ようこそ{name}さん</h1> : <h1>ようこそゲストさん</h1>}
                         <div className={styles.link}>
                             <Button variant="outlined">
                                 <Link href="/search">
