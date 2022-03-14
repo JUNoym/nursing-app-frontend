@@ -7,7 +7,7 @@ type Input = {
     id: number
 }[]
 
-export default (options?: any) => {
+export default ¥(options?: any) => {
     let headers = {}
     if (options && options.headers) {
         headers = { ...headers, ...options.headers }
@@ -19,8 +19,8 @@ export default (options?: any) => {
     // }
 
     return axios.create({
-        // baseURL: "https://stormy-anchorage-72030.herokuapp.com/api/v1",
-        baseURL: "http://localhost:3030/api/v1",
+        baseURL: "https://stormy-anchorage-72030.herokuapp.com/api/v1",
+        // baseURL: "http://localhost:3030/api/v1",
         withCredentials: true,
         headers: {
             'Content-Type': 'application/json',
