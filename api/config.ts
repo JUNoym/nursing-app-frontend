@@ -7,7 +7,7 @@ type Input = {
     id: number
 }[]
 
-export default ¥(options?: any) => {
+export default (options?: any) => {
     let headers = {}
     if (options && options.headers) {
         headers = { ...headers, ...options.headers }
