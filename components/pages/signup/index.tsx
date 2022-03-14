@@ -13,6 +13,9 @@ import FormControl from '@material-ui/core/FormControl'
 // api
 import api from '../../../api/config'
 
+// token
+import { setAuthorizationHeader } from '../../../api/config'
+
 // type
 type Inputs = {
     name: string
@@ -27,10 +30,11 @@ const Index = () => {
     const { register, handleSubmit } = useForm()
 
     const onSubmit = async (input: Inputs) => {
-        console.log(input)
-        const res = await api().post("/auth_users/", input)
-        if (res.data.status === "SUCCESS") {
-            alert("登録しました")
+        const res = await api().post("/auth/", input)
+        setAuthorizationHeader(res.data.data.name)
+        var name = localStorage.getItem("deviseAuthToken1")
+        if (res.data.status === "success") {
+            alert(`登録しました${name}さん`)
             window.location.href = "/"
         }
         else {

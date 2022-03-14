@@ -1,5 +1,5 @@
 import styles from './index.module.scss'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 
@@ -17,7 +17,13 @@ import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
 
 interface Props { }
 
+
 const Header = (props: Props) => {
+    const [name, setName] = useState(null)
+    useEffect(() => {
+        const res = localStorage.getItem("deviseAuthToken1")
+        setName(res)
+    }, [])
 
     return (
         <div className={styles.content}>
@@ -30,6 +36,7 @@ const Header = (props: Props) => {
                                 <img className={styles.icon} src="/favicons/favicon-32x32.png" alt="icon" />
                             </h3>
                         </Link>
+                        {name ? <h1>ようこそ{name}さん</h1> : <h1>ようこそゲストさん</h1>}
                         <div className={styles.link}>
                             <Button variant="outlined">
                                 <Link href="/search">
