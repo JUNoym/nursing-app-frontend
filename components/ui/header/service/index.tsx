@@ -1,17 +1,22 @@
 import styles from './index.module.scss'
 import React from 'react'
 import Link from 'next/link'
+import clsx from 'clsx'
 
 // material
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
+import { useRouter } from 'next/router'
 
 interface Props { }
 
 const Header = (props: Props) => {
-
+    const router = useRouter()
+    const isActive = (url: string) => {
+        return router.pathname === url
+    }
     return (
         <div className={styles.content}>
             <AppBar position="fixed" classes={{ root: styles.RootBar }}>
@@ -23,16 +28,20 @@ const Header = (props: Props) => {
                         <div className={styles.signupWrapper}>
                             <div className={styles.signin}>
                                 <Link href="/signIn">
-                                    <Button color="inherit">
-                                        Login
-                                    </Button>
+                                    <div className={clsx(styles.li, isActive("/signIn") && styles.active)}>
+                                        <Button color="inherit">
+                                            Login
+                                        </Button>
+                                    </div>
                                 </Link>
                             </div>
 
                             <Link href="/signup">
-                                <Button variant="outlined" classes={{ root: styles.Mroot }} >
-                                    Signup
-                                </Button>
+                                <div className={clsx(styles.li, isActive("/signup") && styles.active)}>
+                                    <Button color="inherit">
+                                        Signup
+                                    </Button>
+                                </div>
                             </Link>
                         </div>
                     </Toolbar>
