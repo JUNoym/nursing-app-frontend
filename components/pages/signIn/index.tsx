@@ -31,7 +31,6 @@ const Index = () => {
     // react-hook-form
     const { register, handleSubmit } = useForm()
 
-
     const onSubmit = async (input: Inputs) => {
         const res = await api().post("/auth/sign_in", input)
         const res_id = res.data.data.id
@@ -48,12 +47,6 @@ const Index = () => {
         }
     }
 
-    useEffect(() => {
-        const data = useGetMe.getMe(18)
-        if (data) {
-            console.log(data)
-        }
-    }, [])
 
     return (
         <div className={styles.content}>

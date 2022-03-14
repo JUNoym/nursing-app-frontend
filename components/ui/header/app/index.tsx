@@ -21,7 +21,7 @@ interface Props { }
 const Header = (props: Props) => {
     const [name, setName] = useState(null)
     useEffect(() => {
-        const res = localStorage.getItem("deviseAuthToken")
+        const res = localStorage.getItem("deviseAuthToken1")
         setName(res)
     }, [])
 
