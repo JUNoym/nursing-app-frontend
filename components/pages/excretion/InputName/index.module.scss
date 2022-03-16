@@ -18,15 +18,27 @@
         margin: 1rem;
         .Button {
             border: none;
-            background-color: var(--c-white-blue);
-            color: var(--c-white2);
             font-size: .8rem;
+            color: var(--c-white);
             font-weight: bold;
             border-radius: 0.625rem;
             cursor: pointer;
             padding-right: 1rem;
             .add {
                 margin-right: 0.3rem;
+            }
+            .Active {
+                border: none;
+                border-radius: 0.625rem;
+                background-color: var(--c-white-blue);
+                color: black;
+                font-size: .8rem;
+                font-weight: bold;
+                cursor: pointer;
+                padding-right: 1rem;
+                .add {
+                    margin-right: 0.5rem;
+                }
             }
         }
     }

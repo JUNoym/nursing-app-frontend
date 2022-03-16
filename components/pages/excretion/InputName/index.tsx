@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from './index.module.scss'
+import clsx from 'clsx'
 
 // material-ui
 import Button from '@material-ui/core/Button'
@@ -31,6 +32,12 @@ const index = () => {
         api().post('/users', data)
     }
 
+    const isActive = (name) => {
+        if (name === !null) {
+            return true
+        }
+    }
+
     return (
         <div className={styles.content}>
             <div className={styles.form}>
@@ -45,7 +52,7 @@ const index = () => {
 
             <div className={styles.ButtonWrapper}>
                 <Button
-                    classes={{ root: styles.Button }}
+                    className={clsx(styles.Button, isActive(name) && styles.Active)}
                     variant="contained"
                     disabled={!name.name}
                     onClick={() => {
@@ -56,7 +63,7 @@ const index = () => {
                     利用者を追加
                 </Button>
             </div>
-        </div>
+        </div >
     )
 }
 
