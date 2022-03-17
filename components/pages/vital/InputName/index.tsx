@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from './index.module.scss'
+import clsx from 'clsx'
 
 //ui
 import Button from '@material-ui/core/Button'
@@ -42,6 +43,13 @@ const index = () => {
 
     const handleInputChange5 = (e) => {
         setSPO2(e.target.value)
+    }
+
+
+    const isActive = (content, kt, bp, plus, spo2) => {
+        if (content.name !== '' && kt !== '' && bp !== '' && plus !== '' && spo2 !== '') {
+            return true
+        }
     }
 
 
@@ -116,7 +124,7 @@ const index = () => {
 
             <div className={styles.ButtonWrapper}>
                 <Button
-                    classes={{ root: styles.Button }}
+                    className={clsx(styles.Button, isActive(content.name, kt, bp, plus, spo2) && styles.Active)}
                     variant="contained"
                     disabled={!content.name || !kt || !bp || !plus || !spo2}
                     onClick={() => {

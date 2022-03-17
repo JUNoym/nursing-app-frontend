@@ -25,9 +25,11 @@
                 background-color: var(--c-gray);
                 color: var(--c-white);
             }
-            .Button {
+            .Active {
                 background-color: var(--c-white-blue);
                 color: var(--c-white2);
+            }
+            .Button {
                 font-size: .8rem;
                 font-weight: bold;
                 border-radius: 0.625rem;
