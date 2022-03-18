@@ -19,13 +19,17 @@
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
         text-align: center;
-        .MButton {
+        .Button {
             background-color: var(--c-white-blue);
             color: var(--c-white2);
             border-radius: .5rem;
             margin: 2rem auto;
             font-weight: bold;
             font-size: .8rem;
+            .Active {
+                background-color: var(--c-white-blue);
+                color: var(--c-white2);
+            }
             .add {
                 margin-right: 0.3rem;
             }

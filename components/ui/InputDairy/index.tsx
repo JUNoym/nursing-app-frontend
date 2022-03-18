@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
+import clsx from 'clsx'
 
 // firebase
 import { pushNameAndDiary } from '../../../firebase-config'
@@ -11,6 +12,11 @@ import Button from '@material-ui/core/Button'
 
 const InputDairy = props => {
     const { name, text, setName, setText } = props
+    const isActive = (name, text) => {
+        if (name !== '' && text !== '') {
+            return true
+        }
+    }
 
     return (
         <div className={styles.content}>
@@ -36,7 +42,7 @@ const InputDairy = props => {
 
             <div className={styles.ButtonWrapper}>
                 <Button
-                    classes={{ root: styles.MButton }}
+                    className={clsx(styles.Button, isActive(name, text) && styles.Active)}
                     variant="outlined"
                     onClick={() => {
                         setText('')
