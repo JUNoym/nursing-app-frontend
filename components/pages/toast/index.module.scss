@@ -1,0 +1,17 @@
+.content {
+    background-color: var(--c-background);
+    min-height: 100vh;
+        .actions {
+            display: flex;
+            justify-content: center;
+            .Button {
+                background-color: var(--c-white-blue);
+                color: var(--c-white2);
+                border-radius: 4px;
+                margin: 2rem auto;
+                width: 90%;
+                background-image: linear-gradient(65deg, rgb(17, 236, 229) 30%, rgb(195, 27, 226) 114%);
+                font-weight: bold;
+            }
+        }
+    }
