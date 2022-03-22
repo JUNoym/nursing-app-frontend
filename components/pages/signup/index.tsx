@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
 import { useForm } from 'react-hook-form'
+import toast, { Toaster } from 'react-hot-toast'
 
 // material-ui
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -23,6 +24,9 @@ type Inputs = {
     password: string
 }
 
+const notify = () => toast('アカウントを作成しました。')
+const notify2 = () => toast('登録に失敗しました。')
+
 
 
 const Index = () => {
@@ -34,11 +38,11 @@ const Index = () => {
         setAuthorizationHeader(res.data.data.name)
         var name = localStorage.getItem("deviseAuthToken1")
         if (res.data.status === "success") {
-            alert(`登録しました${name}さん`)
+            notify()
             window.location.href = "/"
         }
         else {
-            alert("登録に失敗しました")
+            notify2()
         }
     }
 
@@ -125,6 +129,7 @@ const Index = () => {
                                     >
                                         sign up
                                     </Button>
+                                    <Toaster />
                                 </div>
                             </Grid>
                         </Grid>

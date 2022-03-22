@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import styles from './index.module.scss'
 import { useForm } from 'react-hook-form'
 import { proxy, useSnapshot } from 'valtio'
+import toast, { Toaster } from 'react-hot-toast'
+
 
 // material-ui
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -25,6 +27,8 @@ type Inputs = {
     password: string
 }
 
+const notify = () => toast('ログインしました')
+
 
 
 const Index = () => {
@@ -39,7 +43,7 @@ const Index = () => {
         var name = localStorage.getItem("deviseAuthToken1")
         var id = localStorage.getItem("deviseAuthToken2")
         if (res.statusText === "OK") {
-            alert(`ログインに成功しました${name}さん idは${id}です`)
+            notify()
             window.location.href = "/"
         }
         else {
@@ -100,6 +104,7 @@ const Index = () => {
                                     >
                                         sign in
                                     </Button>
+                                    <Toaster />
                                 </div>
                             </Grid>
                         </Grid>
