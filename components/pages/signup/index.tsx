@@ -29,7 +29,7 @@ const notify2 = () => toast('登録に失敗しました。')
 
 const reload = () => {
     setTimeout(() => {
-        location.reload()
+        window.location.href = "/"
     }, 2000)
 }
 

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styles from './index.module.scss'
 import clsx from 'clsx'
+import toast, { Toaster } from 'react-hot-toast'
+
 
 // material-ui
 import Button from '@material-ui/core/Button'
@@ -8,6 +10,18 @@ import AddTaskIcon from '@material-ui/icons/AddCircleOutline'
 
 //api
 import api from '../../../../api/config'
+
+const notify = () => toast.success(
+    'データを保存しました。', {
+    icon: '👏',
+    style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+    },
+}
+)
+
 
 const index = () => {
     const initialState = {
@@ -57,6 +71,7 @@ const index = () => {
                     disabled={!name.name}
                     onClick={() => {
                         saveName()
+                        notify()
                     }}
                 >
                     <AddTaskIcon classes={{ root: styles.add }} />
