@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
+import toast, { Toaster } from 'react-hot-toast'
+
 
 // firebase
 import { pushNameAndDiary } from '../../../firebase-config'
@@ -7,6 +9,17 @@ import { pushNameAndDiary } from '../../../firebase-config'
 // material-ui
 import AddTaskIcon from '@material-ui/icons/AddCircleOutline'
 import Button from '@material-ui/core/Button'
+
+const notify = () => toast.success(
+    'データを保存しました。', {
+    icon: '📕',
+    style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+    },
+}
+)
 
 
 const InputDairy = props => {
@@ -42,6 +55,7 @@ const InputDairy = props => {
                         setText('')
                         setName('')
                         pushNameAndDiary({ name, text })
+                        notify()
                     }}
                 >
                     <AddTaskIcon classes={{ root: styles.add }} />

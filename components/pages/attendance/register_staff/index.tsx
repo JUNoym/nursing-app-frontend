@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
+import toast, { Toaster } from 'react-hot-toast'
+
 
 // material-ui
 import Button from '@material-ui/core/Button'
@@ -11,6 +13,18 @@ import api from '../../../../api/config'
 
 // types
 // import { InputRegisterStaff } from '../../../../types/pages/register_staff'
+
+const notify = () => toast.success(
+    'スタッフを追加しました', {
+    icon: '👤',
+    style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+    },
+}
+)
+
 const index = () => {
     const initialState: any = {
         // TODO ここの型エラーをanyではなくInputRegisterStaffを使うようにする
@@ -128,6 +142,7 @@ const index = () => {
                     variant="contained"
                     onClick={() => {
                         saveName()
+                        notify()
                     }}
                 >
                     <AddTaskIcon classes={{ root: styles.add }} />
