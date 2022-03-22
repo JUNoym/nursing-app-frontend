@@ -27,6 +27,13 @@ type Inputs = {
 const notify = () => toast('アカウントを作成しました。')
 const notify2 = () => toast('登録に失敗しました。')
 
+const reload = () => {
+    setTimeout(() => {
+        location.reload()
+    }, 2000)
+}
+
+
 
 
 const Index = () => {
@@ -39,7 +46,7 @@ const Index = () => {
         var name = localStorage.getItem("deviseAuthToken1")
         if (res.data.status === "success") {
             notify()
-            window.location.href = "/"
+            reload()
         }
         else {
             notify2()

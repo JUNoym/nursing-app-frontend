@@ -29,6 +29,13 @@ type Inputs = {
 
 const notify = () => toast('ログインしました')
 
+const reload = () => {
+    setTimeout(() => {
+        window.location.href = "/"
+    }, 2000)
+}
+
+
 
 
 const Index = () => {
@@ -44,7 +51,7 @@ const Index = () => {
         var id = localStorage.getItem("deviseAuthToken2")
         if (res.statusText === "OK") {
             notify()
-            window.location.href = "/"
+            reload()
         }
         else {
             alert("ログインに失敗しました")

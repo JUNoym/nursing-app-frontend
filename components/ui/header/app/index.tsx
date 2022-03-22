@@ -20,6 +20,12 @@ interface Props { }
 
 const notify = () => toast('ログアウトしました')
 
+const reload = () => {
+    setTimeout(() => {
+        location.reload()
+    }, 2000)
+}
+
 
 const Header = (props: Props) => {
     const [name, setName] = useState(null)
@@ -56,7 +62,7 @@ const Header = (props: Props) => {
                                     <LogoutIcon fontSize="large" className={styles.icon} onClick={
                                         () => {
                                             localStorage.clear()
-                                            window.location.reload()
+                                            reload()
                                         }
                                     } />
                                 </Link>
