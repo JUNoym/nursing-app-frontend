@@ -1,6 +1,7 @@
 import styles from './index.module.scss'
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import toast, { Toaster } from 'react-hot-toast'
 
 
 // material
@@ -16,6 +17,8 @@ import Button from '@material-ui/core/Button';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 
 interface Props { }
+
+const notify = () => toast('ログアウトしました')
 
 
 const Header = (props: Props) => {
@@ -48,7 +51,7 @@ const Header = (props: Props) => {
                                     <CalendarTodayIcon fontSize="large" className={styles.icon} />
                                 </Link>
                             </Button>
-                            <Button variant="outlined">
+                            <Button variant="outlined" onClick={notify}>
                                 <Link href="/">
                                     <LogoutIcon fontSize="large" className={styles.icon} onClick={
                                         () => {
@@ -58,6 +61,7 @@ const Header = (props: Props) => {
                                     } />
                                 </Link>
                             </Button>
+                            <Toaster />
                             <Button variant="outlined">
                                 <Link href="/signup">
                                     <AccountCircleOutlinedIcon fontSize="large" className={styles.icon}
