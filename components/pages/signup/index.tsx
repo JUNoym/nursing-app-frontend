@@ -58,7 +58,6 @@ const Index = () => {
             reload()
         }
         else {
-            notify2()
         }
     }
 
