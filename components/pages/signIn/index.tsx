@@ -27,7 +27,16 @@ type Inputs = {
     password: string
 }
 
-const notify = () => toast('ログインしました')
+const notify = () => toast.success(
+    'ログインしました', {
+    icon: '👤',
+    style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+    },
+}
+)
 
 const reload = () => {
     setTimeout(() => {

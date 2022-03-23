@@ -24,8 +24,17 @@ type Inputs = {
     password: string
 }
 
-const notify = () => toast('アカウントを作成しました。')
-const notify2 = () => toast('登録に失敗しました。')
+const notify = () => toast.success(
+    'アカウントを作成しました', {
+    icon: '👤',
+    style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+    },
+}
+)
+
 
 const reload = () => {
     setTimeout(() => {

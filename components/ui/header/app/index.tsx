@@ -18,7 +18,16 @@ import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
 
 interface Props { }
 
-const notify = () => toast('ログアウトしました')
+const notify = () => toast.success(
+    'ログアウトしました', {
+    icon: '👤',
+    style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+    },
+}
+)
 
 const reload = () => {
     setTimeout(() => {
