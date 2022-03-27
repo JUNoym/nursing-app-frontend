@@ -20,15 +20,19 @@
         margin-bottom: 1.5rem;
         text-align: center;
         .MButton {
-            background-color: var(--c-white-blue);
-            color: var(--c-white2);
             border-radius: .5rem;
             margin: 2rem auto;
             font-weight: bold;
             font-size: .8rem;
+            border: solid 1px var(--c-white);
             .add {
                 margin-right: 0.3rem;
             }
+            
         }
+    }
+    .Active {
+        background-color: var(--c-white-blue);
+        color: var(--c-white2);
     }
 }
