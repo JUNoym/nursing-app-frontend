@@ -64,8 +64,6 @@
         justify-content: center;
         .Button {
             border: none;
-            background-color: var(--c-white-blue);
-            color: var(--c-white2);
             font-size: 0.8rem;
             font-weight: bold;
             border-radius: 0.625rem;
@@ -74,5 +72,9 @@
                 margin-right: 0.3rem;
             }
         }
+    }
+    .Active {
+        background-color: var(--c-white-blue);
+        color: var(--c-white2);
     }
 }
