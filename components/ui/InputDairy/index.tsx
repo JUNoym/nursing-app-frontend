@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
 import toast, { Toaster } from 'react-hot-toast'
+import clsx from 'clsx'
 
 
 // firebase
@@ -20,6 +21,12 @@ const notify = () => toast.success(
     },
 }
 )
+
+const isActive = (name, text) => {
+    if (name !== '' && text !== '') {
+        return true
+    }
+}
 
 
 const InputDairy = props => {
@@ -49,7 +56,7 @@ const InputDairy = props => {
 
             <div className={styles.ButtonWrapper}>
                 <Button
-                    classes={{ root: styles.MButton }}
+                    className={clsx(styles.MButton, isActive(name, text) && styles.Active)}
                     variant="outlined"
                     onClick={() => {
                         setText('')
