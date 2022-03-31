@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
 import toast, { Toaster } from 'react-hot-toast'
+import clsx from 'clsx'
+
 
 
 // material-ui
@@ -83,6 +85,12 @@ const index = () => {
         api().post('/register_staffs', data)
     }
 
+    const isActive = (state) => {
+        if (state.name !== '', state.work_in !== '', state.work_out !== '') {
+            return true
+        }
+    }
+
     return (
         <div className={styles.content}>
             <div className={styles.form}>
@@ -138,7 +146,7 @@ const index = () => {
 
             <div className={styles.ButtonWrapper}>
                 <Button
-                    classes={{ root: styles.Button }}
+                    className={clsx(styles.Button, isActive(state) && styles.Active)}
                     variant="contained"
                     onClick={() => {
                         saveName()
