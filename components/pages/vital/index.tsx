@@ -4,7 +4,7 @@ import { parseISO, format } from 'date-fns'
 import ja from 'date-fns/locale/ja'
 
 // material-ui
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '@material-ui/core/CssBaseline'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'

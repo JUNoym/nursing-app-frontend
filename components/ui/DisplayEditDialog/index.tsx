@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import styles from "./index.module.scss";
+import React, { useState, useEffect } from "react"
+import styles from "./index.module.scss"
 
 // material-ui
-import { Button } from "@material-ui/core";
-import Dialog from "@material-ui/core/Dialog";
-import TextField from "@material-ui/core/TextField";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
+import { Button } from "@material-ui/core"
+import Dialog from "@material-ui/core/Dialog"
+import TextField from "@material-ui/core/TextField"
+import DialogContent from "@material-ui/core/DialogContent"
+import DialogTitle from "@material-ui/core/DialogTitle"
 
 // firebase
-import { pushEditDiary } from "../../../firebase-config";
+import { pushEditDiary } from "../../../firebase-config"
 
 interface Props {
   isOpenEditDialog: boolean;

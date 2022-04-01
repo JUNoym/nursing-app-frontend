@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import firebase from 'firebase'
 
 const firebaseConfig = {
   apiKey: "AIzaSyDs8ZIBKhKs3fqEp2reHPhWyl-z6quu5pw",
@@ -11,14 +11,14 @@ const firebaseConfig = {
 };
 
 if (firebase.apps.length === 0) {
-  firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig)
 }
-const RealTimeDatabase = firebase.database();
-export const NamesAndDiariesRef = RealTimeDatabase.ref("NamesAndDiaries");
+const RealTimeDatabase = firebase.database()
+export const NamesAndDiariesRef = RealTimeDatabase.ref("NamesAndDiaries")
 
 export const pushNameAndDiary = ({ name, text }) => {
-  NamesAndDiariesRef.push({ name, text });
-};
+  NamesAndDiariesRef.push({ name, text })
+}
 export const pushEditDiary = ({ selectedId, diary }) => {
-  NamesAndDiariesRef.child(selectedId).update({ text: diary });
-};
+  NamesAndDiariesRef.child(selectedId).update({ text: diary })
+}

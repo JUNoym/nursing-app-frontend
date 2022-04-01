@@ -1,18 +1,18 @@
-import React, { useEffect, useState, VFC } from "react";
-import styles from "./index.module.scss";
+import React, { useEffect, useState, VFC } from "react"
+import styles from "./index.module.scss"
 import { parseISO, format } from 'date-fns'
 import ja from 'date-fns/locale/ja'
-import { NamesAndDiariesRef } from "../../../firebase-config";
+import { NamesAndDiariesRef } from "../../../firebase-config"
 
 // material-ui
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+import CssBaseline from "@material-ui/core/CssBaseline"
+import Container from "@material-ui/core/Container"
+import Grid from "@material-ui/core/Grid"
+import Button from "@material-ui/core/Button"
+import MoreVertIcon from "@material-ui/icons/MoreVert"
 
 //コンポーネント
-import DiaryDialog from "../DiaryDialog/index";
+import DiaryDialog from "../DiaryDialog/index"
 
 type NameAndText = {
   name?: string;

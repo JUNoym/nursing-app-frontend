@@ -1,14 +1,14 @@
-import React, { ReactNode, useState } from "react";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { ReactNode, useState } from "react"
+import Button from "@material-ui/core/Button"
+import Dialog from "@material-ui/core/Dialog"
+import EditIcon from "@material-ui/icons/Edit"
+import DeleteIcon from "@material-ui/icons/Delete"
+import { makeStyles } from "@material-ui/core/styles"
 
-import { NamesAndDiariesRef } from "../../../firebase-config";
+import { NamesAndDiariesRef } from "../../../firebase-config"
 
 // コンポーネント
-import DisplayEditDialog from "../../../components/ui/DisplayEditDialog";
+import DisplayEditDialog from "../../../components/ui/DisplayEditDialog"
 
 interface Props {
   children?: Element | ReactNode;

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import api from '../../../api/config'
 import DisplayTodo from '../../../components/pages/Todo/DisplayTodo'
 import AddTodo from '../../../components/pages/Todo/AddTodo'
-import { HeadlineLink } from '../../ui/HeadlineLink';
+import { HeadlineLink } from '../../ui/HeadlineLink'
 
 
 const index = () => {
