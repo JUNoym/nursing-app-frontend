@@ -9,8 +9,6 @@ import Grid from '@material-ui/core/Grid';
 
 // コンポーネント
 import { HeadlineLink } from '../../ui/HeadlineLink'
-import Search from '../../../components/ui/InputModule'
-
 
 const Index = () => {
     return (
@@ -26,7 +24,6 @@ const Index = () => {
                             </Grid>
 
                             <Grid item xs={12}>
-                                <Search />
                             </Grid>
 
                         </Grid>
