@@ -10,11 +10,11 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Container from '@material-ui/core/Container'
 
 // mui
-import SearchIcon from '@material-ui/icons/Search';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-import LogoutIcon from '@material-ui/icons/ExitToApp';
-import Button from '@material-ui/core/Button';
-import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import SearchIcon from '@material-ui/icons/Search'
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday'
+import LogoutIcon from '@material-ui/icons/ExitToApp'
+import Button from '@material-ui/core/Button'
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
 
 interface Props { }
 

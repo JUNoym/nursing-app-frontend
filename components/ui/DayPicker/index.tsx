@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent } from 'react'
 import styles from './index.module.scss'
 
 import api from '../../../api/config'
-import router from 'next/router';
+import router from 'next/router'
 
 // material-ui
 import Button from '@material-ui/core/Button'
